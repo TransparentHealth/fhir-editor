@@ -2,7 +2,7 @@
   "use strict";
 
   angular.module('fhir-editor', ['ui.router', 'LocalStorageModule'])
-        .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+         .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
           // Future reference: locationProvider can allow for the use of html5
           // pushState mode, which removes the unnecessary hashtag from the url.
           // Needs some backend rerouting to work with page refreshes, though.
@@ -12,12 +12,11 @@
           $urlRouterProvider.otherwise('/');
 
           $stateProvider.state('home', {
-            abstract: true,
             url: '/',
             templateUrl: './src/views/home.html',
             controller: 'homeCtrl as home'
           }).state('home.base', {
-            url: '',
+            url: 'base',
             templateUrl: './src/views/base.html',
             controller: 'baseCtrl as base'
           }).state('home.affiliations', {

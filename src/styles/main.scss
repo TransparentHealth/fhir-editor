@@ -8,17 +8,43 @@
 @import 'partials/setup/general';
 
 /***** Site Components ******/
+$blue: #085fa1;
+$defaultFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+* {
+  font-family: $defaultFont;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: $blue;
+  color: white;
+  nav {
+    li {
+      cursor: pointer;
+    }
+  }
+}
+
 main {
   display: flex;
   width: 100vw;
   height: 100vh;
-  padding-top: 100px;
-  padding-left: 100px;
+  padding: 100px;
 }
 
 .leftNav {
   width: 15%;
   button {
+    overflow: hidden;
     text-align: left;
     width: 100%;
     padding: 10px;
@@ -33,6 +59,7 @@ main {
   width: 75%;
   height: 800px;
   border: 2px solid black;
+  padding: 20px;
   .ng-scope {
     width: 100%;
     height: 100%;
@@ -44,6 +71,15 @@ section {
   .sectionTitle {
     text-align: center;
     font-size: 20px;
+  }
+}
+
+.baseSection {
+  .baseInfo {
+    padding: 10px;
+    p {
+      margin: 10px;
+    }
   }
 }
 
