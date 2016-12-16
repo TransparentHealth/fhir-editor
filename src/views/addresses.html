@@ -1,3 +1,19 @@
 <section class="addressesSection">
   <h1 class="sectionTitle">Addresses</h1>
+  <div class="addressesInfo">
+    <ul>
+      <li ng-repeat="address in home.result.addresses">
+        <h1>Address {{home.result.addresses.indexOf(address) + 1}}</h1>
+        <p>Purpose: {{address.address_purpose}}</p>
+        <p>Street 1: {{address.address_1}}</p>
+        <p>Street 2: {{address.address_2}}</p>
+        <p>City: {{address.city}}</p>
+        <p>State: {{address.state}}</p>
+        <p>Country: {{address.country_code}}</p>
+        <p>Zipcode: {{address.zip}}</p>
+        <p>Telephone: {{address.us_telephone_number}}</p>
+        <p>Fax: {{address.us_fax_number}}</p>
+      </li>
+    </ul>
+  </div>
 </section>

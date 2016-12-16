@@ -1,3 +1,14 @@
 <section class="licensesSection">
   <h1 class="sectionTitle">Licenses</h1>
+  <div class="licensesInfo">
+    <ul>
+      <li ng-repeat="license in home.result.licenses">
+        <h1>License {{home.result.licenses.indexOf(license) + 1}}</h1>
+        <p>Code: {{license.code}}</p>
+        <p>State: {{license.state}}</p>
+        <p>Status: {{license.status}}</p>
+        <p>Type: {{license.type}}</p>
+      </li>
+    </ul>
+  </div>
 </section>

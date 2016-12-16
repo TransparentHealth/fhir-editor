@@ -83,6 +83,45 @@ section {
   }
 }
 
+.addressesSection {
+  .addressesInfo {
+    padding: 10px;
+    li {
+      margin: 10px;
+      h1 {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.taxonomiesSection {
+  .taxonomiesInfo {
+    padding: 10px;
+    li {
+      margin: 10px;
+      h1 {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.licensesSection {
+  .licensesInfo {
+    padding: 10px;
+    li {
+      margin: 10px;
+      h1 {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 .submitSection {
   .signInOutContainer, .submitBtnContainer {
     margin: 20px 0;

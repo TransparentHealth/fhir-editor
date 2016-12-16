@@ -12,7 +12,10 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, NP
     credential: null,
     status: null,
     soleProp: null,
-    lastUpdated: null
+    lastUpdated: null,
+    addresses: null,
+    taxonomies: null,
+    licenses: null
   };
 
   this.runSearch = function() {
@@ -30,6 +33,9 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, NP
           self.result.status = (response.basic.status === 'A') ? 'Active' : 'Not Active';
           self.result.soleProp = response.basic.sole_proprietor || 'N/A';
           self.result.lastUpdated = response.basic.last_updated || 'N/A';
+          self.result.addresses = response.addresses || 'N/A';
+          self.result.taxonomies = response.taxonomy_licenses || 'N/A';
+          self.result.licenses = response.licenses || 'N/A';
           $state.go('home.base');
           $scope.$apply();
           console.log(response);
