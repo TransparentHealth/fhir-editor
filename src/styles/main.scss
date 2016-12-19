@@ -74,50 +74,21 @@ section {
   }
 }
 
-.baseSection {
-  .baseInfo {
-    padding: 10px;
-    p {
-      margin: 10px;
-    }
-  }
-}
-
-.addressesSection {
-  .addressesInfo {
+.baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection {
+  .sectionInfo {
     padding: 10px;
     li {
       margin: 10px;
-      h1 {
-        font-weight: bold;
-        text-decoration: underline;
-      }
+    }
+    h1 {
+      font-weight: bold;
+      text-decoration: underline;
     }
   }
-}
-
-.taxonomiesSection {
-  .taxonomiesInfo {
-    padding: 10px;
-    li {
-      margin: 10px;
-      h1 {
-        font-weight: bold;
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-.licensesSection {
-  .licensesInfo {
-    padding: 10px;
-    li {
-      margin: 10px;
-      h1 {
-        font-weight: bold;
-        text-decoration: underline;
-      }
+  .baseInfo, .specialtiesInfo {
+    padding: 20px;
+    .pecosHeader {
+      margin-top: 20px;
     }
   }
 }

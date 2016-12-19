@@ -1,3 +1,13 @@
 <section class="affiliationsSection">
   <h1 class="sectionTitle">Affiliations</h1>
+  <div class="affiliationsInfo sectionInfo">
+    <ul>
+      <li ng-repeat="affiliation in home.result.reassignments">
+        <h1>Affiliation {{home.result.reassignments.indexOf(affiliation) + 1}}</h1>
+        <p>Name: {{affiliation.reassigned_to.name}}</p>
+        <p>NPI: {{affiliation.reassigned_to.npi}}</p>
+        <p>PECOS ID: {{affiliation.reassigned_to.pecos_id}}</p>
+      </li>
+    </ul>
+  </div>
 </section>

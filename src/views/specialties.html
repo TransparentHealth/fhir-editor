@@ -1,3 +1,11 @@
 <section class="specialtiesSection">
   <h1 class="sectionTitle">Specialties</h1>
+  <div class="specialtiesInfo sectionInfo">
+    <p>No Specialties Found</p>
+    <ul>
+      <li ng-repeat="specialty in home.result.specialties">
+        <h1>Specialty {{home.result.specialties.indexOf(specialty) + 1}}</h1>
+      </li>
+    </ul>
+  </div>
 </section>

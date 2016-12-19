@@ -33,6 +33,7 @@ angular.module('fhir-editor').service('NPIService', function() {
   }
 
   return {
-    getNPPESByNpi: getNPPESByNpi
+    getNPPESByNpi: getNPPESByNpi,
+    getPECOSByNpi: getPECOSByNpi
   };
 });
