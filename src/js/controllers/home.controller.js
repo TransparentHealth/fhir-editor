@@ -20,25 +20,34 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, NP
 
   this.runSearch = function() {
     if (self.npiId) {
-      NPIService.getByNpi(self.npiId).done(function(response) {
-          self.npiId = null;
-          self.resultFound = true;
-          self.result.title = response.title || 'N/A';
-          self.result.npiId = response.number || 'N/A';
-          self.result.gender = response.basic.gender || 'N/A';
-          self.result.prefix = response.basic.name_prefix || 'N/A';
-          self.result.firstName = response.basic.first_name || 'N/A';
-          self.result.lastName = response.basic.last_name || 'N/A';
-          self.result.credential = response.basic.credential || 'N/A';
-          self.result.status = (response.basic.status === 'A') ? 'Active' : 'Not Active';
-          self.result.soleProp = response.basic.sole_proprietor || 'N/A';
-          self.result.lastUpdated = response.basic.last_updated || 'N/A';
-          self.result.addresses = response.addresses || 'N/A';
-          self.result.taxonomies = response.taxonomy_licenses || 'N/A';
-          self.result.licenses = response.licenses || 'N/A';
-          $state.go('home.base');
-          $scope.$apply();
-          console.log(response);
+      NPIService.getNPPESByNpi(self.npiId).done(function(response) {
+        if (response.code === 200) {
+          if (response.results.length > 0) {
+            console.log(response.results[0]);
+            var responseInfo = response.results[0];
+            self.npiId = null;
+            self.resultFound = true;
+            self.result.title = responseInfo.title || 'N/A';
+            self.result.npiId = responseInfo.number || 'N/A';
+            self.result.gender = responseInfo.basic.gender || 'N/A';
+            self.result.prefix = responseInfo.basic.name_prefix || 'N/A';
+            self.result.firstName = responseInfo.basic.first_name || 'N/A';
+            self.result.lastName = responseInfo.basic.last_name || 'N/A';
+            self.result.credential = responseInfo.basic.credential || 'N/A';
+            self.result.status = (responseInfo.basic.status === 'A') ? 'Active' : 'Not Active';
+            self.result.soleProp = responseInfo.basic.sole_proprietor || 'N/A';
+            self.result.lastUpdated = responseInfo.basic.last_updated || 'N/A';
+            self.result.addresses = responseInfo.addresses || 'N/A';
+            self.result.taxonomies = responseInfo.taxonomy_licenses || 'N/A';
+            self.result.licenses = responseInfo.licenses || 'N/A';
+            $state.go('home.base');
+            $scope.$apply();
+          } else {
+            console.log("There were no results");
+          }
+        } else {
+          console.log("There was a problem during the search");
+        }
       });
     } else {
       console.log("Nothing to search!");
