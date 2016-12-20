@@ -6,7 +6,6 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, NP
     title: null,
     npiId: null,
     gender: null,
-    prefix: null,
     firstName: null,
     lastName: null,
     credential: null,
@@ -19,12 +18,10 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, NP
     pecosId: null,
     enrollmentId: null,
     enrollmentType: null,
-    dateFirstApproved: null,
-    dateLastApproved: null,
-    numPatientsSeen: null,
     reassignments: null,
     specialties: null
   };
+  this.editing = null;
 
   this.runSearch = function() {
     if (self.npiId) {
@@ -37,7 +34,6 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, NP
             self.result.title = responseInfo.title || 'N/A';
             self.result.npiId = responseInfo.number || 'N/A';
             self.result.gender = responseInfo.basic.gender || 'N/A';
-            self.result.prefix = responseInfo.basic.name_prefix || 'N/A';
             self.result.firstName = responseInfo.basic.first_name || 'N/A';
             self.result.lastName = responseInfo.basic.last_name || 'N/A';
             self.result.credential = responseInfo.basic.credential || 'N/A';
@@ -57,10 +53,11 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, NP
                   self.result.pecosId = responseInfo.pecos_id || 'N/A';
                   self.result.enrollmentId = responseInfo.enrollment_id || 'N/A';
                   self.result.enrollmentType = responseInfo.enrollment_type || 'N/A';
-                  self.result.dateFirstApproved = responseInfo.first_approved_date || 'N/A';
-                  self.result.dateLastApproved = responseInfo.last_approved_date || 'N/A';
-                  self.result.numPatientsSeen = responseInfo.number_patiens_seen || 'N/A';
                   self.result.reassignments = responseInfo.reassignments || [];
+                  // Set all reassignment Accepting New Patient statuses to "Yes"
+                  self.result.reassignments.forEach(function(affiliation) {
+                    affiliation.acceptingNew = "Yes";
+                  });
                   self.result.specialties = responseInfo.specialties || [];
                 } else {
                   console.log("No PECOS search result");
@@ -85,6 +82,7 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, NP
     }
   };
 
+  // Return user to the search screen when page is refreshed.
   window.onbeforeunload = function () {
     self.resultFound = false;
     $state.go('home');

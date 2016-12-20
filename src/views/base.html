@@ -1,11 +1,12 @@
 <section class="baseSection">
+  <button ng-show="home.editing !== 'base'" ng-click="home.editing = 'base'" class="editBtn">EDIT</button>
+  <button ng-show="home.editing === 'base'" ng-click="home.editing = null" class="saveBtn">SAVE</button>
   <h1 class="sectionTitle">Base</h1>
-  <div class="baseInfo sectionInfo">
+  <div ng-show="home.editing !== 'base'" class="baseInfo sectionInfo">
     <h1 class="nppesHeader">NPPES Info</h1>
     <p class="resultInfo">Title: {{home.result.title}}</p>
     <p class="resultInfo">NPI ID: {{home.result.npiId}}</p>
     <p class="resultInfo">Gender: {{home.result.gender}}</p>
-    <p class="resultInfo">Prefix: {{home.result.prefix}}</p>
     <p class="resultInfo">First Name: {{home.result.firstName}}</p>
     <p class="resultInfo">Last Name: {{home.result.lastName}}</p>
     <p class="resultInfo">Credential: {{home.result.credential}}</p>
@@ -16,8 +17,25 @@
     <p class="resultInfo">PECOS ID: {{home.result.pecosId}}</p>
     <p class="resultInfo">Enrollment ID: {{home.result.enrollmentId}}</p>
     <p class="resultInfo">Enrollment Type: {{home.result.enrollmentType}}</p>
-    <p class="resultInfo">Date First Approved: {{home.result.dateFirstApproved}}</p>
-    <p class="resultInfo">Date Last Approved: {{home.result.dateLastApproved}}</p>
-    <p class="resultInfo">Number of Patients Seen: {{home.result.numPatientsSeen}}</p>
   </div>
+  <form ng-show="home.editing === 'base'">
+    <fieldset>
+      <legend>NPPES Info</legend>
+      <p class="resultInfo">Title: {{home.result.title}}</p>
+      <p class="resultInfo">NPI ID: {{home.result.npiId}}</p>
+      <p class="resultInfo">Gender: {{home.result.gender}}</p>
+      <p class="resultInfo">First Name: {{home.result.firstName}}</p>
+      <p class="resultInfo">Last Name: {{home.result.lastName}}</p>
+      <p class="resultInfo">Credential: {{home.result.credential}}</p>
+      <p class="resultInfo">Status: {{home.result.status}}</p>
+      <p class="resultInfo">Sole Proprietor: {{home.result.soleProp}}</p>
+      <p class="resultInfo">Last Updated: {{home.result.lastUpdated}}</p>
+    </fieldset>
+    <fieldset>
+      <legend>PECOS Info</legend>
+      <p class="resultInfo">PECOS ID: {{home.result.pecosId}}</p>
+      <p class="resultInfo">Enrollment ID: {{home.result.enrollmentId}}</p>
+      <p class="resultInfo">Enrollment Type: {{home.result.enrollmentType}}</p>
+    </fieldset>
+  </form>
 </section>

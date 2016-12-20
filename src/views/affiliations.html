@@ -1,6 +1,8 @@
 <section class="affiliationsSection">
+  <button ng-show="home.editing !== 'affiliations'" ng-click="home.editing = 'affiliations'" class="editBtn">EDIT</button>
+  <button ng-show="home.editing === 'affiliations'" ng-click="home.editing = null" class="saveBtn">SAVE</button>
   <h1 class="sectionTitle">Affiliations</h1>
-  <div class="affiliationsInfo sectionInfo">
+  <div ng-show="home.editing !== 'affiliations'" class="affiliationsInfo sectionInfo">
     <ul>
       <li ng-repeat="affiliation in home.result.reassignments">
         <h1>Affiliation {{home.result.reassignments.indexOf(affiliation) + 1}}</h1>
@@ -10,4 +12,55 @@
       </li>
     </ul>
   </div>
+  <form ng-show="home.editing === 'affiliations'">
+    <fieldset ng-repeat="affiliation in home.result.reassignments">
+      <legend>Affiliation {{home.result.reassignments.indexOf(affiliation) + 1}}</legend>
+      <fieldset>
+        <legend>Meta</legend>
+        <div class="formField">
+          <label>Nickname: </label>
+          <input type="text" ng-model="affiliation.nickname">
+        </div>
+        <div class="formField">
+          <label>Type: </label>
+          <select ng-init="affiliation.type = affiliations.affiliationTypes[0]" ng-model="affiliation.type" ng-options="option for option in affiliations.affiliationTypes">
+          </select>
+        </div>
+        <div class="formField">
+          <span>Accepting New Patients:</span>
+          <input name="{{affiliation.reassigned_to.npi}}" type="radio" ng-model="affiliation.acceptingNew" value="Yes">
+          <label>Yes</label>
+          <input name="{{affiliation.reassigned_to.npi}}" type="radio" ng-model="affiliation.acceptingNew" value="No">
+          <label>No</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Affiliation</legend>
+        <p>Name: {{affiliation.reassigned_to.name}}</p>
+        <p>NPI: {{affiliation.reassigned_to.npi}}</p>
+        <p>PECOS ID: {{affiliation.reassigned_to.pecos_id}}</p>
+        <div class="formField">
+          <label>New NPI (will replace current affiliation): </label>
+          <input type="text" ng-model="affiliation.newNpi">
+        </div>
+        <div class="preview" ng-show="affiliation.newNpi">
+          <p>This preview will show the new affiliation information</p>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Endpoints</legend>
+        <ul class="endpoints">
+          <li ng-repeat="endpoint in affiliation.endpoints"><span>{{endpoint.type}}</span>: <span>{{endpoint.value}}</span></li>
+        </ul>
+        <div class="formField">
+          <label>Type: </label>
+          <select ng-init="affiliation.newEndpoint.type = affiliations.endpointTypes[0]" ng-options="option for option in affiliations.endpointTypes" ng-model="affiliation.newEndpoint.type">
+          </select>
+          <label>Endpoint: </label>
+          <input type="text" ng-model="affiliation.newEndpoint.value">
+          <button class="addEndpointBtn" ng-click="affiliations.addEndpoint(affiliation)">Add Endpoint</button>
+        </div>
+      </fieldset>
+    </fieldset>
+  </form>
 </section>

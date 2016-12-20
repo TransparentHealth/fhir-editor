@@ -3,7 +3,7 @@ angular.module('fhir-editor').service('NPIService', function() {
   function getNPPESByNpi(npiId) {
     return $.ajax({
       method: 'GET',
-      url: 'https://registry.npi.io/search/api/public/nppes/pjson/pjson.json',
+      url: 'http://docdish.com/djmsearch/api/public/nppes/pjson/pjson.json',
       data: {
         number: npiId
       },
@@ -19,7 +19,7 @@ angular.module('fhir-editor').service('NPIService', function() {
   function getPECOSByNpi(npiId) {
     return $.ajax({
       method: 'GET',
-      url: 'https://registry.npi.io/search/api/public/pecos/compiled/compiled.json',
+      url: 'http://docdish.com/djmsearch/api/public/pecos/compiled/compiled.json',
       data: {
         npi: npiId
       },

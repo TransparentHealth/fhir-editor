@@ -1,6 +1,8 @@
 <section class="addressesSection">
+  <button ng-show="home.editing !== 'addresses'" ng-click="home.editing = 'addresses'" class="editBtn">EDIT</button>
+  <button ng-show="home.editing === 'addresses'" ng-click="home.editing = null" class="saveBtn">SAVE</button>
   <h1 class="sectionTitle">Addresses</h1>
-  <div class="addressesInfo sectionInfo">
+  <div ng-show="home.editing !== 'addresses'" class="addressesInfo sectionInfo">
     <ul>
       <li ng-repeat="address in home.result.addresses">
         <h1>Address {{home.result.addresses.indexOf(address) + 1}}</h1>
@@ -16,4 +18,9 @@
       </li>
     </ul>
   </div>
+  <form ng-show="home.editing === 'addresses'">
+    <fieldset>
+      <legend>Address Info</legend>
+    </fieldset>
+  </form>
 </section>

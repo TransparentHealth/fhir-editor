@@ -1,6 +1,8 @@
 <section class="taxonomiesSection">
+  <button ng-show="home.editing !== 'taxonomies'" ng-click="home.editing = 'taxonomies'" class="editBtn">EDIT</button>
+  <button ng-show="home.editing === 'taxonomies'" ng-click="home.editing = null" class="saveBtn">SAVE</button>
   <h1 class="sectionTitle">Taxonomies</h1>
-  <div class="taxonomiesInfo sectionInfo">
+  <div ng-show="home.editing !== 'taxonomies'" class="taxonomiesInfo sectionInfo">
     <ul>
       <li ng-repeat="taxonomy in home.result.taxonomies">
         <h1>Taxonomy {{home.result.taxonomies.indexOf(taxonomy) + 1}}</h1>
@@ -9,4 +11,9 @@
       </li>
     </ul>
   </div>
+  <form ng-show="home.editing === 'taxonomies'">
+    <fieldset>
+      <legend>Taxonomy Info</legend>
+    </fieldset>
+  </form>
 </section>

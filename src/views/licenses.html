@@ -1,6 +1,8 @@
 <section class="licensesSection">
+  <button ng-show="home.editing !== 'licenses'" ng-click="home.editing = 'licenses'" class="editBtn">EDIT</button>
+  <button ng-show="home.editing === 'licenses'" ng-click="home.editing = null" class="saveBtn">SAVE</button>
   <h1 class="sectionTitle">Licenses</h1>
-  <div class="licensesInfo sectionInfo">
+  <div ng-show="home.editing !== 'licenses'" class="licensesInfo sectionInfo">
     <ul>
       <li ng-repeat="license in home.result.licenses">
         <h1>License {{home.result.licenses.indexOf(license) + 1}}</h1>
@@ -11,4 +13,9 @@
       </li>
     </ul>
   </div>
+  <form ng-show="home.editing === 'licenses'">
+    <fieldset>
+      <legend>License Info</legend>
+    </fieldset>
+  </form>
 </section>
