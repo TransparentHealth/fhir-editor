@@ -1,4 +1,4 @@
-angular.module('fhir-editor').controller('submitCtrl', function(UserService, $state, $scope) {
+angular.module('fhir-editor').controller('submitCtrl', function(UserService, NPIService, $state, $scope) {
   var self = this;
   this.signedIn = false;
   UserService.checkSignIn().then(function(signedIn) {
@@ -20,18 +20,25 @@ angular.module('fhir-editor').controller('submitCtrl', function(UserService, $st
     });
   };
 
-  this.submitEdits = function() {
-    console.log("Edits submitted!");
-    $('.submitEditsBtn').css({
-      'background': 'lightgreen',
-      'color': 'white'
-    }).text('Submitted!');
-    setTimeout(function() {
+  this.submitEdits = function(editedInfo) {
+    var updateInfo = angular.copy(editedInfo);
+    console.log("Edits submitted!", updateInfo);
+    NPIService.updateNPPES(updateInfo).done(function(response) {
+      console.log(response);
       $('.submitEditsBtn').css({
-        'background': 'buttonface',
-        'color': 'buttontext'
-      }).text('Submit Edits');
-    }, 1000);
+        'background': 'lightgreen',
+        'color': 'white'
+      }).text('Submitted!');
+      setTimeout(function() {
+        $('.submitEditsBtn').css({
+          'background': 'buttonface',
+          'color': 'buttontext'
+        }).text('Submit Edits');
+      }, 1000);
+    });
+    NPIService.updatePractitionerFHIR(updateInfo).done(function(response) {
+      console.log(response);
+    });
   };
 
 });

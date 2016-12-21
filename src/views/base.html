@@ -5,37 +5,37 @@
   <div ng-show="home.editing !== 'base'" class="baseInfo sectionInfo">
     <h1 class="nppesHeader">NPPES Info</h1>
     <p class="resultInfo">Title: {{home.result.title}}</p>
-    <p class="resultInfo">NPI ID: {{home.result.npiId}}</p>
-    <p class="resultInfo">Gender: {{home.result.gender}}</p>
-    <p class="resultInfo">First Name: {{home.result.firstName}}</p>
-    <p class="resultInfo">Last Name: {{home.result.lastName}}</p>
-    <p class="resultInfo">Credential: {{home.result.credential}}</p>
-    <p class="resultInfo">Status: {{home.result.status}}</p>
-    <p class="resultInfo">Sole Proprietor: {{home.result.soleProp}}</p>
-    <p class="resultInfo">Last Updated: {{home.result.lastUpdated}}</p>
+    <p class="resultInfo">NPI: {{home.result.number}}</p>
+    <p class="resultInfo">Gender: {{home.result.basic.gender}}</p>
+    <p class="resultInfo">First Name: {{home.result.basic.first_name}}</p>
+    <p class="resultInfo">Last Name: {{home.result.basic.last_name}}</p>
+    <p class="resultInfo">Credential: {{home.result.basic.credential}}</p>
+    <p class="resultInfo">Status: {{home.result.basic.status}}</p>
+    <p class="resultInfo">Sole Proprietor: {{home.result.basic.sole_proprietor}}</p>
+    <p class="resultInfo">Last Updated: {{home.result.basic.last_updated}}</p>
     <h1 class="pecosHeader">PECOS Info</h1>
-    <p class="resultInfo">PECOS ID: {{home.result.pecosId}}</p>
-    <p class="resultInfo">Enrollment ID: {{home.result.enrollmentId}}</p>
-    <p class="resultInfo">Enrollment Type: {{home.result.enrollmentType}}</p>
+    <p class="resultInfo">PECOS ID: {{home.result.pecos_id}}</p>
+    <p class="resultInfo">Enrollment ID: {{home.result.enrollment_id}}</p>
+    <p class="resultInfo">Enrollment Type: {{home.result.enrollment_type}}</p>
   </div>
   <form ng-show="home.editing === 'base'">
     <fieldset>
       <legend>NPPES Info</legend>
       <p class="resultInfo">Title: {{home.result.title}}</p>
-      <p class="resultInfo">NPI ID: {{home.result.npiId}}</p>
-      <p class="resultInfo">Gender: {{home.result.gender}}</p>
-      <p class="resultInfo">First Name: {{home.result.firstName}}</p>
-      <p class="resultInfo">Last Name: {{home.result.lastName}}</p>
-      <p class="resultInfo">Credential: {{home.result.credential}}</p>
-      <p class="resultInfo">Status: {{home.result.status}}</p>
-      <p class="resultInfo">Sole Proprietor: {{home.result.soleProp}}</p>
-      <p class="resultInfo">Last Updated: {{home.result.lastUpdated}}</p>
+      <p class="resultInfo">NPI: {{home.result.number}}</p>
+      <p class="resultInfo">Gender: {{home.result.basic.gender}}</p>
+      <p class="resultInfo">First Name: {{home.result.basic.first_name}}</p>
+      <p class="resultInfo">Last Name: {{home.result.basic.last_name}}</p>
+      <p class="resultInfo">Credential: {{home.result.basic.credential}}</p>
+      <p class="resultInfo">Status: {{home.result.basic.status}}</p>
+      <p class="resultInfo">Sole Proprietor: {{home.result.basic.sole_proprietor}}</p>
+      <p class="resultInfo">Last Updated: {{home.result.basic.last_updated}}</p>
     </fieldset>
     <fieldset>
       <legend>PECOS Info</legend>
-      <p class="resultInfo">PECOS ID: {{home.result.pecosId}}</p>
-      <p class="resultInfo">Enrollment ID: {{home.result.enrollmentId}}</p>
-      <p class="resultInfo">Enrollment Type: {{home.result.enrollmentType}}</p>
+      <p class="resultInfo">PECOS ID: {{home.result.pecos_id}}</p>
+      <p class="resultInfo">Enrollment ID: {{home.result.enrollment_id}}</p>
+      <p class="resultInfo">Enrollment Type: {{home.result.enrollment_type}}</p>
     </fieldset>
   </form>
 </section>

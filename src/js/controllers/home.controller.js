@@ -1,69 +1,65 @@
 angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, NPIService) {
   var self = this;
   this.resultFound = false;
-  this.npiId = null;
+  this.npi = null;
   this.result = {
+    id: null,
     title: null,
-    npiId: null,
-    gender: null,
-    firstName: null,
-    lastName: null,
-    credential: null,
-    status: null,
-    soleProp: null,
-    lastUpdated: null,
+    number: null,
+    basic: null,
+    identifiers: null,
     addresses: null,
     taxonomies: null,
+    taxonomy_licenses: null,
     licenses: null,
-    pecosId: null,
-    enrollmentId: null,
-    enrollmentType: null,
+    pecos_id: null,
+    enrollment_id: null,
+    enrollment_type: null,
     reassignments: null,
     specialties: null
   };
   this.editing = null;
 
   this.runSearch = function() {
-    if (self.npiId) {
+    if (self.npi) {
       // Use the NPI to search NPPES to get the info available there
-      NPIService.getNPPESByNpi(self.npiId).done(function(response) {
+      NPIService.getNPPESByNpi(self.npi).done(function(response) {
         if (response.code === 200) {
           if (response.results.length > 0) {
             console.log(response.results[0]);
             var responseInfo = response.results[0];
+            self.result.id = responseInfo.id || null;
             self.result.title = responseInfo.title || 'N/A';
-            self.result.npiId = responseInfo.number || 'N/A';
-            self.result.gender = responseInfo.basic.gender || 'N/A';
-            self.result.firstName = responseInfo.basic.first_name || 'N/A';
-            self.result.lastName = responseInfo.basic.last_name || 'N/A';
-            self.result.credential = responseInfo.basic.credential || 'N/A';
-            self.result.status = (responseInfo.basic.status === 'A') ? 'Active' : 'Not Active';
-            self.result.soleProp = responseInfo.basic.sole_proprietor || 'N/A';
-            self.result.lastUpdated = responseInfo.basic.last_updated || 'N/A';
+            self.result.number = responseInfo.number || 'N/A';
+            self.result.basic = responseInfo.basic || [];
+            self.result.identifiers = responseInfo.identifiers || [];
             self.result.addresses = responseInfo.addresses || [];
-            self.result.taxonomies = responseInfo.taxonomy_licenses || [];
+            self.result.taxonomies = responseInfo.taxonomies || [];
+            self.result.taxonomy_licenses = responseInfo.taxonomy_licenses || [];
             self.result.licenses = responseInfo.licenses || [];
 
             // Use the NPI to also search PECOS to get the info available there (Keep these requests nested so that the result page only loads if BOTH searches succeed)
-            NPIService.getPECOSByNpi(self.npiId).done(function(response) {
+            NPIService.getPECOSByNpi(self.npi).done(function(response) {
               console.log(response);
               if (response.code === 200) {
                 if (response.results.length > 0) {
                   var responseInfo = response.results[0];
-                  self.result.pecosId = responseInfo.pecos_id || 'N/A';
-                  self.result.enrollmentId = responseInfo.enrollment_id || 'N/A';
-                  self.result.enrollmentType = responseInfo.enrollment_type || 'N/A';
+                  self.result.pecos_id = responseInfo.pecos_id || 'N/A';
+                  self.result.enrollment_id = responseInfo.enrollment_id || 'N/A';
+                  self.result.enrollment_type = responseInfo.enrollment_type || 'N/A';
                   self.result.reassignments = responseInfo.reassignments || [];
-                  // Set all reassignment Accepting New Patient statuses to "Yes"
+                  // Set all reassignment Accepting New Patient statuses to "Yes" if it does not already exist
                   self.result.reassignments.forEach(function(affiliation) {
-                    affiliation.acceptingNew = "Yes";
+                    if (!affiliation.acceptingNew) {
+                      affiliation.acceptingNew = "Yes";
+                    }
                   });
                   self.result.specialties = responseInfo.specialties || [];
                 } else {
                   console.log("No PECOS search result");
                 }
                 self.resultFound = true;
-                self.npiId = null;
+                self.npi = null;
                 $state.go('home.base');
                 $scope.$apply();
               } else {
