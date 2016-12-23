@@ -29,58 +29,62 @@ angular.module('fhir-editor').factory('PractitionerFHIR', function() {
     } else {
       self.gender = 'unknown';
     }
-    this.address = [];
-    info.addresses.forEach(function(address) {
-      var currentAddress = {
-        use: address.address_purpose,
-        line: [
-          address.address_1,
-          address.address_2
-        ],
-        city: address.city,
-        state: address.state,
-        postalCode: address.zip
-      };
-      self.address.push(currentAddress);
-    });
-    this.role = [];
-    info.reassignments.forEach(function(affiliation) {
-      var role = {
-        "identifier": [
-          {
-            "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": affiliation.reassigned_to.npi
-          }
-        ]
-      };
-      if (affiliation.endpoints) {
-        role.endpoint = [];
-        affiliation.endpoints.forEach(function(endpoint) {
-          var newEndpoint = {};
-          if (endpoint.type === 'Direct Email') {
-            newEndpoint.name = 'Direct Email';
-            newEndpoint.contact = {
-              system: 'email',
-              value: endpoint.value
-            };
-          } else if (endpoint.type === 'Regular Email') {
-            newEndpoint.name = 'Regular Email';
-            newEndpoint.contact = {
-              system: 'email',
-              value: endpoint.value
-            };
-          } else if (endpoint.type === 'Web') {
-            newEndpoint.name = 'Web';
-            newEndpoint.contact = {
-              system: 'url',
-              value: endpoint.value
-            };
-          }
-          role.endpoint.push(newEndpoint);
-        });
-      }
-      self.role.push(role);
-    });
+    if (info.addresses) {
+      this.address = [];
+      info.addresses.forEach(function(address) {
+        var currentAddress = {
+          use: address.address_purpose,
+          line: [
+            address.address_1,
+            address.address_2
+          ],
+          city: address.city,
+          state: address.state,
+          postalCode: address.zip
+        };
+        self.address.push(currentAddress);
+      });
+    }
+    if (info.reassignments) {
+      this.role = [];
+      info.reassignments.forEach(function(affiliation) {
+        var role = {
+          "identifier": [
+            {
+              "system": "http://hl7.org/fhir/sid/us-npi",
+              "value": affiliation.reassigned_to.npi
+            }
+          ]
+        };
+        if (affiliation.endpoints) {
+          role.endpoint = [];
+          affiliation.endpoints.forEach(function(endpoint) {
+            var newEndpoint = {};
+            if (endpoint.type === 'Direct Email') {
+              newEndpoint.name = 'Direct Email';
+              newEndpoint.contact = {
+                system: 'email',
+                value: endpoint.value
+              };
+            } else if (endpoint.type === 'Regular Email') {
+              newEndpoint.name = 'Regular Email';
+              newEndpoint.contact = {
+                system: 'email',
+                value: endpoint.value
+              };
+            } else if (endpoint.type === 'Web') {
+              newEndpoint.name = 'Web';
+              newEndpoint.contact = {
+                system: 'url',
+                value: endpoint.value
+              };
+            }
+            role.endpoint.push(newEndpoint);
+          });
+        }
+        self.role.push(role);
+      });
+    }
   };
 
   return PractitionerFHIR;
