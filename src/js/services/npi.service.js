@@ -4,7 +4,7 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
   function getNPPESByNpi(npiId) {
     return $.ajax({
       method: 'GET',
-      url: 'http://docdish.com/djmsearch/api/public/nppes/pjson/pjson.json',
+      url: 'http://docdish.com/djm/search/api/public/nppes/pjson/pjson.json',
       data: {
         number: npiId
       },
@@ -21,7 +21,7 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
   function getPECOSByNpi(npiId) {
     return $.ajax({
       method: 'GET',
-      url: 'http://docdish.com/djmsearch/api/public/pecos/compiled/compiled.json',
+      url: 'http://docdish.com/djm/search/api/public/pecos/compiled/compiled.json',
       data: {
         npi: npiId
       },
@@ -35,12 +35,16 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
   }
 
   // Ideally should have a GET for FHIR as well
+  /*
+    GET FHIR
+  */
 
   // POST to NPPES database
   function updateNPPES(updateInfo) {
+    // Should use a NPPESUpdate Factory here to create the new update object from edited info (To keep the same format as original NPPES data)
     return $.ajax({
-      method: 'POST', // Should be a PUT
-      url: 'http://docdish.com/djmwrite/api/ip/update',
+      method: 'PUT',
+      url: 'http://docdish.com/djm/write/api/ip/nppes-update',
       data: JSON.stringify(updateInfo),
       success: function(response) {
         return response;
@@ -51,15 +55,30 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
     });
   }
 
-  // Need an update (PUT) for PECOS as well
+  // PUT to PECOS database
+  function updatePECOS(updateInfo) {
+    // Should use a PECOSUpdate Factory here to create the new update object from edited info (To keep the same format as original PECOS data)
+    return $.ajax({
+      method: 'PUT',
+      url: 'http://docdish.com/djm/write/api/ip/pecos-update',
+      data: JSON.stringify(updateInfo),
+      success: function(response) {
+        return response;
+      },
+      error: function(error) {
+        return error;
+      }
+    });
+  }
 
-  // PUT to FHIR database
+  // PUT to FHIR database for Practitioners (Providers)
   function updatePractitionerFHIR(info) {
+    // Create a Practitioner FHIR object (FHIR compliant format) from edited info
     var newPractitioner = new PractitionerFHIR(info);
     console.log(newPractitioner);
     return $.ajax({
       method: 'PUT',
-      url: 'http://52.72.172.54:8080/fhir/home',  // Needs to be updated to new fhir database
+      url: 'http://docdish.com/djm/write/api/ip/update-Provider',
       data: JSON.stringify(newPractitioner),
       success: function(response) {
         return response;
@@ -70,10 +89,13 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
     });
   }
 
+  // Need PUTs for other FHIR types (Organization, etc)
+
   return {
     getNPPESByNpi: getNPPESByNpi,
     getPECOSByNpi: getPECOSByNpi,
     updateNPPES: updateNPPES,
+    updatePECOS: updatePECOS,
     updatePractitionerFHIR: updatePractitionerFHIR
   };
 });

@@ -2,7 +2,7 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
   var self = this;
   this.resultFound = false;
   this.npi = null;
-  this.result = {
+  this.result = { // This really is a buffer variable to keep track of edits - should be named more appropriately. Info from here is used in the updates.
     id: null,
     title: null,
     number: null,
@@ -19,6 +19,9 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     specialties: null
   };
   this.editing = null;
+  this.nppesResult = null;  // Original NPPES result before edits
+  this.pecosResult = null;  // Original PECOS result before edits
+  this.fhirResult = null;   // Original FHIR result before edits
 
   this.runSearch = function() {
     if (self.npi) {
@@ -26,7 +29,9 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
       NPIService.getNPPESByNpi(self.npi).done(function(response) {
         if (response.code === 200) {
           if (response.results.length > 0) {
-            console.log(response.results[0]);
+            // NOTE: Need to account for Organizations' as well as Individual Practitioner's NPI results
+            console.log('NPPES Result:', response.results[0]);
+            self.nppesResult = angular.copy(response.results[0]);
             var responseInfo = response.results[0];
             self.result.id = responseInfo.id || null;
             self.result.title = responseInfo.title || 'N/A';
@@ -40,9 +45,10 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
 
             // Use the NPI to also search PECOS to get the info available there (Keep these requests nested so that the result page only loads if BOTH searches succeed)
             NPIService.getPECOSByNpi(self.npi).done(function(response) {
-              console.log(response);
               if (response.code === 200) {
                 if (response.results.length > 0) {
+                  console.log('PECOS Result:', response.results[0]);
+                  self.pecosResult = angular.copy(response.results[0]);
                   var responseInfo = response.results[0];
                   self.result.pecos_id = responseInfo.pecos_id || 'N/A';
                   self.result.enrollment_id = responseInfo.enrollment_id || 'N/A';
@@ -55,6 +61,7 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
                     }
                   });
                   self.result.specialties = responseInfo.specialties || [];
+                  // Should have a GET for FHIR by NPI here as well, for reference.
                 } else {
                   console.log("No PECOS search result");
                 }
@@ -86,9 +93,7 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
         id.className = "leftNav";
     }
   },
-
-
-  // Return user to the search screen when page is refreshed.
+  // Return user to the search screen when page is refreshed. (Prevents problems with trying to repopulate views with empty info)
   window.onbeforeunload = function () {
     self.resultFound = false;
     $state.go('home');
