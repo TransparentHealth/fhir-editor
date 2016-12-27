@@ -15,8 +15,7 @@
 </header>
 <main>
     <div class="mainContainer">
-        <!-- bang added to nav ng-show for styling, remove -->
-        <div ng-show="!home.resultFound" id="navId" class="leftNav">
+        <div ng-show="home.resultFound" id="navId" class="leftNav">
             <button ui-sref="home.base" ui-sref-active="active" ng-click="home.mobileNav()" class="baseBtn leftNavBtn">Base</button>
             <button ui-sref="home.affiliations" ui-sref-active="active" ng-click="home.mobileNav()" class="affiliationsBtn leftNavBtn">Affiliations</button>
             <button ui-sref="home.addresses" ui-sref-active="active" ng-click="home.mobileNav()" class="addressesBtn leftNavBtn">Addresses</button>
