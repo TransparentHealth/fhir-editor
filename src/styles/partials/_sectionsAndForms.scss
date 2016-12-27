@@ -1,0 +1,100 @@
+@import 'setup/variables';
+
+section {
+  padding: 10px;
+  .sectionTitle {
+    color: $gray;
+    text-align: center;
+    font-size: 2em;
+  }
+  form {
+    padding: 10px;
+  }
+  fieldset {
+    margin: 10px 0 20px 0;
+    padding: 10px;
+    border: 2px solid $orange;
+    border-radius: 5px;
+    legend {
+      color: $gray;
+      font-size: 1.5em;
+      //font-weight: bold;
+    }
+  }
+}
+
+.formField {
+  margin: 10px;
+  width: 100%;
+}
+
+.baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection {
+  position: relative;
+  border: 2px solid  #76323f;
+  border-radius: 5px;
+  height: 95%;
+  .sectionInfo {
+    padding: 10px;
+    li {
+      margin: 10px;
+    }
+    h1 {
+      margin-bottom: 10px;
+      border-bottom: 2px solid $red;
+      padding-bottom: 4px;
+    }
+  }
+  .baseInfo {
+    padding: 20px;
+    .pecosHeader {
+      margin-top: 20px;
+    }
+  }
+  .resultInfo {
+    line-height: 24px;
+  }
+}
+
+.submitSection {
+  .signInOutContainer, .submitBtnContainer {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    button {
+      width: 30%;
+      height: 50px;
+      font-size: 30px;
+    }
+  }
+}
+
+.editBtn, .saveBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: .8em;
+  color: #fff;
+  background-color: $red;
+  border: 2px solid $red;
+  border-radius: 5px;
+  width: 100px;
+  padding: 10px 15px;
+  text-align: center;
+  transition: .2s ease;
+
+  &:hover {
+    background-color: #915a65;
+    border: 2px solid #915a65;
+  }
+}
+
+@media only screen and (max-width: 749px) {
+
+.baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection {
+  width: 100%;
+}
+
+.sectionTitle {
+  float: left;
+}
+}

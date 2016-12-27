@@ -1,6 +1,6 @@
 <section class="addressesSection">
-  <button ng-show="home.editing !== 'addresses'" ng-click="home.editing = 'addresses'" class="editBtn">EDIT</button>
-  <button ng-show="home.editing === 'addresses'" ng-click="home.editing = null" class="saveBtn">SAVE</button>
+  <button ng-show="home.editing !== 'addresses'" ng-click="home.editing = 'addresses'" class="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspEDIT</button>
+  <button ng-show="home.editing === 'addresses'" ng-click="home.editing = null" class="saveBtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspSAVE</button>
   <h1 class="sectionTitle">Addresses</h1>
   <div ng-show="home.editing !== 'addresses'" class="addressesInfo sectionInfo">
     <ul>
@@ -20,7 +20,7 @@
   </div>
   <form ng-show="home.editing === 'addresses'">
     <fieldset>
-      <legend>Address Info</legend>
+      <legend>Address Edit</legend>
     </fieldset>
   </form>
 </section>

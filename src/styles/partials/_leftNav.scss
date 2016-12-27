@@ -1,0 +1,85 @@
+
+@import 'setup/variables';
+
+
+.leftNav {
+  width: 15%;
+
+
+  button {
+    color: $red;
+    text-align: center;
+    width: 95%;
+    height: 10.9%;
+    font-size: 1em;
+    border-right: none;
+    background-color: 	$tan;
+    border: 2px solid $red;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    outline-style: none;
+    transition: .3s ease;
+    &:hover {
+      color: #fff;
+      border: 2px solid #fff;
+    }
+
+
+    &.active {
+      width: 102%;
+      margin-left: 8px;
+      color: $gray;
+      border: 2px solid #fff;
+      background-color: #fff;
+      box-shadow: $box-shadow;
+    }
+  }
+}
+
+.mobileMenu {
+  display: none;
+}
+
+@media only screen and (max-width: 750px) {
+
+  .mobileMenu {
+    display: inherit;
+  }
+
+  .leftNav {
+    width: 0%;
+}
+
+  .navShow {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: .3s ease;
+
+
+    button {
+      color: $red;
+      text-align: center;
+      width: 95%;
+      height: 10.9%;
+      border-right: none;
+      background-color: 	$tan;
+      border: 2px solid $red;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      outline-style: none;
+      transition: .3s ease;
+
+
+      &.active {
+        width: 102%;
+        margin-left: 8px;
+        color: $gray;
+        border: 2px solid #fff;
+        background-color: #fff;
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+
+}

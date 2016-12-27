@@ -1,29 +1,50 @@
 <header>
-  <nav>
-    <ul>
-      <li ng-click="home.resultFound=false" ui-sref="home">HOME</li>
-    </ul>
-  </nav>
+    <nav class="topNav">
+        <div class="title">
+            <p>- Doc<i class="fa fa-user-md" aria-hidden="true"></i>Dish -</p>
+        </div>
+        <ul class="navList">
+            <li>
+                <button class="navBtn mobileMenu" ng-click="home.mobileNav()">MENU</button>
+            </li>
+            <li>
+                <button class="navBtn" ng-click="home.resultFound=false" ui-sref="home"><i class="fa fa-home" aria-hidden="true"></i>&nbspHOME</button>
+            </li>
+        </ul>
+    </nav>
 </header>
 <main>
-  <nav ng-show="home.resultFound" class="leftNav">
-    <button ui-sref="home.base" class="baseBtn leftNavBtn">Base</button>
-    <button ui-sref="home.affiliations" class="affiliationsBtn leftNavBtn">Affiliations</button>
-    <button ui-sref="home.addresses" class="addressesBtn leftNavBtn">Addresses</button>
-    <button ui-sref="home.specialties" class="specialtiesBtn leftNavBtn">Specialties</button>
-    <button ui-sref="home.taxonomies" class="taxonomiesBtn leftNavBtn">Taxonomies</button>
-    <button ui-sref="home.licenses" class="licensesBtn leftNavBtn">Licenses</button>
-    <button ui-sref="home.notes" class="notesBtn leftNavBtn">Notes</button>
-    <button ui-sref="home.submit" class="submitBtn leftNavBtn">Submit</button>
-  </nav>
-  <div class="container">
-    <div ng-show="!home.resultFound" class="searchFieldsContainer">
-      <form ng-submit="home.runSearch()">
-        <label for="NPI Search">Search By NPI: </label>
-        <input class="searchField" type="text" ng-model="home.npi" placeholder="NPI">
-        <button>Search</button>
-      </form>
+    <div class="mainContainer">
+        <!-- bang added to nav ng-show for styling, remove -->
+        <div ng-show="!home.resultFound" id="navId" class="leftNav">
+            <button ui-sref="home.base" ui-sref-active="active" ng-click="home.mobileNav()" class="baseBtn leftNavBtn">Base</button>
+            <button ui-sref="home.affiliations" ui-sref-active="active" ng-click="home.mobileNav()" class="affiliationsBtn leftNavBtn">Affiliations</button>
+            <button ui-sref="home.addresses" ui-sref-active="active" ng-click="home.mobileNav()" class="addressesBtn leftNavBtn">Addresses</button>
+            <button ui-sref="home.specialties" ui-sref-active="active" ng-click="home.mobileNav()" class="specialtiesBtn leftNavBtn">Specialties</button>
+            <button ui-sref="home.taxonomies" ui-sref-active="active" ng-click="home.mobileNav()" class="taxonomiesBtn leftNavBtn">Taxonomies</button>
+            <button ui-sref="home.licenses" ui-sref-active="active" ng-click="home.mobileNav()" class="licensesBtn leftNavBtn">Licenses</button>
+            <button ui-sref="home.notes" ui-sref-active="active" ng-click="home.mobileNav()" class="notesBtn leftNavBtn">Notes</button>
+            <button ui-sref="home.submit" ui-sref-active="active" ng-click="home.mobileNav()" id="submitBtn" class="leftNavBtn">Submit</button>
+        </div>
+        <div class="container">
+            <div ng-show="!home.resultFound" class="welcomeContainer">
+                <h1>Welcome to </h1>
+                <p class="welcomeLogo">- Doc<i class="fa fa-user-md" aria-hidden="true"></i>Dish -</p>
+            </div>
+            <div ng-show="!home.resultFound" class="searchFieldsContainer">
+                <form ng-submit="home.runSearch()">
+                    <label for="NPI Search">Search for provider by NPI:</label>
+                    <ul class="searchField">
+                        <li>
+                            <input type="text" ng-model="home.npi" placeholder="NPI">
+                        </li>
+                        <li>
+                            <button>Search</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <ui-view></ui-view>
+        </div>
     </div>
-    <ui-view></ui-view>
-  </div>
 </main>

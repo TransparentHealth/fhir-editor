@@ -1,0 +1,202 @@
+@import 'setup/variables';
+
+
+header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  padding: 30px;
+  background: 	#565656;
+  color: white;
+  nav {
+    li {
+      cursor: pointer;
+    }
+  }
+}
+.topNav {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.title{
+  align-self: center;
+  font-family: $titleFont;
+  font-size: 2.8em;
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  justify-content: space-between;
+}
+
+.navBtn {
+color: $gray;
+background-color: 	$tan;
+border: 2px solid $orange;
+border-radius: 5px;
+font-size: .8em;
+width: 100px;
+padding: 10px 15px;
+text-align: center;
+outline-style: none;
+transition: .2s ease;
+
+&:hover {
+  color: #fff;
+}
+}
+
+main {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  background: $tan;
+}
+
+.mainContainer {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  width: 95%;
+  min-height: 574px;
+  max-height: 550px;
+  display: flex;
+  flex-direction: row;
+}
+
+.welcomeContainer {
+  background-color: $orange;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 5px;
+  h1 {
+    font-size: 1.5em;
+    color: #fff;
+  }
+  .welcomeLogo {
+    margin: 15px 0 10px 0;
+    font-size: 4em;
+    color: #fff;
+    font-family: $titleFont;
+  }
+}
+
+.searchFieldsContainer {
+  margin: 30px 0 30px 0;
+  width: 100%;
+  form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    label {
+      font-size: 1.5em;
+      color: $gray;
+    }
+  }
+}
+   .searchField {
+     li {
+       float: left;
+       padding: 10px 0 10px 0;
+     }
+    button {
+      color: #fff;
+      background-color: 	$gray;
+      border: 2px solid $gray;
+      border-radius: 5px;
+      font-size: .8em;
+      width: 100px;
+      padding: 5px;
+      text-align: center;
+      outline-style: none;
+      transition: .2s ease;
+
+      &:hover {
+        color: #fff;
+      }
+      }
+      input {
+        font-size: 1.2em;
+        border: 2px solid $gray;
+        height: 30px;
+        margin-right: 10px;
+      }
+    }
+
+
+
+.container {
+  width: 85%;
+  padding: 25px;
+  overflow: scroll;
+  background-color: #fff ;
+  box-shadow: $box-shadow;
+  border-radius: 5px;
+  .ng-scope {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+@media only screen and (max-width: 749px) {
+
+  header {
+    padding: 10px 5px;
+    height: 110px;
+  }
+
+  main {
+   width: 100%;
+
+   .mainContainer {
+     margin-top: 10px;
+   }
+  }
+
+
+  .topNav{
+    flex-direction: column;
+    align-items: center;
+
+
+    .navList {
+      width: 90%;
+      .navBtn {
+        font-size: 1.2em;
+        padding: 10px 5px;
+        width: 100px;
+        &:hover {
+          color: $gray;
+        }
+      }
+    }
+    .title {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.welcomeContainer {
+
+.welcomeLogo {
+  font-size: 3em;
+}
+}
+
+.container {
+  width: 100%;
+  padding: 10px;
+
+}

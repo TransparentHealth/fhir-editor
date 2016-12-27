@@ -36,7 +36,7 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
 
   // Ideally should have a GET for FHIR as well
 
-  // PUT to NPPES database
+  // POST to NPPES database
   function updateNPPES(updateInfo) {
     return $.ajax({
       method: 'POST', // Should be a PUT

@@ -1,6 +1,6 @@
 <section class="taxonomiesSection">
-  <button ng-show="home.editing !== 'taxonomies'" ng-click="home.editing = 'taxonomies'" class="editBtn">EDIT</button>
-  <button ng-show="home.editing === 'taxonomies'" ng-click="home.editing = null" class="saveBtn">SAVE</button>
+  <button ng-show="home.editing !== 'taxonomies'" ng-click="home.editing = 'taxonomies'" class="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspEDIT</button>
+  <button ng-show="home.editing === 'taxonomies'" ng-click="home.editing = null" class="saveBtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspSAVE</button>
   <h1 class="sectionTitle">Taxonomies</h1>
   <div ng-show="home.editing !== 'taxonomies'" class="taxonomiesInfo sectionInfo">
     <ul>
@@ -13,7 +13,7 @@
   </div>
   <form ng-show="home.editing === 'taxonomies'">
     <fieldset>
-      <legend>Taxonomy Info</legend>
+      <legend>Taxonomy Edit</legend>
     </fieldset>
   </form>
 </section>

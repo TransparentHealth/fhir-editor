@@ -1,19 +1,19 @@
 <section class="specialtiesSection">
-  <button ng-show="home.editing !== 'specialties'" ng-click="home.editing = 'specialties'" class="editBtn">EDIT</button>
-  <button ng-show="home.editing === 'specialties'" ng-click="home.editing = null" class="saveBtn">SAVE</button>
-  <h1 class="sectionTitle">Specialties</h1>
-  <div ng-show="home.editing !== 'specialties'" class="specialtiesInfo sectionInfo">
-    <ul>
-      <li ng-repeat="specialty in home.result.specialties">
-        <h1>Specialty {{home.result.specialties.indexOf(specialty) + 1}}</h1>
-        <p>Code: {{specialty.code}}</p>
-        <p>Description: {{specialty.decription}}</p>
-      </li>
-    </ul>
-  </div>
-  <form ng-show="home.editing === 'specialties'">
-    <fieldset>
-      <legend>Specialty Info</legend>
-    </fieldset>
-  </form>
+    <button ng-show="home.editing !== 'specialties'" ng-click="home.editing = 'specialties'" class="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspEDIT</button>
+    <button ng-show="home.editing === 'specialties'" ng-click="home.editing = null" class="saveBtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspSAVE</button>
+    <h1 class="sectionTitle">Specialties</h1>
+    <div ng-show="home.editing !== 'specialties'" class="specialtiesInfo sectionInfo">
+        <ul>
+            <li ng-repeat="specialty in home.result.specialties">
+                <h1>Specialty {{home.result.specialties.indexOf(specialty) + 1}}</h1>
+                <p>Code: {{specialty.code}}</p>
+                <p>Description: {{specialty.decription}}</p>
+            </li>
+        </ul>
+    </div>
+    <form ng-show="home.editing === 'specialties'">
+        <fieldset>
+            <legend>Specialty Edit</legend>
+        </fieldset>
+    </form>
 </section>

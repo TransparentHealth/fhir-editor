@@ -1,8 +1,9 @@
 <section class="baseSection">
-  <button ng-show="home.editing !== 'base'" ng-click="home.editing = 'base'" class="editBtn">EDIT</button>
-  <button ng-show="home.editing === 'base'" ng-click="home.editing = null" class="saveBtn">SAVE</button>
+  <button ng-show="home.editing !== 'base'" ng-click="home.editing = 'base'" class="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspEDIT</button>
+  <button ng-show="home.editing === 'base'" ng-click="home.editing = null" class="saveBtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspSAVE</button>
   <h1 class="sectionTitle">Base</h1>
-  <div ng-show="home.editing !== 'base'" class="baseInfo sectionInfo">
+   <!-- add this back to div bellow.  ng-show="home.editing !== 'base'"  -->
+  <div class="baseInfo sectionInfo">
     <h1 class="nppesHeader">NPPES Info</h1>
     <p class="resultInfo">Title: {{home.result.title}}</p>
     <p class="resultInfo">NPI: {{home.result.number}}</p>

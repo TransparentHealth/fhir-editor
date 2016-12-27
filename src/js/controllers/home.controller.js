@@ -1,4 +1,4 @@
-angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, NPIService) {
+angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $location, NPIService, UserService) {
   var self = this;
   this.resultFound = false;
   this.npi = null;
@@ -77,6 +77,16 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, NP
       console.log("Nothing to search!");
     }
   };
+
+  this.mobileNav = function () {
+    var id = document.getElementById('navId');
+    if (id.className === "leftNav") {
+        id.className += " navShow";
+    } else {
+        id.className = "leftNav";
+    }
+  },
+
 
   // Return user to the search screen when page is refreshed.
   window.onbeforeunload = function () {
