@@ -98,6 +98,8 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     }
   };
 
+
+//Mobile nav show/hide
   this.mobileNav = function () {
     var id = document.getElementById('navId');
     if (id.className === "leftNav") {

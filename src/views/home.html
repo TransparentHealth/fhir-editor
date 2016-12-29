@@ -30,10 +30,10 @@
                 <h1>Welcome to </h1>
                 <p class="welcomeLogo">- Doc<i class="fa fa-user-md" aria-hidden="true"></i>Dish -</p>
             </div>
-            <div ng-show="!home.resultFound" class="searchFieldsContainer">
+            <div ng-show="!home.resultFound" class="searchLoginContainer">
                 <form ng-submit="home.runSearch()">
                     <label for="NPI Search">Search for provider by NPI:</label>
-                    <ul class="searchField">
+                    <ul class="searchContainer">
                         <li>
                             <input type="text" ng-model="home.npi" placeholder="NPI">
                         </li>
@@ -42,7 +42,27 @@
                         </li>
                     </ul>
                 </form>
+                <ul class="loginContainer">
+                  <li>
+                      <p>Please login to edit information</p>
+                  </li>
+                  <li>
+                    <button ng-show="!submit.signedIn" ng-click="signIn()" class="googleSignIn"><i class="fa fa-google" aria-hidden="true"></i>&nbsp google sign in</button>
+                    <button ng-show="submit.signedIn" ng-click="submit.signOut()" class="signOutBtn">Sign Out</button>
+                  </li>
+                </ul>
             </div>
+            <!-- <div ng-show="!submit.signedIn" class="loginHome">
+              <ul class="loginList">
+                <li>
+                    <p>Please login to edit information</p>
+                </li>
+                <li>
+                  <button ng-show="!submit.signedIn" ng-click="signIn()" class="googleSignIn"><i class="fa fa-google" aria-hidden="true"></i>&nbsp google sign in</button>
+                  <button ng-show="submit.signedIn" ng-click="submit.signOut()" class="signOutBtn">Sign Out</button>
+                </li>
+              </ul>
+            </div> -->
             <ui-view></ui-view>
         </div>
     </div>
