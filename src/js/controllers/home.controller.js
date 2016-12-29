@@ -16,7 +16,8 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     enrollment_id: null,
     enrollment_type: null,
     reassignments: null,
-    specialties: null
+    specialties: null,
+    type: null
   };
   this.editing = null;
   this.nppesResult = null;  // Original NPPES result before edits
@@ -33,15 +34,27 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
             console.log('NPPES Result:', response.results[0]);
             self.nppesResult = angular.copy(response.results[0]);
             var responseInfo = response.results[0];
-            self.result.id = responseInfo.id || null;
-            self.result.title = responseInfo.title || 'N/A';
-            self.result.number = responseInfo.number || 'N/A';
-            self.result.basic = responseInfo.basic || [];
-            self.result.identifiers = responseInfo.identifiers || [];
-            self.result.addresses = responseInfo.addresses || [];
-            self.result.taxonomies = responseInfo.taxonomies || [];
-            self.result.taxonomy_licenses = responseInfo.taxonomy_licenses || [];
-            self.result.licenses = responseInfo.licenses || [];
+            if (responseInfo.enumeration_type === 'NPI-2') {  // If search result is an organization
+              self.result.type = 'Organization';
+              self.result.addresses = responseInfo.addresses || [];
+              self.result.basic = responseInfo.basic || [];
+              self.result.id = responseInfo.id || null;
+              self.result.number = responseInfo.number || 'N/A';
+              self.result.taxonomies = responseInfo.taxonomies || [];
+              self.result.taxonomy_groups = responseInfo.taxonomy_groups || [];
+              self.result.title = responseInfo.title || 'N/A';
+            } else if (responseInfo.enumeration_type === 'NPI-1') { // If search result is individual
+              self.result.type = 'Individual';
+              self.result.id = responseInfo.id || null;
+              self.result.title = responseInfo.title || 'N/A';
+              self.result.number = responseInfo.number || 'N/A';
+              self.result.basic = responseInfo.basic || [];
+              self.result.identifiers = responseInfo.identifiers || [];
+              self.result.addresses = responseInfo.addresses || [];
+              self.result.taxonomies = responseInfo.taxonomies || [];
+              self.result.taxonomy_licenses = responseInfo.taxonomy_licenses || [];
+              self.result.licenses = responseInfo.licenses || [];
+            }
 
             // Use the NPI to also search PECOS to get the info available there (Keep these requests nested so that the result page only loads if BOTH searches succeed)
             NPIService.getPECOSByNpi(self.npi).done(function(response) {

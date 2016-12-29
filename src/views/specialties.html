@@ -6,14 +6,16 @@
         <ul>
             <li ng-repeat="specialty in home.result.specialties">
                 <h1>Specialty {{home.result.specialties.indexOf(specialty) + 1}}</h1>
-                <p>Code: {{specialty.code}}</p>
-                <p>Description: {{specialty.decription}}</p>
+                <p ng-show="specialty.code">Code: {{specialty.code}}</p>
+                <p ng-show="specialty.decription">Description: {{specialty.decription}}</p>
             </li>
         </ul>
     </div>
     <form ng-show="home.editing === 'specialties'">
-        <fieldset>
-            <legend>Specialty Edit</legend>
+        <fieldset ng-repeat="specialty in home.result.specialties">
+            <legend>Specialty {{home.result.specialties.indexOf(specialty) + 1}}</legend>
+            <p ng-show="specialty.code">Code: {{specialty.code}}</p>
+            <p ng-show="specialty.decription">Description: {{specialty.decription}}</p>
         </fieldset>
     </form>
 </section>

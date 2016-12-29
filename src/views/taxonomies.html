@@ -4,16 +4,38 @@
   <h1 class="sectionTitle">Taxonomies</h1>
   <div ng-show="home.editing !== 'taxonomies'" class="taxonomiesInfo sectionInfo">
     <ul>
-      <li ng-repeat="taxonomy in home.result.taxonomy_licenses">
-        <h1>Taxonomy {{home.result.taxonomy_licenses.indexOf(taxonomy) + 1}}</h1>
-        <p>Code: {{taxonomy.taxonomy_code}}</p>
-        <p>License: {{taxonomy.license_code}}</p>
+      <li ng-show="home.result.taxonomies" ng-repeat="taxonomy in home.result.taxonomies">
+        <h1>Taxonomy {{home.result.taxonomies.indexOf(taxonomy) + 1}}</h1>
+        <p>Code: {{taxonomy.code}}</p>
+        <p ng-show="taxonomy.primary">PRIMARY</p>
+      </li>
+      <li ng-show="home.result.taxonomy_licenses" ng-repeat="taxonomyLicense in home.result.taxonomy_licenses">
+        <h1>Taxonomy License {{home.result.taxonomy_licenses.indexOf(taxonomyLicense) + 1}}</h1>
+        <p>Code: {{taxonomyLicense.taxonomy_code}}</p>
+        <p>License: {{taxonomyLicense.license_code}}</p>
+      </li>
+      <li ng-show="home.result.taxonomy_groups" ng-repeat="taxonomyGroup in home.result.taxonomy_groups">
+        <h1>Taxonomy Group {{home.result.taxonomy_groups.indexOf(taxonomyGroup) + 1}}</h1>
+        <p>Code: {{taxonomyGroup.code}}</p>
+        <p>Description: {{taxonomyGroup.description}}</p>
       </li>
     </ul>
   </div>
   <form ng-show="home.editing === 'taxonomies'">
-    <fieldset>
-      <legend>Taxonomy Edit</legend>
+    <fieldset ng-show="home.result.taxonomies" ng-repeat="taxonomy in home.result.taxonomies">
+      <legend>Taxonomy {{home.result.taxonomies.indexOf(taxonomy) + 1}}</legend>
+      <p>Code: {{taxonomy.code}}</p>
+      <p ng-show="taxonomy.primary">PRIMARY</p>
+    </fieldset>
+    <fieldset ng-show="home.result.taxonomy_licenses" ng-repeat="taxonomyLicense in home.result.taxonomy_licenses">
+      <legend>Taxonomy License {{home.result.taxonomy_licenses.indexOf(taxonomyLicense) + 1}}</legend>
+      <p>Code: {{taxonomyLicense.taxonomy_code}}</p>
+      <p>License: {{taxonomyLicense.license_code}}</p>
+    </fieldset>
+    <fieldset ng-show="home.result.taxonomy_groups" ng-repeat="taxonomyGroup in home.result.taxonomy_groups">
+      <legend>Taxonomy Group {{home.result.taxonomy_groups.indexOf(taxonomyGroup) + 1}}</legend>
+      <p>Code: {{taxonomyGroup.code}}</p>
+      <p>Description: {{taxonomyGroup.description}}</p>
     </fieldset>
   </form>
 </section>

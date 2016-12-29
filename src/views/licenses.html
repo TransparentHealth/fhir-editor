@@ -6,16 +6,20 @@
     <ul>
       <li ng-repeat="license in home.result.licenses">
         <h1>License {{home.result.licenses.indexOf(license) + 1}}</h1>
-        <p>Code: {{license.code}}</p>
-        <p>State: {{license.state}}</p>
-        <p>Status: {{license.status}}</p>
-        <p>Type: {{license.type}}</p>
+        <p ng-show="license.code">Code: {{license.code}}</p>
+        <p ng-show="license.state">State: {{license.state}}</p>
+        <p ng-show="license.status">Status: {{license.status}}</p>
+        <p ng-show="license.type">Type: {{license.type}}</p>
       </li>
     </ul>
   </div>
   <form ng-show="home.editing === 'licenses'">
-    <fieldset>
-      <legend>License Edit</legend>
+    <fieldset ng-repeat="license in home.result.licenses">
+      <legend>License {{home.result.licenses.indexOf(license) + 1}}</legend>
+      <p ng-show="license.code">Code: {{license.code}}</p>
+      <p ng-show="license.state">State: {{license.state}}</p>
+      <p ng-show="license.status">Status: {{license.status}}</p>
+      <p ng-show="license.type">Type: {{license.type}}</p>
     </fieldset>
   </form>
 </section>

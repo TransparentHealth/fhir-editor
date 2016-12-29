@@ -2,41 +2,52 @@
   <button ng-show="home.editing !== 'base'" ng-click="home.editing = 'base'" class="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspEDIT</button>
   <button ng-show="home.editing === 'base'" ng-click="home.editing = null" class="saveBtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspSAVE</button>
   <h1 class="sectionTitle">Base</h1>
-   <!-- add this back to div bellow.  ng-show="home.editing !== 'base'"  -->
-  <div class="baseInfo sectionInfo">
+  <div class="baseInfo sectionInfo" ng-show="home.editing !== 'base'">
     <h1 class="nppesHeader">NPPES Info</h1>
-    <p class="resultInfo">Title: {{home.result.title}}</p>
-    <p class="resultInfo">NPI: {{home.result.number}}</p>
-    <p class="resultInfo">Gender: {{home.result.basic.gender}}</p>
-    <p class="resultInfo">First Name: {{home.result.basic.first_name}}</p>
-    <p class="resultInfo">Last Name: {{home.result.basic.last_name}}</p>
-    <p class="resultInfo">Credential: {{home.result.basic.credential}}</p>
-    <p class="resultInfo">Status: {{home.result.basic.status}}</p>
-    <p class="resultInfo">Sole Proprietor: {{home.result.basic.sole_proprietor}}</p>
-    <p class="resultInfo">Last Updated: {{home.result.basic.last_updated}}</p>
+    <p class="resultInfo" ng-show="home.result.title">Title: {{home.result.title}}</p>
+    <p class="resultInfo" ng-show="home.result.number">NPI: {{home.result.number}}</p>
+    <p class="resultInfo" ng-show="home.result.basic.gender">Gender: {{home.result.basic.gender}}</p>
+    <p class="resultInfo" ng-show="home.result.basic.authorized_official_first_name">Authorized First Name: {{home.result.basic.authorized_official_first_name}}</p>
+    <p class="resultInfo" ng-show="home.result.basic.authorized_official_last_name">Authorized Last Name: {{home.result.basic.authorized_official_last_name}}</p>
+    <p class="resultInfo" ng-show="home.result.basic.authorized_official_middle_name">Authorized Middle Name: {{home.result.basic.authorized_official_middle_name}}</p>
+    <p class="resultInfo" ng-show="home.result.basic.authorized_official_telephone_number">Authorized Telephone Number: {{home.result.basic.authorized_official_telephone_number}}</p>
+    <p class="resultInfo" ng-show="home.result.basic.authorized_official_title_or_position">Authorized Title or Position: {{home.result.basic.authorized_official_title_or_position}}</p>
+    <p class="resultInfo" ng-show="home.result.basic.first_name">First Name: {{home.result.basic.first_name}}</p>
+    <p class="resultInfo" ng-show="home.result.basic.last_name">Last Name: {{home.result.basic.last_name}}</p>
+    <p class="resultInfo" ng-show="home.result.basic.credential">Credential: {{home.result.basic.credential}}</p>
+    <p class="resultInfo" ng-show="home.result.basic.status">Status: {{home.result.basic.status}}</p>
+    <p class="resultInfo" ng-show="home.result.basic.sole_proprietor">Sole Proprietor: {{home.result.basic.sole_proprietor}}</p>
+    <p class="resultInfo" ng-show="home.result.basic.last_updated">Last Updated: {{home.result.basic.last_updated}}</p>
     <h1 class="pecosHeader">PECOS Info</h1>
-    <p class="resultInfo">PECOS ID: {{home.result.pecos_id}}</p>
-    <p class="resultInfo">Enrollment ID: {{home.result.enrollment_id}}</p>
-    <p class="resultInfo">Enrollment Type: {{home.result.enrollment_type}}</p>
+    <p class="resultInfo" ng-show="!home.result.pecos_id">No PECOS result</p>
+    <p class="resultInfo" ng-show="home.result.pecos_id">PECOS ID: {{home.result.pecos_id}}</p>
+    <p class="resultInfo" ng-show="home.result.enrollment_id">Enrollment ID: {{home.result.enrollment_id}}</p>
+    <p class="resultInfo" ng-show="home.result.enrollment_type">Enrollment Type: {{home.result.enrollment_type}}</p>
   </div>
   <form ng-show="home.editing === 'base'">
     <fieldset>
       <legend>NPPES Info</legend>
-      <p class="resultInfo">Title: {{home.result.title}}</p>
-      <p class="resultInfo">NPI: {{home.result.number}}</p>
-      <p class="resultInfo">Gender: {{home.result.basic.gender}}</p>
-      <p class="resultInfo">First Name: {{home.result.basic.first_name}}</p>
-      <p class="resultInfo">Last Name: {{home.result.basic.last_name}}</p>
-      <p class="resultInfo">Credential: {{home.result.basic.credential}}</p>
-      <p class="resultInfo">Status: {{home.result.basic.status}}</p>
-      <p class="resultInfo">Sole Proprietor: {{home.result.basic.sole_proprietor}}</p>
-      <p class="resultInfo">Last Updated: {{home.result.basic.last_updated}}</p>
+      <p class="resultInfo" ng-show="home.result.title">Title: {{home.result.title}}</p>
+      <p class="resultInfo" ng-show="home.result.number">NPI: {{home.result.number}}</p>
+      <p class="resultInfo" ng-show="home.result.basic.gender">Gender: {{home.result.basic.gender}}</p>
+      <p class="resultInfo" ng-show="home.result.basic.authorized_official_first_name">Authorized First Name: {{home.result.basic.authorized_official_first_name}}</p>
+      <p class="resultInfo" ng-show="home.result.basic.authorized_official_last_name">Authorized Last Name: {{home.result.basic.authorized_official_last_name}}</p>
+      <p class="resultInfo" ng-show="home.result.basic.authorized_official_middle_name">Authorized Middle Name: {{home.result.basic.authorized_official_middle_name}}</p>
+      <p class="resultInfo" ng-show="home.result.basic.authorized_official_telephone_number">Authorized Telephone Number: {{home.result.basic.authorized_official_telephone_number}}</p>
+      <p class="resultInfo" ng-show="home.result.basic.authorized_official_title_or_position">Authorized Title or Position: {{home.result.basic.authorized_official_title_or_position}}</p>
+      <p class="resultInfo" ng-show="home.result.basic.first_name">First Name: {{home.result.basic.first_name}}</p>
+      <p class="resultInfo" ng-show="home.result.basic.last_name">Last Name: {{home.result.basic.last_name}}</p>
+      <p class="resultInfo" ng-show="home.result.basic.credential">Credential: {{home.result.basic.credential}}</p>
+      <p class="resultInfo" ng-show="home.result.basic.status">Status: {{home.result.basic.status}}</p>
+      <p class="resultInfo" ng-show="home.result.basic.sole_proprietor">Sole Proprietor: {{home.result.basic.sole_proprietor}}</p>
+      <p class="resultInfo" ng-show="home.result.basic.last_updated">Last Updated: {{home.result.basic.last_updated}}</p>
     </fieldset>
     <fieldset>
       <legend>PECOS Info</legend>
-      <p class="resultInfo">PECOS ID: {{home.result.pecos_id}}</p>
-      <p class="resultInfo">Enrollment ID: {{home.result.enrollment_id}}</p>
-      <p class="resultInfo">Enrollment Type: {{home.result.enrollment_type}}</p>
+      <p class="resultInfo" ng-show="!home.result.pecos_id">No PECOS result</p>
+      <p class="resultInfo" ng-show="home.result.pecos_id">PECOS ID: {{home.result.pecos_id}}</p>
+      <p class="resultInfo" ng-show="home.result.enrollment_id">Enrollment ID: {{home.result.enrollment_id}}</p>
+      <p class="resultInfo" ng-show="home.result.enrollment_type">Enrollment Type: {{home.result.enrollment_type}}</p>
     </fieldset>
   </form>
 </section>

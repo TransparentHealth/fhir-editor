@@ -4,11 +4,15 @@
   <h1 class="sectionTitle">Affiliations</h1>
   <div ng-show="home.editing !== 'affiliations'" class="affiliationsInfo sectionInfo">
     <ul>
-      <li ng-repeat="affiliation in home.result.reassignments">
+      <p ng-show="!home.result.reassignments">No Known Affiliations</p>
+      <li ng-show="home.result.reassignments" ng-repeat="affiliation in home.result.reassignments">
         <h1>Affiliation {{home.result.reassignments.indexOf(affiliation) + 1}}</h1>
-        <p>Name: {{affiliation.reassigned_to.name}}</p>
-        <p>NPI: {{affiliation.reassigned_to.npi}}</p>
-        <p>PECOS ID: {{affiliation.reassigned_to.pecos_id}}</p>
+        <p ng-show="affiliation.reassigned_to.name">Name: {{affiliation.reassigned_to.name}}</p>
+        <p ng-show="affiliation.reassigned_to.npi">NPI: {{affiliation.reassigned_to.npi}}</p>
+        <p ng-show="affiliation.reassigned_to.pecos_id">PECOS ID: {{affiliation.reassigned_to.pecos_id}}</p>
+        <p ng-show="affiliation.assignee.name">Name: {{affiliation.assignee.name}}</p>
+        <p ng-show="affiliation.assignee.npi">NPI: {{affiliation.assignee.npi}}</p>
+        <p ng-show="affiliation.assignee.pecos_id">PECOS ID: {{affiliation.assignee.pecos_id}}</p>
       </li>
     </ul>
   </div>
@@ -36,9 +40,12 @@
       </fieldset>
       <fieldset>
         <legend>Affiliation</legend>
-        <p>Name: {{affiliation.reassigned_to.name}}</p>
-        <p>NPI: {{affiliation.reassigned_to.npi}}</p>
-        <p>PECOS ID: {{affiliation.reassigned_to.pecos_id}}</p>
+        <p ng-show="affiliation.reassigned_to.name">Name: {{affiliation.reassigned_to.name}}</p>
+        <p ng-show="affiliation.reassigned_to.npi">NPI: {{affiliation.reassigned_to.npi}}</p>
+        <p ng-show="affiliation.reassigned_to.pecos_id">PECOS ID: {{affiliation.reassigned_to.pecos_id}}</p>
+        <p ng-show="affiliation.assignee.name">Name: {{affiliation.assignee.name}}</p>
+        <p ng-show="affiliation.assignee.npi">NPI: {{affiliation.assignee.npi}}</p>
+        <p ng-show="affiliation.assignee.pecos_id">PECOS ID: {{affiliation.assignee.pecos_id}}</p>
         <div class="formField">
           <label>New NPI (will replace current affiliation): </label>
           <input type="text" ng-model="affiliation.newNpi">

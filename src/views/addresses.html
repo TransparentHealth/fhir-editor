@@ -6,21 +6,30 @@
     <ul>
       <li ng-repeat="address in home.result.addresses">
         <h1>Address {{home.result.addresses.indexOf(address) + 1}}</h1>
-        <p>Purpose: {{address.address_purpose}}</p>
-        <p>Street 1: {{address.address_1}}</p>
-        <p>Street 2: {{address.address_2}}</p>
-        <p>City: {{address.city}}</p>
-        <p>State: {{address.state}}</p>
-        <p>Country: {{address.country_code}}</p>
-        <p>Zipcode: {{address.zip}}</p>
-        <p>Telephone: {{address.us_telephone_number}}</p>
-        <p>Fax: {{address.us_fax_number}}</p>
+        <p ng-show="address.address_purpose">Purpose: {{address.address_purpose}}</p>
+        <p ng-show="address.address_1">Street 1: {{address.address_1}}</p>
+        <p ng-show="address.address_2">Street 2: {{address.address_2}}</p>
+        <p ng-show="address.city">City: {{address.city}}</p>
+        <p ng-show="address.state">State: {{address.state}}</p>
+        <p ng-show="address.country_code">Country: {{address.country_code}}</p>
+        <p ng-show="address.zip">Zipcode: {{address.zip}}</p>
+        <p ng-show="address.us_telephone_number">Telephone: {{address.us_telephone_number}}</p>
+        <p ng-show="address.us_fax_number">Fax: {{address.us_fax_number}}</p>
       </li>
     </ul>
   </div>
   <form ng-show="home.editing === 'addresses'">
-    <fieldset>
-      <legend>Address Edit</legend>
+    <fieldset ng-repeat="address in home.result.addresses">
+      <legend>Address {{home.result.addresses.indexOf(address) + 1}}</legend>
+      <p ng-show="address.address_purpose">Purpose: {{address.address_purpose}}</p>
+      <p ng-show="address.address_1">Street 1: {{address.address_1}}</p>
+      <p ng-show="address.address_2">Street 2: {{address.address_2}}</p>
+      <p ng-show="address.city">City: {{address.city}}</p>
+      <p ng-show="address.state">State: {{address.state}}</p>
+      <p ng-show="address.country_code">Country: {{address.country_code}}</p>
+      <p ng-show="address.zip">Zipcode: {{address.zip}}</p>
+      <p ng-show="address.us_telephone_number">Telephone: {{address.us_telephone_number}}</p>
+      <p ng-show="address.us_fax_number">Fax: {{address.us_fax_number}}</p>
     </fieldset>
   </form>
 </section>
