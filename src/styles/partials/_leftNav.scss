@@ -52,7 +52,7 @@
 
   .navShow {
     width: 100%;
-    height: 545px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     transition: .3s ease;
@@ -62,22 +62,23 @@
 
 
     button {
-      color: $tan;
+      color: $red;
       text-align: center;
-      font-size: 2em;
-      width: 95%;
-      height: 10.9%;
+      font-size: 2.2em;
+      width: 100%;
+      border-top: none;
+      border-left: none;
       border-right: none;
-      background-color: 	$gray;
-      border: 2px solid $gray;
-      border-radius: 5px;
-      margin-bottom: 3px;
+      border-bottom: 2px solid $gray;
+      background-color: 	$tan;
+      border-radius: 0;
+      margin-bottom: 0px;
       outline-style: none;
       transition: .3s ease;
 
 
       &.active {
-        width: 95%;
+        width: 100%;
         margin-left: 0;
         color: $gray;
         border: 2px solid #fff;
