@@ -69,15 +69,24 @@
                   </li>
                 </ul>
             </div>
-            <div class="nameSearchContainer">
-            <div ng-show="home.summaryList" ng-repeat="nameData in home.nameSearchResult">
-              <button>{{nameData.title}}</button>
+          <!-- removed for styling, replace in div bellow  ng-show="!home.resultFound" -->
+            <div  class="nameSearchContainer">
+              <div class="nameResult">
+                <button>STACY GRAY, RN MD MFA</button>
+                <p>2401 LANDIS DR</p>
+                <p>DURHAM, NC</p>
+                <p> Telephone: 919-937-2323</p>
+              </div>
+            <!-- <div ng-show="home.summaryList"  ng-repeat="nameData in home.nameSearchResult" class="nameResult">
+              <button ng-click="home.nameToNpi(nameData.number)">{{nameData.title}}</button>
               <p>{{nameData.addresses[0].address_1}}</p>
               <p>{{nameData.addresses[0].city}}, {{nameData.addresses[0].state}}</p>
               <p> Telephone: {{nameData.addresses[0].us_telephone_number}}</p>
-            </div>
+            </div> -->
+          </div>
             <div>
             <ui-view></ui-view>
         </div>
     </div>
+  </div>
 </main>

@@ -1,0 +1,105 @@
+@import 'setup/variables';
+
+
+.welcomeContainer {
+  background-color: $orange;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 5px;
+  h1 {
+    font-size: 1.5em;
+    color: #fff;
+  }
+  .welcomeLogo {
+    margin: 15px 0 10px 0;
+    font-size: 4em;
+    color: #fff;
+    font-family: $titleFont;
+  }
+}
+
+.searchLoginContainer {
+  margin: 30px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  form {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    label {
+      font-size: 1.5em;
+      color: $gray;
+    }
+  }
+}
+   .searchContainer {
+     li {
+       float: left;
+       padding: 10px 0;
+     }
+    button {
+      color: #fff;
+      background-color: 	$gray;
+      border: none;
+      border-radius: $mainRadius;
+      font-size: .8em;
+      width: 100px;
+      padding: 8px;
+      text-align: center;
+      outline-style: none;
+      transition: .2s ease;
+
+      &:hover {
+        background-color: #777777;
+      }
+      }
+      input {
+        font-size: 1.2em;
+        border: 2px solid $gray;
+        height: 30px;
+        margin-right: 10px;
+      }
+    }
+
+.loadingDiv {
+  font-family: $titleFont;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 60px;
+  top: 300px;
+  left: 25%;
+  width: 50%;
+  color: #fff;
+  position: absolute;
+  padding: 30px 0;
+  -moz-opacity: 0.9;
+  opacity: 0.9;
+  background-color: $gray;
+
+
+  p {
+    font-size: 3.5em;
+  }
+}
+
+.nameSearchContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+
+  .nameResult {
+    width: 20%;
+    background-color: red;
+
+  }
+}
