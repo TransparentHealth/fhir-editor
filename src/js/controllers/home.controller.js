@@ -122,6 +122,13 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
         });
     };
 
+    this.nameToNpi = function(thisNpi) {
+      console.log("hey");
+      self.summaryList = false;
+      self.npi = thisNpi;
+      self.runSearch();
+    };
+
     //Mobile nav show/hide
     this.mobileNav = function() {
         var id = document.getElementById('navId');
