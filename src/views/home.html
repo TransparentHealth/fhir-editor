@@ -7,6 +7,10 @@
             <li>
                 <button class="navBtn mobileMenu" ng-click="home.mobileNav()">MENU</button>
             </li>
+            <li class="loginContainer">
+              <button ng-show="!submit.signedIn" ng-click="signIn()" class="googleSignIn"><i class="fa fa-google" aria-hidden="true"></i>&nbsp&nbspLogin to Edit</button>
+              <button ng-show="submit.signedIn" ng-click="submit.signOut()" class="signOutBtn">Sign Out</button>
+            </li>
             <li>
                 <button class="navBtn" ng-click="home.resultFound=false" ui-sref="home"><i class="fa fa-home" aria-hidden="true"></i>&nbspHOME</button>
             </li>
@@ -59,15 +63,6 @@
                     </li>
                 </ul>
             </form>
-                <ul class="loginContainer">
-                  <li>
-                      <p>Please login to edit information</p>
-                  </li>
-                  <li>
-                    <button ng-show="!submit.signedIn" ng-click="signIn()" class="googleSignIn"><i class="fa fa-google" aria-hidden="true"></i>&nbsp google sign in</button>
-                    <button ng-show="submit.signedIn" ng-click="submit.signOut()" class="signOutBtn">Sign Out</button>
-                  </li>
-                </ul>
             </div>
             <div ng-show="!home.resultFound"   class="nameSearchContainer">
             <div ng-show="home.summaryList"  ng-repeat="nameData in home.nameSearchResult" class="nameResult">
