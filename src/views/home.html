@@ -26,13 +26,16 @@
             <button ui-sref="home.submit" ui-sref-active="active" ng-click="home.mobileNav()" id="submitBtn" class="leftNavBtn">Submit</button>
         </div>
         <div class="container">
+          <div ng-hide="!home.dataloading" class="loadingDiv">
+        <p>L</p><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i><p>ADING...</p>
+        </div>
             <div ng-show="!home.resultFound" class="welcomeContainer">
                 <h1>Welcome to </h1>
                 <p class="welcomeLogo">- Doc<i class="fa fa-user-md" aria-hidden="true"></i>Dish -</p>
             </div>
             <div ng-show="!home.resultFound" class="searchLoginContainer">
                 <form ng-submit="home.runSearch()">
-                    <label for="NPI Search">Search for provider by NPI:</label>
+                    <label for="NPI Search">Search by NPI:</label>
                     <ul class="searchContainer">
                         <li>
                             <input type="text" ng-model="home.npi" placeholder="NPI">
@@ -42,6 +45,20 @@
                         </li>
                     </ul>
                 </form>
+                <form ng-submit="home.nameSearch()">
+                <label for="name Search">Search by name:</label>
+                <ul class="searchContainer">
+                    <li>
+                        <input type="text" ng-model="home.firstName" placeholder="First Name" required>
+                    </li>
+                    <li>
+                        <input type="text" ng-model="home.lastName" placeholder="Last Name" required>
+                    </li>
+                    <li>
+                        <button>Search</button>
+                    </li>
+                </ul>
+            </form>
                 <ul class="loginContainer">
                   <li>
                       <p>Please login to edit information</p>
@@ -52,17 +69,14 @@
                   </li>
                 </ul>
             </div>
-            <!-- <div ng-show="!submit.signedIn" class="loginHome">
-              <ul class="loginList">
-                <li>
-                    <p>Please login to edit information</p>
-                </li>
-                <li>
-                  <button ng-show="!submit.signedIn" ng-click="signIn()" class="googleSignIn"><i class="fa fa-google" aria-hidden="true"></i>&nbsp google sign in</button>
-                  <button ng-show="submit.signedIn" ng-click="submit.signOut()" class="signOutBtn">Sign Out</button>
-                </li>
-              </ul>
-            </div> -->
+            <div class="nameSearchContainer">
+            <div ng-show="home.summaryList" ng-repeat="nameData in home.nameSearchResult">
+              <button>{{nameData.title}}</button>
+              <p>{{nameData.addresses[0].address_1}}</p>
+              <p>{{nameData.addresses[0].city}}, {{nameData.addresses[0].state}}</p>
+              <p> Telephone: {{nameData.addresses[0].us_telephone_number}}</p>
+            </div>
+            <div>
             <ui-view></ui-view>
         </div>
     </div>

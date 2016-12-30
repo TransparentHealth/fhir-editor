@@ -34,6 +34,24 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
     });
   }
 
+  //GET NPPES by name
+  function getNPPESByName(firstName, lastName) {
+    return $.ajax({
+      method: 'GET',
+      url: 'http://docdish.com/djm/search/api/public/nppes/pjson/pjson.json',
+      data: {
+        "basic.first_name": firstName,
+        "basic.last_name": lastName
+      },
+      success: function(response) {
+        return response;
+      },
+      error: function(error) {
+        return error;
+      }
+    });
+  }
+
   // Ideally should have a GET for FHIR as well
   /*
     GET FHIR
@@ -94,6 +112,7 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
   return {
     getNPPESByNpi: getNPPESByNpi,
     getPECOSByNpi: getPECOSByNpi,
+    getNPPESByName: getNPPESByName,
     updateNPPES: updateNPPES,
     updatePECOS: updatePECOS,
     updatePractitionerFHIR: updatePractitionerFHIR
