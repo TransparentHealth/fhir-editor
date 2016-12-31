@@ -5,6 +5,7 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     this.npi = null;
     this.firstName = null;
     this.lastname = null;
+    this.state = '';
     this.dataloading = false;
     this.result = { // This really is a buffer variable to keep track of edits - should be named more appropriately. Info from here is used in the updates.
         id: null,
@@ -91,10 +92,11 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     };
 
     this.nameSearch = function() {
-        var FIRSTNAME = self.firstName.toUpperCase();
-        var LASTNAME = self.lastName.toUpperCase();
+        var FIRSTNAME = self.firstName.toUpperCase(),
+            LASTNAME = self.lastName.toUpperCase(),
+            state = self.state;
         self.dataloading = true;
-        NPIService.getNPPESByName(FIRSTNAME, LASTNAME).done(function(response) {
+        NPIService.getNPPESByName(FIRSTNAME, LASTNAME, state).done(function(response) {
             if (response.code === 200) {
                 if (response.results.length > 0) {
                     self.dataloading = false;

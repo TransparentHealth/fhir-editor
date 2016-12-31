@@ -42,8 +42,9 @@
         background-color: #777777;
       }
       }
-      input {
+      input, select {
         font-size: 1.2em;
+        border-radius: $mainRadius;
         border: 2px solid $gray;
         height: 30px;
         margin-right: 10px;
@@ -101,8 +102,8 @@
       transition: .3s ease;
 
       &:hover {
-         background-color: #c1dad6; //$orange;
-         border: 2px solid #c1dad6; //$orange;
+         background-color: #f4eee9;
+         border: 2px solid #c1dad6; 
         color: $gray;
       }
     }
