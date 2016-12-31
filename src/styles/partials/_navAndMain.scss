@@ -1,6 +1,5 @@
 @import 'setup/variables';
 
-
 header {
   top: 0;
   left: 0;
@@ -9,12 +8,8 @@ header {
   padding: 30px;
   background: 	#565656;
   color: white;
-  nav {
-    li {
-      cursor: pointer;
-    }
-  }
 }
+
 .topNav {
   height: 100%;
   display: flex;
@@ -32,7 +27,7 @@ header {
 .navList {
   display: flex;
   flex-direction: row;
-  width: 25%;
+  width: 58%;
   justify-content: space-between;
 }
 
@@ -57,7 +52,7 @@ main {
   display: flex;
   width: 100vw;
   justify-content: center;
-  background: $tan;
+  background: #f1eae4; 
 }
 
 .mainContainer {
@@ -71,8 +66,8 @@ main {
 }
 
 .container {
-  width: 85%;
-  padding: 25px;
+  width: 100%;
+  padding: 10px;
   overflow: scroll;
   background-color: #fff ;
   box-shadow: $box-shadow;
@@ -83,15 +78,32 @@ main {
   }
 }
 
-.loginContainer {
+.welcomeContainer {
+  background-color: $orange;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 40%;
+  padding: 10px;
+  border-radius: 5px;
+  h1 {
+    font-size: 1.5em;
+    color: #fff;
+  }
+  .welcomeLogo {
+    margin: 15px 0 10px 0;
+    font-size: 4em;
+    color: #fff;
+    font-family: $titleFont;
+  }
+}
 
+
+.loginContainer {
+     width: 100%;
   p {
     font-size: 1.5em;
-    color: $gray;
+    color: #fff;
     padding-bottom: 10px;
   }
 
@@ -108,7 +120,8 @@ main {
     transition: .2s ease;
 
     &:hover {
-      background-color: #777777;
+      background-color: #e5857f;
+
     }
     }
 }
@@ -117,29 +130,28 @@ main {
 
   header {
     padding: 10px 5px;
-    height: 110px;
+    height: 100px;
   }
 
   main {
    width: 100%;
 
    .mainContainer {
-     margin-top: 10px;
+     margin-top: 0;
      width: 100%;
    }
   }
 
 
-  .topNav{
+  .topNav {
     flex-direction: column;
     align-items: center;
 
-
     .navList {
-      width: 90%;
+      width: 100%;
       .navBtn {
-        font-size: 1.2em;
-        padding: 10px 5px;
+        font-size: 1em;
+        padding: 2px;
         width: 100px;
         &:hover {
           color: $gray;
@@ -151,17 +163,19 @@ main {
       margin-bottom: 10px;
     }
   }
-}
 
-.welcomeContainer {
+  .welcomeContainer {
+    .welcomeLogo {
+      font-size: 3em;
+    }
+  }
 
-.welcomeLogo {
-  font-size: 3em;
-}
-}
-
-.container {
-  width: 100%;
-  padding: 10px;
-
+  .loginContainer {
+    display: flex;
+    justify-content: center;
+    button {
+      width: 80%;
+      font-size: .8em;
+    }
+  }
 }
