@@ -4,10 +4,11 @@
   margin: 30px 0;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
 
   form {
-    width: 100%;
+    width: 33%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -22,7 +23,7 @@
    .searchContainer {
      width: 100%;
      li {
-       float: left;
+       //float: left;
        padding: 10px 0;
      }
     button {
@@ -46,6 +47,7 @@
         border: 2px solid $gray;
         height: 30px;
         margin-right: 10px;
+        outline-color:  #c1e2e7;
       }
     }
 
@@ -84,23 +86,24 @@
     color: $gray;
     width: 23%;
     margin: 5px;
-    background-color: #f4f4f4;
+    background-color: #fff;
     border-radius: $mainRadius;
-    padding: 0;
+
 
     button {
       width: 100%;
       margin: 0;
-      border: 2px solid #d9c5b2;
+      border: 2px solid #e4d6c9;
       border-radius: $mainRadius;
-      background-color: #d9c5b2;
-      color: black;
+      background-color: #e4d6c9;
+      color: $gray;
       font-size: 1.2em;
       transition: .3s ease;
 
       &:hover {
-        background-color: $orange;
-        border: 2px solid $orange;
+         background-color: #c1dad6; //$orange;
+         border: 2px solid #c1dad6; //$orange;
+        color: $gray;
       }
     }
 
@@ -117,4 +120,24 @@
       }
     }
   }
+}
+
+@media only screen and (max-width: 749px) {
+
+  .searchLoginContainer {
+    form {
+      width: 100%
+    }
+  }
+
+.nameSearchContainer {
+  justify-content: space-between;
+
+  .nameResult {
+    width: 100%;
+  }
+
+}
+
+
 }

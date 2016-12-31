@@ -12,7 +12,7 @@
               <button ng-show="submit.signedIn" ng-click="submit.signOut()" class="signOutBtn">Sign Out</button>
             </li>
             <li>
-                <button class="navBtn" ng-click="home.resultFound=false" ui-sref="home"><i class="fa fa-home" aria-hidden="true"></i>&nbspHOME</button>
+                <button class="navBtn" ng-click="home.resultFound = !home.resultFound"  ui-sref="home"><i class="fa fa-home" aria-hidden="true"></i>&nbspHOME</button>
             </li>
         </ul>
     </nav>
@@ -65,7 +65,7 @@
             </form>
             </div>
             <div ng-show="!home.resultFound"   class="nameSearchContainer">
-            <div ng-show="home.summaryList"  ng-repeat="nameData in home.nameSearchResult" class="nameResult">
+            <div  ng-repeat="nameData in home.nameSearchResult" class="nameResult">
               <button ng-click="home.nameToNpi(nameData.number)">{{nameData.title}}</button>
               <div class="nameContent">
               <p>{{nameData.addresses[0].address_1}}</p>

@@ -58,11 +58,11 @@
     transition: .3s ease;
     z-index: 99;
     position: absolute;
-    background-color: $tan;
+    //background-color: $tan;
 
 
     button {
-      color: $red;
+      color: #fff;
       text-align: center;
       font-size: 2.2em;
       width: 100%;
@@ -70,7 +70,9 @@
       border-left: none;
       border-right: none;
       border-bottom: 2px solid $gray;
-      background-color: 	$tan;
+      background-color: 	$gray;
+      -moz-opacity: 0.8;
+      opacity: 0.8;
       border-radius: 0;
       margin-bottom: 0px;
       outline-style: none;
