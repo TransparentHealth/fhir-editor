@@ -13,7 +13,7 @@
     height: 10.9%;
     font-size: 1em;
     border-right: none;
-    background-color: 	$tan;
+    background-color: 	#f1eae4;
     border: 2px solid $red;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -58,7 +58,7 @@
     transition: .3s ease;
     z-index: 99;
     position: absolute;
-    //background-color: $tan;
+
 
 
     button {
@@ -69,7 +69,7 @@
       border-top: none;
       border-left: none;
       border-right: none;
-      border-bottom: 2px solid $gray;
+      border-bottom: 2px solid #fff;
       background-color: 	$gray;
       -moz-opacity: 0.8;
       opacity: 0.8;
