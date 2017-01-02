@@ -1,5 +1,52 @@
 @import 'setup/variables';
 
+.titleContainer {
+  width: 97%;
+  margin: 0 0 10px 20px;
+  color: $gray;
+  border: 2px solid $orange;
+  border-radius: $mainRadius;
+  padding: 15px;
+
+
+  .pageTitle {
+    font-size: 2em;
+    margin-bottom: 10px;
+    width:90%;
+  }
+  i{
+    color: $red;
+  }
+  .titleAddress {
+    margin-bottom: 5px;
+  }
+  h3 {
+    margin-left: 10px;
+  }
+}
+
+.editBtn, .saveBtn {
+  float: right;
+  font-size: .8em;
+  color: #fff;
+  background-color: $red;
+  border: 2px solid $red;
+  border-radius: 5px;
+  width: 100px;
+  padding: 10px 15px;
+  text-align: center;
+  transition: .2s ease;
+
+  i {
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: #915a65;
+    border: 2px solid #915a65;
+  }
+}
+
 section {
   padding: 10px;
   .sectionTitle {
@@ -30,8 +77,8 @@ section {
 
 .baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection {
   position: relative;
-  border: 2px solid  #76323f;
-  border-radius: 5px;
+  //border: 2px solid  #76323f;
+  //border-radius: 5px;
   height: 95%;
   .sectionInfo {
     padding: 10px;
@@ -45,7 +92,7 @@ section {
     }
   }
   .baseInfo {
-    padding: 20px;
+    padding: 0 20px 20px 20px;
     .pecosHeader {
       margin-top: 20px;
     }
@@ -68,25 +115,7 @@ section {
   }
 }
 
-.editBtn, .saveBtn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: .8em;
-  color: #fff;
-  background-color: $red;
-  border: 2px solid $red;
-  border-radius: 5px;
-  width: 100px;
-  padding: 10px 15px;
-  text-align: center;
-  transition: .2s ease;
 
-  &:hover {
-    background-color: #915a65;
-    border: 2px solid #915a65;
-  }
-}
 
 @media only screen and (max-width: 749px) {
 

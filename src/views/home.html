@@ -125,10 +125,9 @@
                 <div ng-repeat="nameData in home.nameSearchResult" class="nameResult">
                     <button ng-click="home.nameToNpi(nameData.number)">{{nameData.title}}</button>
                     <div class="nameContent">
-                        <p>{{nameData.addresses[0].address_1}}</p>
-                        <p>
-                            </i>{{nameData.addresses[0].city}}, {{nameData.addresses[0].state}}</p>
-                        <p class="phoneIcon"><i class="fa fa-phone" aria-hidden="true"></i> Phone: {{nameData.addresses[0].us_telephone_number}}</p>
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp{{nameData.addresses[0].address_1}}</p>
+                          <p>&nbsp &nbsp{{nameData.addresses[0].city}}, {{nameData.addresses[0].state}}</p>
+                        <p class="npiIcon"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{nameData.number}}</p>
                     </div>
                 </div>
             </div>

@@ -86,9 +86,13 @@
   .nameResult {
     color: $gray;
     width: 23%;
-    margin: 5px;
+    margin: 5px 5px 8px 5px;
     background-color: #fff;
     border-radius: $mainRadius;
+
+    i {
+      color: $red;
+    }
 
 
     button {
@@ -103,7 +107,7 @@
 
       &:hover {
          background-color: #f4eee9;
-         border: 2px solid #c1dad6; 
+         border: 2px solid #c1dad6;
         color: $gray;
       }
     }
@@ -115,7 +119,7 @@
       i {
         color: $red;
       }
-      .phoneIcon {
+      .npiIcon {
         padding-top: 10px;
         text-align: center;
       }
