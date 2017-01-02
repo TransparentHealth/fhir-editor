@@ -32,6 +32,7 @@
   background-color: $red;
   border: 2px solid $red;
   border-radius: 5px;
+  margin-bottom: 5px;
   width: 100px;
   padding: 10px 15px;
   text-align: center;
@@ -81,7 +82,7 @@ section {
   //border-radius: 5px;
   height: 95%;
   .sectionInfo {
-    padding: 10px;
+    padding: 0 10px 10px 10px;
     li {
       margin: 10px;
     }
@@ -121,9 +122,24 @@ section {
 
 .baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection {
   width: 100%;
+  padding: 0;
+
 }
 
-.sectionTitle {
-  float: left;
+.sectionInfo {
+  padding:10px 0 10px 0;
+}
+
+.baseInfo {
+  padding: 0;
+}
+
+// .sectionTitle {
+//   float: left;
+// }
+
+.titleContainer {
+  width: 100%;
+  margin: 0 0 10px 0;
 }
 }
