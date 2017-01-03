@@ -42,8 +42,9 @@
         background-color: #777777;
       }
       }
-      input {
+      input, select {
         font-size: 1.2em;
+        border-radius: $mainRadius;
         border: 2px solid $gray;
         height: 30px;
         margin-right: 10px;
@@ -85,9 +86,13 @@
   .nameResult {
     color: $gray;
     width: 23%;
-    margin: 5px;
+    margin: 5px 5px 8px 5px;
     background-color: #fff;
     border-radius: $mainRadius;
+
+    i {
+      color: $red;
+    }
 
 
     button {
@@ -101,8 +106,8 @@
       transition: .3s ease;
 
       &:hover {
-         background-color: #c1dad6; //$orange;
-         border: 2px solid #c1dad6; //$orange;
+         background-color: #f4eee9;
+         border: 2px solid #c1dad6;
         color: $gray;
       }
     }
@@ -114,7 +119,7 @@
       i {
         color: $red;
       }
-      .phoneIcon {
+      .npiIcon {
         padding-top: 10px;
         text-align: center;
       }

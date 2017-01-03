@@ -35,16 +35,24 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
     }
 
     //GET NPPES by name
-    function getNPPESByName(firstName, lastName) {
+    function getNPPESByName(firstName, lastName, state) {
+      var data;
+      if(state !== '') {
+        data = {
+        "basic.first_name": firstName,
+        "basic.last_name": lastName,
+         "addresses.state": state
+       }
+       } else  {
+         data = {
+         "basic.first_name": firstName,
+         "basic.last_name": lastName
+       }
+       }
         return $.ajax({
             method: 'GET',
             url: 'http://docdish.com/djm/search/api/public/nppes/pjson/pjson.json',
-            data: {
-
-                "basic.first_name": firstName,
-                "basic.last_name": lastName
-
-            },
+                data: data,
             success: function(response) {
                 return response;
             },

@@ -1,5 +1,9 @@
 @import 'setup/variables';
 
+body {
+  overflow: hidden;
+}
+
 header {
   top: 0;
   left: 0;
@@ -52,7 +56,7 @@ main {
   display: flex;
   width: 100vw;
   justify-content: center;
-  background: #f1eae4; 
+  background: $tan;
 }
 
 .mainContainer {
@@ -174,7 +178,7 @@ main {
     display: flex;
     justify-content: center;
     button {
-      width: 80%;
+      width: 120px;
       font-size: .8em;
     }
   }
