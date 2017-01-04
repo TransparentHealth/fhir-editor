@@ -88,7 +88,7 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
         // Should use a NPPESUpdate Factory here to create the new update object from edited info (To keep the same format as original NPPES data)
         return $.ajax({
             method: 'PUT',
-            url: 'http://api.docdish.com/djm/write/api/ip/nppes-update',
+            url: 'http://api.docdish.com/write/api/ip/nppes-update',
             data: JSON.stringify(updateInfo),
             success: function(response) {
                 return response;
@@ -104,7 +104,7 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
         // Should use a PECOSUpdate Factory here to create the new update object from edited info (To keep the same format as original PECOS data)
         return $.ajax({
             method: 'PUT',
-            url: 'http://docdish.com/djm/write/api/ip/pecos-update',
+            url: 'http://api.docdish.com/write/api/ip/pecos-update',
             data: JSON.stringify(updateInfo),
             success: function(response) {
                 return response;
@@ -122,7 +122,7 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
         console.log(newPractitioner);
         return $.ajax({
             method: 'PUT',
-            url: 'http://docdish.com/djm/write/api/ip/update-Provider',
+            url: 'http://api.docdish.com/write/api/ip/update-Provider',
             data: JSON.stringify(newPractitioner),
             success: function(response) {
                 return response;
