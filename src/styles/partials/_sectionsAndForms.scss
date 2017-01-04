@@ -1,20 +1,20 @@
 @import 'setup/variables';
 
 .titleContainer {
-  width: 97%;
+  width: 50%;
+  float: left;
   margin: 0 0 10px 20px;
   color: $gray;
   border: 2px solid $orange;
   border-radius: $mainRadius;
   padding: 15px;
 
-
-  .pageTitle {
+  h1 {
     font-size: 2em;
     margin-bottom: 10px;
     width:90%;
   }
-  i{
+  i {
     color: $red;
   }
   .titleAddress {
@@ -51,6 +51,7 @@
 section {
   padding: 10px;
   .sectionTitle {
+    border-bottom: none;
     color: $gray;
     text-align: center;
     font-size: 2em;
@@ -66,7 +67,6 @@ section {
     legend {
       color: $gray;
       font-size: 1.5em;
-      //font-weight: bold;
     }
   }
 }
@@ -77,12 +77,11 @@ section {
 }
 
 .baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection {
-  position: relative;
-  //border: 2px solid  #76323f;
-  //border-radius: 5px;
   height: 95%;
   .sectionInfo {
     padding: 0 10px 10px 10px;
+    width: 50%;
+    float: left;
     li {
       margin: 10px;
     }

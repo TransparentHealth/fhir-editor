@@ -69,7 +69,7 @@ main {
   flex-direction: row;
 }
 
-.container {
+.contentContainer {
   width: 100%;
   padding: 10px;
   overflow: scroll;
@@ -102,6 +102,18 @@ main {
   }
 }
 
+.homeMisson {
+  width: 50%;
+  float: left;
+  margin: 10px;
+
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+}
+}
+
 
 .loginContainer {
      width: 100%;
@@ -128,6 +140,12 @@ main {
 
     }
     }
+}
+
+@media only screen and (max-width: 885px) {
+   .homeMisson {
+     width: 100%;
+   }
 }
 
 @media only screen and (max-width: 749px) {
@@ -181,5 +199,9 @@ main {
       width: 120px;
       font-size: .8em;
     }
+  }
+
+  .homeMisson {
+    display: none;
   }
 }

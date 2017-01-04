@@ -12,7 +12,7 @@
                 <button ng-show="submit.signedIn" ng-click="submit.signOut()" class="signOutBtn">Sign Out</button>
             </li>
             <li>
-                <button class="navBtn" ng-click="home.resultFound = !home.resultFound" ui-sref="home"><i class="fa fa-home" aria-hidden="true"></i>&nbspHOME</button>
+                <button class="navBtn" ui-sref="home"><i class="fa fa-home" aria-hidden="true"></i>&nbspHOME</button>
             </li>
         </ul>
     </nav>
@@ -29,7 +29,7 @@
             <button ui-sref="home.notes" ui-sref-active="active" ng-click="home.mobileNav()" class="notesBtn leftNavBtn">Notes</button>
             <button ui-sref="home.submit" ui-sref-active="active" ng-click="home.mobileNav()" id="submitBtn" class="leftNavBtn">Submit</button>
         </div>
-        <div class="container">
+        <div class="contentContainer">
             <div ng-hide="!home.dataloading" class="loadingDiv">
                 <p>L</p><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
                 <p>ADING...</p>
@@ -38,8 +38,15 @@
                 <h1>Welcome to </h1>
                 <p class="welcomeLogo">- Doc<i class="fa fa-user-md" aria-hidden="true"></i>Dish -</p>
             </div>
-            <div ng-show="!home.resultFound" class="searchLoginContainer">
-                <form ng-submit="home.runSearch()">
+            <div ng-show="!home.resultFound"  class="homeMisson">
+              <h1>Instructions</h1>
+              <p>Lorem ipsum dolor sit amet, ante ipsum vitae in vestibulum non malesuada. Pharetra venenatis gravida, condimentum sed risus, tortor nunc, eros ut volutpat sollicitudin sed amet integer, tempor volutpat tempor. Semper dui, nec eleifend porta mollis, et tellus ac quam non, porttitor nec volutpat mauris, tincidunt sed litora non nonummy. Wisi morbi torquent cursus magna risus diam, tristique nulla, semper justo quam ultricies cras donec, quisque scelerisque at orci ac fringilla, enim ligula quibusdam amet libero etiam euismod. Vehicula duis velit mauris eos placerat, mauris est, a fermentum turpis eget risus dui nunc, eu mi ornare turpis ut. A sagittis. Eu aliquam perferendis sodales non. Consectetuer nisl malesuada aliquam. Mattis nostra phasellus arcu neque vivamus, integer tempor sed nulla libero primis aliquet, maecenas aenean consectetuer eros sem.</p>
+            </div>
+              <div class="subMenuContainer">
+                <ul class="tabList">
+        <li  ng-repeat="item in home.searchItems" class="tabItem" ng-class="{'active': item.id == home.selected}" ng-click="home.select(item.id)">{{item.title}}</li>
+                 </ul>
+                <form ng-show="home.selected === 'item1'" ng-submit="home.runSearch()">
                     <label for="NPI Search">Search by NPI:</label>
                     <ul class="searchContainer">
                         <li>
@@ -50,7 +57,7 @@
                         </li>
                     </ul>
                 </form>
-                <form ng-submit="home.nameSearch()">
+                <form ng-show="home.selected === 'item2'" ng-submit="home.nameSearch()">
                     <label for="name Search">Search by name:</label>
                     <ul class="searchContainer">
                         <li>
@@ -120,16 +127,17 @@
                         </li>
                     </ul>
                 </form>
-            </div>
-            <div ng-show="!home.resultFound" class="nameSearchContainer">
-                <div ng-repeat="nameData in home.nameSearchResult" class="nameResult">
-                    <button ng-click="home.nameToNpi(nameData.number)">{{nameData.title}}</button>
-                    <div class="nameContent">
-                        <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp{{nameData.addresses[0].address_1}}</p>
-                          <p>&nbsp &nbsp{{nameData.addresses[0].city}}, {{nameData.addresses[0].state}}</p>
-                        <p class="npiIcon"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{nameData.number}}</p>
-                    </div>
-                </div>
+                <form ng-show="home.selected == 'item3'"  ng-submit="home.runSearch()">
+                    <label for="NPI Search">Search by Organization:</label>
+                    <ul class="searchContainer">
+                        <li>
+                            <input type="text" ng-model="home.npi" placeholder="Organization">
+                        </li>
+                        <li>
+                            <button>Search</button>
+                        </li>
+                    </ul>
+                </form>
             </div>
             <div>
                 <ui-view></ui-view>
