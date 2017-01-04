@@ -62,6 +62,22 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
         });
     }
 
+    function getNPPESByOrg(org) {
+        return $.ajax({
+            method: 'GET',
+            url: 'http://api.docdish.com/search/api/public/nppes/pjson/pjson.json',
+            data: {
+                organization_name: org
+              },
+            success: function(response) {
+                return response;
+            },
+            error: function(error) {
+                return error;
+            }
+        });
+    }
+
     // Ideally should have a GET for FHIR as well
     /*
     GET FHIR

@@ -5,6 +5,7 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     this.npi = null;
     this.firstName = null;
     this.lastName = null;
+    this.orgName = null;
     this.state = '';
     this.dataloading = false;
     this.result = { // This really is a buffer variable to keep track of edits - should be named more appropriately. Info from here is used in the updates.
@@ -123,6 +124,26 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
             }
         });
     };
+
+    this.orgSearch = function() {
+         var ORGNAME = self.orgName.toUpperCase()
+        self.dataloading = true;
+        NPIService.getNPPESByOrg(ORGNAME).done(function(response) {
+            if (response.code === 200) {
+                if (response.results.length > 0) {
+                    self.dataloading = false;
+                    self.summaryList = true;
+                    console.log('NPPES Result:', response.results);
+                    self.nameSearchResult = response.results;
+                    $state.go('home.base');
+                    $scope.$apply();
+                }
+            } else {
+                console.log("No NPPES name search result");
+            }
+        });
+    };
+
 
     this.nameToNpi = function(thisNpi) {
       self.summaryList = false;

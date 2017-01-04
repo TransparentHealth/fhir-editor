@@ -127,11 +127,11 @@
                         </li>
                     </ul>
                 </form>
-                <form ng-show="home.selected == 'item3'"  ng-submit="home.runSearch()">
+                <form ng-show="home.selected == 'item3'"  ng-submit="home.orgSearch()">
                     <label for="NPI Search">Search by Organization:</label>
                     <ul class="searchContainer">
                         <li>
-                            <input type="text" ng-model="home.npi" placeholder="Organization">
+                            <input type="text" ng-model="home.orgName" placeholder="Organization">
                         </li>
                         <li>
                             <button>Search</button>
