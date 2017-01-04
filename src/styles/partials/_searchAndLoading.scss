@@ -32,14 +32,12 @@
      color:  #888888;
 
    }
-
 }
-
    li.active {
   border-bottom: 5px solid #c1e2e7;
-
   }
 }
+
 form {
   width: 100%;
   display: flex;
@@ -58,6 +56,7 @@ form {
     justify-content: center;
   }
 }
+
    .searchContainer {
      width: 100%;
      li {
@@ -89,6 +88,7 @@ form {
       }
     }
 }
+
 .loadingDiv {
   font-family: $titleFont;
   display: flex;
@@ -171,7 +171,6 @@ form {
     float: none;
     margin: 10px 0;
   }
-
 }
 
 @media only screen and (max-width: 749px) {
@@ -181,6 +180,22 @@ form {
       width: 100%
     }
   }
+
+  .subMenuContainer {
+    height: 190px;
+
+    form {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  .searchContainer {
+    li {
+    input {
+      font-size: .9em;
+    }
+    }
+  }
+}
 
 .nameSearchContainer {
   justify-content: space-between;
