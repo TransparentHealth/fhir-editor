@@ -1,5 +1,26 @@
 angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $location, NPIService, UserService) {
     var self = this;
+    /** Google Sign In Info **/
+    this.signedIn = false;
+    UserService.checkSignIn().then(function(signedIn) {
+      self.signedIn = signedIn;
+      $scope.$apply();
+    });
+
+    this.signIn = function() {
+      UserService.signIn().then(function(signedIn) {
+        self.signedIn = signedIn;
+        $scope.$apply();
+      });
+    };
+
+    this.signOut = function() {
+      UserService.signOut().then(function(signedIn) {
+        self.signedIn = signedIn;
+        $scope.$apply();
+      });
+    };
+    /** End of Google Sign In Info **/
     this.resultFound = false;
     this.summaryList = false;
     this.npi = null;

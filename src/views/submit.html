@@ -1,10 +1,10 @@
 <section ng-show="home.resultFound" class="submitSection">
   <h1 class="sectionTitle">Submit</h1>
   <div class="signInOutContainer">
-    <button ng-show="!submit.signedIn" ng-click="submit.signIn()" class="signInBtn">Sign In</button>
-    <button ng-show="submit.signedIn" ng-click="submit.signOut()" class="signOutBtn">Sign Out</button>
+    <button ng-show="!home.signedIn" ng-click="home.signIn()" class="signInBtn">Sign In</button>
+    <button ng-show="home.signedIn" ng-click="home.signOut()" class="signOutBtn">Sign Out</button>
   </div>
   <div class="submitBtnContainer">
-    <button ng-show="submit.signedIn" ng-click="submit.submitEdits()" class="submitEditsBtn">Submit Edits</button>
+    <button ng-show="home.signedIn" ng-click="submit.submitEdits()" class="submitEditsBtn">Submit Edits</button>
   </div>
 </section>
