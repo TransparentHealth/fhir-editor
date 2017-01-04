@@ -115,21 +115,40 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
                     self.summaryList = true;
                     console.log('NPPES Result:', response.results);
                     self.nameSearchResult = response.results;
+                    $state.go('home.base');
                     $scope.$apply();
                 }
             } else {
                 console.log("No NPPES name search result");
-                self.dataloading = false;
             }
         });
     };
 
     this.nameToNpi = function(thisNpi) {
-      console.log("hey");
       self.summaryList = false;
       self.npi = thisNpi;
       self.runSearch();
     };
+
+  // for the searchfield submenu views and active class
+  this.selected = {};
+  this.selected = 'item1';
+  this.select= function(item) {
+        self.selected = item;
+ };
+ this.isActive = function(item) {
+        return this.selected;
+ };
+   this.searchItems = [{
+       id: 'item1',
+       title: 'NPI'
+   }, {
+       id: 'item2',
+       title: 'Name'
+   }, {
+       id: 'item3',
+       title: 'Organization'
+   }];
 
     //Mobile nav show/hide
     this.mobileNav = function() {
@@ -142,32 +161,32 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     },
     // Return user to the search screen when page is refreshed. (Prevents problems with trying to repopulate views with empty info)
     window.onbeforeunload = function() {
-        this.resultFound = false;
-        this.summaryList = false;
-        this.npi = null;
-        this.firstName = null;
-        this.lastname = null;
-        this.result = { // This really is a buffer variable to keep track of edits - should be named more appropriately. Info from here is used in the updates.
-            id: null,
-            title: null,
-            number: null,
-            basic: null,
-            identifiers: null,
-            addresses: null,
-            taxonomies: null,
-            taxonomy_licenses: null,
-            licenses: null,
-            pecos_id: null,
-            enrollment_id: null,
-            enrollment_type: null,
-            reassignments: null,
-            specialties: null
-        };
-        this.editing = null;
-        this.nameSearchResult = null; //Original NPPES result
-        this.nppesResult = null; // Original NPPES result before edits
-        this.pecosResult = null; // Original PECOS result before edits
-        this.fhirResult = null; // Original FHIR result before edits
-        $state.go('home');
-    };
-});
+          this.resultFound = false;
+          this.summaryList = false;
+          this.npi = null;
+          this.firstName = null;
+          this.lastname = null;
+          this.result = { // This really is a buffer variable to keep track of edits - should be named more appropriately. Info from here is used in the updates.
+              id: null,
+              title: null,
+              number: null,
+              basic: null,
+              identifiers: null,
+              addresses: null,
+              taxonomies: null,
+              taxonomy_licenses: null,
+              licenses: null,
+              pecos_id: null,
+              enrollment_id: null,
+              enrollment_type: null,
+              reassignments: null,
+              specialties: null
+          };
+          this.editing = null;
+          this.nameSearchResult = null; //Original NPPES result
+          this.nppesResult = null; // Original NPPES result before edits
+          this.pecosResult = null; // Original PECOS result before edits
+          this.fhirResult = null; // Original FHIR result before edits
+          $state.go('home');
+      };
+  });

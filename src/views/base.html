@@ -1,14 +1,22 @@
 <section class="baseSection">
-  <div class="titleContainer">
-    <button ng-show="home.editing !== 'base'" ng-click="home.editing = 'base'" class="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspEDIT</button>
-    <button ng-show="home.editing === 'base'" ng-click="home.editing = null" class="saveBtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspSAVE</button>
-  <h1 class="pageTitle">{{home.result.title}}<h1>
+  <div ng-show="home.resultFound" class="titleContainer">
+  <h1>{{home.result.title}}<h1>
   <h3><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp{{home.result.addresses[0].address_1}}<h3>
   <h3 class="titleAddress">&nbsp &nbsp{{home.result.addresses[0].city}}, {{home.result.addresses[0].state}}<h3>
   <h3 class="titleNpi"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{home.result.number}}<h3>
   </div>
-  <h1 class="sectionTitle">Base</h1>
-  <div class="baseInfo sectionInfo" ng-show="home.editing !== 'base'">
+  <div ng-show="!home.resultFound" class="nameSearchContainer">
+      <div ng-repeat="nameData in home.nameSearchResult" class="nameResult">
+          <button ng-click="home.nameToNpi(nameData.number)">{{nameData.title}}</button>
+          <div class="nameContent">
+              <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp{{nameData.addresses[0].address_1}}</p>
+                <p>&nbsp &nbsp{{nameData.addresses[0].city}}, {{nameData.addresses[0].state}}</p>
+              <p class="npiIcon"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{nameData.number}}</p>
+          </div>
+      </div>
+  </div>
+  <h1 ng-show="home.resultFound" class="sectionTitle">Base</h1>
+  <div ng-show="home.resultFound"  class="baseInfo sectionInfo">
     <h1 class="nppesHeader">NPPES Info</h1>
     <p class="resultInfo" ng-show="home.result.title">Title: {{home.result.title}}</p>
     <p class="resultInfo" ng-show="home.result.number">NPI: {{home.result.number}}</p>
@@ -30,7 +38,7 @@
     <p class="resultInfo" ng-show="home.result.enrollment_id">Enrollment ID: {{home.result.enrollment_id}}</p>
     <p class="resultInfo" ng-show="home.result.enrollment_type">Enrollment Type: {{home.result.enrollment_type}}</p>
   </div>
-  <form ng-show="home.editing === 'base'">
+  <!-- <form ng-show="home.editing === 'base'">
     <fieldset>
       <legend>NPPES Info</legend>
       <p class="resultInfo" ng-show="home.result.title">Title: {{home.result.title}}</p>
@@ -55,5 +63,5 @@
       <p class="resultInfo" ng-show="home.result.enrollment_id">Enrollment ID: {{home.result.enrollment_id}}</p>
       <p class="resultInfo" ng-show="home.result.enrollment_type">Enrollment Type: {{home.result.enrollment_type}}</p>
     </fieldset>
-  </form>
+  </form> -->
 </section>

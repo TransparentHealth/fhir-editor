@@ -1,29 +1,66 @@
 @import 'setup/variables';
 
-.searchLoginContainer {
-  margin: 30px 0;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 
-  form {
-    width: 33%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    label {
-      width: 100%;
-      text-align: left;
-      font-size: 1.5em;
-      color: $gray;
-    }
+.subMenuContainer {
+  float: right;
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  height: 220px;
+  background-color: #fff;
+  border-radius: $mainRadius;
+  box-shadow: $box-shadow;
+  margin: 10px;
+
+.tabList {
+   align-self: flex-end;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 100%;
+   background-color: $tan;
+
+ .tabItem {
+   text-align: center;
+   font-size: 1.2em;
+   padding: 10px 0 10px 0;
+   border-bottom: 5px solid $tan;
+   color: $gray;
+   transition: .5s ease;
+   cursor: pointer;
+
+   &:hover {
+     color:  #888888;
+
+   }
+}
+   li.active {
+  border-bottom: 5px solid #c1e2e7;
   }
 }
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  label {
+    padding: 15px 0 5px 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5em;
+    color: $gray;
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
    .searchContainer {
      width: 100%;
      li {
-       //float: left;
        padding: 10px 0;
      }
     button {
@@ -43,7 +80,7 @@
       }
       }
       input, select {
-        font-size: 1.2em;
+        font-size: 1em;
         border-radius: $mainRadius;
         border: 2px solid $gray;
         height: 30px;
@@ -51,6 +88,7 @@
         outline-color:  #c1e2e7;
       }
     }
+}
 
 .loadingDiv {
   font-family: $titleFont;
@@ -127,6 +165,15 @@
   }
 }
 
+@media only screen and (max-width: 1010px) {
+  .subMenuContainer {
+    width: 100%;
+    height: 150px;
+    float: none;
+    margin: 10px 0;
+  }
+}
+
 @media only screen and (max-width: 749px) {
 
   .searchLoginContainer {
@@ -134,6 +181,22 @@
       width: 100%
     }
   }
+
+  .subMenuContainer {
+    height: 200px;
+
+    form {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  .searchContainer {
+    li {
+    input {
+      font-size: .9em;
+    }
+    }
+  }
+}
 
 .nameSearchContainer {
   justify-content: space-between;
