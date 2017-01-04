@@ -27,6 +27,7 @@
    border-bottom: 5px solid $tan;
    color: $gray;
    transition: .5s ease;
+   cursor: pointer;
 
    &:hover {
      color:  #888888;
@@ -164,10 +165,10 @@ form {
   }
 }
 
-@media only screen and (max-width: 885px) {
+@media only screen and (max-width: 1010px) {
   .subMenuContainer {
     width: 100%;
-    height: 180px;
+    height: 150px;
     float: none;
     margin: 10px 0;
   }

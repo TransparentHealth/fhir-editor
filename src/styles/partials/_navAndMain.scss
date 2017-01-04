@@ -1,7 +1,11 @@
 @import 'setup/variables';
 
 body {
-  overflow-y: scroll;
+  overflow-y: visible;
+}
+
+button {
+  cursor: pointer;
 }
 
 header {
@@ -142,7 +146,7 @@ h1 {
     }
 }
 
-@media only screen and (max-width: 885px) {
+@media only screen and (max-width: 1010px) {
    .homeMisson {
      width: 100%;
    }
