@@ -1,7 +1,5 @@
 <section class="baseSection">
   <div ng-show="home.resultFound" class="titleContainer">
-    <!-- <button ng-show="home.editing !== 'base'" ng-click="home.editing = 'base'" class="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspEDIT</button>
-    <button ng-show="home.editing === 'base'" ng-click="home.editing = null" class="saveBtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspSAVE</button> -->
   <h1>{{home.result.title}}<h1>
   <h3><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp{{home.result.addresses[0].address_1}}<h3>
   <h3 class="titleAddress">&nbsp &nbsp{{home.result.addresses[0].city}}, {{home.result.addresses[0].state}}<h3>
@@ -17,7 +15,7 @@
           </div>
       </div>
   </div>
-  <h1 class="sectionTitle">Base</h1>
+  <h1 ng-show="home.resultFound" class="sectionTitle">Base</h1>
   <div ng-show="home.resultFound"  class="baseInfo sectionInfo">
     <h1 class="nppesHeader">NPPES Info</h1>
     <p class="resultInfo">Gender: {{home.result.basic.gender}}</p>

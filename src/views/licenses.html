@@ -1,4 +1,4 @@
-<section class="licensesSection">
+<section ng-show="home.resultFound" class="licensesSection">
   <div class="titleContainer">
     <button ng-show="home.editing !== 'licenses'" ng-click="home.editing = 'licenses'" class="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspEDIT</button>
     <button ng-show="home.editing === 'licenses'" ng-click="home.editing = null" class="saveBtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspSAVE</button>

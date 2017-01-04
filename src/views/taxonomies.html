@@ -1,4 +1,4 @@
-<section class="taxonomiesSection">
+<section ng-show="home.resultFound" class="taxonomiesSection">
   <div class="titleContainer">
     <button ng-show="home.editing !== 'taxonomies'" ng-click="home.editing = ''" class="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspEDIT</button>
     <button ng-show="home.editing === 'taxonomies'" ng-click="home.editing = null" class="saveBtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspSAVE</button>

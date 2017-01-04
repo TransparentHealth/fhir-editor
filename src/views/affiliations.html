@@ -1,4 +1,4 @@
-<section class="affiliationsSection">
+<section ng-show="home.resultFound" class="affiliationsSection">
   <div class="titleContainer">
     <button ng-show="home.editing !== 'affiliations'" ng-click="home.editing = 'affiliations'" class="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspEDIT</button>
     <button ng-show="home.editing === 'affiliations'" ng-click="home.editing = null" class="saveBtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspSAVE</button>
