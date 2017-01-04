@@ -13,12 +13,20 @@
       <p ng-show="!home.result.reassignments">No Known Affiliations</p>
       <li ng-show="home.result.reassignments" ng-repeat="affiliation in home.result.reassignments">
         <h1>Affiliation {{home.result.reassignments.indexOf(affiliation) + 1}}</h1>
+        <h2>Meta</h2>
+        <p>Nickname: {{affiliation.nickname ? affiliation.nickname : "None"}}</p>
+        <p ng-show="affiliation.type">Type: {{affiliation.type}}</p>
+        <p>Accepting New Patients: {{affiliation.acceptingNew ? "Yes" : "No"}}</p>
+        <h2>Affiliation</h2>
         <p ng-show="affiliation.reassigned_to.name">Name: {{affiliation.reassigned_to.name}}</p>
         <p ng-show="affiliation.reassigned_to.npi">NPI: {{affiliation.reassigned_to.npi}}</p>
         <p ng-show="affiliation.reassigned_to.pecos_id">PECOS ID: {{affiliation.reassigned_to.pecos_id}}</p>
         <p ng-show="affiliation.assignee.name">Name: {{affiliation.assignee.name}}</p>
         <p ng-show="affiliation.assignee.npi">NPI: {{affiliation.assignee.npi}}</p>
         <p ng-show="affiliation.assignee.pecos_id">PECOS ID: {{affiliation.assignee.pecos_id}}</p>
+        <h2>Endpoints</h2>
+        <p ng-repeat="endpoint in affiliation.endpoints"><span>{{endpoint.type}}</span>: <span>{{endpoint.value}}</span></p>
+        <p ng-show="!affiliation.endpoints">No Endpoints Found</p>
       </li>
     </ul>
   </div>
