@@ -21,7 +21,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
-  
+
 }
 
 .title{
@@ -116,6 +116,20 @@ h1 {
 }
 }
 
+.mobileMisson {
+  display: none;
+  width: 100%;
+  float: left;
+  margin: 10px;
+
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+}
+}
+
+
 
 .loginContainer {
      width: 100%;
@@ -206,5 +220,9 @@ h1 {
 
   .homeMisson {
     display: none;
+  }
+
+  .mobileMisson {
+    display: inherit;
   }
 }

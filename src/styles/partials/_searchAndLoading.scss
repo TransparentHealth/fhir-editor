@@ -26,7 +26,7 @@
    padding: 10px 0 10px 0;
    border-bottom: 5px solid $tan;
    color: $gray;
-   transition: .5s ease;
+   transition: .3s ease;
    cursor: pointer;
 
    &:hover {
@@ -196,6 +196,11 @@ form {
     input {
       font-size: 1em;
     }
+    }
+  }
+  .tabItem {
+    &:hover {
+      color: $gray;
     }
   }
 }
