@@ -8,6 +8,9 @@
   <h3 class="titleNpi"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{home.result.number}}<h3>
   </div>
   <h1 class="sectionTitle">Affiliations</h1>
+  <div ng-show="home.reminderPopup" class="loadingDiv">
+      <p>Don't forget to submit!</p>
+  </div>
   <div ng-show="home.editing !== 'affiliations'" class="affiliationsInfo sectionInfo">
     <ul>
       <p ng-show="!home.result.reassignments">No Known Affiliations</p>

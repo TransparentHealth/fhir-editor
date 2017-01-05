@@ -29,6 +29,7 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     this.lastName = null;
     this.orgName = null;
     this.submitButton = null;
+    this.reminderPopup = null;
     this.state = '';
     this.dataloading = false;
     this.result = { // This really is a buffer variable to keep track of edits - should be named more appropriately. Info from here is used in the updates.
@@ -196,17 +197,22 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
        title: 'Organization'
    }];
 
+//Switches to red submit button when "save" is clicked
    this.submitActive = function() {
      self.editing = null;
      self.submitButton = true;
+     this.reminder();
    };
 
-   this.removeActive = function() {
-     $('.submitBtn').css({
-       'background': ' #fff',
-       'color': '#565656'
-     }).text('Submit');
-   };
+//reminder popup shows, then goes
+   this.reminder = function() {
+     self.reminderPopup = true;
+     setTimeout(function() {
+         self.reminderPopup = null;
+         $scope.$apply();
+     }, 2000);
+};
+
 
     //Mobile nav show/hide
     this.mobileNav = function() {
