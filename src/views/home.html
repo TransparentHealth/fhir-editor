@@ -27,7 +27,8 @@
             <button ui-sref="home.taxonomies" ui-sref-active="active" ng-click="home.mobileNav()" class="taxonomiesBtn leftNavBtn">Taxonomies</button>
             <button ui-sref="home.licenses" ui-sref-active="active" ng-click="home.mobileNav()" class="licensesBtn leftNavBtn">Licenses</button>
             <button ui-sref="home.notes" ui-sref-active="active" ng-click="home.mobileNav()" class="notesBtn leftNavBtn">Notes</button>
-            <button ui-sref="home.submit" ui-sref-active="active" ng-click="home.mobileNav()" id="submitBtn" class="leftNavBtn">Submit</button>
+            <button ui-sref="home.submit" ui-sref-active="active" ng-show="!home.submitButton" ng-click="home.mobileNav()"  class="leftNavBtn">Submit</button>
+            <button ui-sref="home.submit" ui-sref-active="active" ng-show="home.submitButton" ng-click="home.mobileNav()" id="submitBtn">Submit Edits</button>
         </div>
         <div class="contentContainer">
             <div ng-hide="!home.dataloading" class="loadingDiv">

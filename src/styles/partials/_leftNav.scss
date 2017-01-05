@@ -36,6 +36,38 @@
   }
 }
 
+#submitBtn {
+
+  color: #fff;
+  text-align: center;
+  width: 95%;
+  height: 10.9%;
+  font-size: 1em;
+  border-right: none;
+  background-color: 	$red;
+  border: 2px solid $red;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  outline-style: none;
+  transition: .3s ease;
+  &:hover {
+    color: #fff;
+    border: 2px solid #fff;
+  }
+
+
+  &.active {
+    width: 102%;
+    margin-left: 8px;
+    color: $gray;
+    border: 2px solid #fff;
+    background-color: #fff;
+    box-shadow: $box-shadow;
+  }
+}
+
+
+
 .mobileMenu {
   display: none;
 }

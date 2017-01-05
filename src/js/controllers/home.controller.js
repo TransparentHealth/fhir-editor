@@ -28,6 +28,7 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     this.firstName = null;
     this.lastName = null;
     this.orgName = null;
+    this.submitButton = null;
     this.state = '';
     this.dataloading = false;
     this.result = { // This really is a buffer variable to keep track of edits - should be named more appropriately. Info from here is used in the updates.
@@ -195,6 +196,18 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
        title: 'Organization'
    }];
 
+   this.submitActive = function() {
+     self.editing = null;
+     self.submitButton = true;
+   };
+
+   this.removeActive = function() {
+     $('.submitBtn').css({
+       'background': ' #fff',
+       'color': '#565656'
+     }).text('Submit');
+   };
+
     //Mobile nav show/hide
     this.mobileNav = function() {
         var id = document.getElementById('navId');
@@ -232,10 +245,10 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
             specialties: null
         };
         this.editing = null;
+        this.submitButton = null;
         this.nameSearchResult = null;
         this.nppesResult = null;
         this.pecosResult = null;
         this.fhirResult = null;
-        console.log(this.result);
       };
   });

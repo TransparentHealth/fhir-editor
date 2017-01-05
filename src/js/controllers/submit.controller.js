@@ -4,6 +4,7 @@ angular.module('fhir-editor').controller('submitCtrl', function(UserService, NPI
   this.submitEdits = function() {
     var editedInfo = $scope.home.result;
     var updateInfo = angular.copy(editedInfo);
+    $scope.home.submitButton = null;
 
     var originalNPPESInfo = $scope.home.nppesResult;
     var originalPECOSInfo = $scope.home.pecosResult;
