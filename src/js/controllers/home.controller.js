@@ -58,9 +58,6 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     this.runSearch = function() {
       this.preSearchClear();
       self.dataloading = true;
-      setTimeout(function() {
-        self.dataloading = false;
-        $scope.$apply();
       if (self.npi) {
         // Use the NPI to search NPPES to get the info available there
         NPIService.getNPPESByNpi(self.npi).done(function(response) {
@@ -113,6 +110,7 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
                   } else {
                       console.log("No PECOS search result");
                   }
+                  self.dataloading = false;
                   self.resultFound = true;
                   self.npi = null;
                   $state.go('home.base');
@@ -132,14 +130,14 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
       else {
         console.log("Nothing to search!");
       }
-      }, 4000);
-    };
-
-    this.nameSearch = function() {
-        self.dataloading = true;
       setTimeout(function() {
         self.dataloading = false;
         $scope.$apply();
+        }, 4000);
+    };
+
+    this.nameSearch = function() {
+      self.dataloading = true;
       this.resultFound = null;
       var FIRSTNAME = self.firstName.toUpperCase(),
           LASTNAME = self.lastName.toUpperCase(),
@@ -159,15 +157,15 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
             }
 
         });
-      }, 4000);
+        setTimeout(function() {
+          self.dataloading = false;
+          $scope.$apply();
+          }, 4000);
     };
 
     this.orgSearch = function() {
          var ORGNAME = self.orgName.toUpperCase();
          self.dataloading = true;
-         setTimeout(function() {
-           self.dataloading = false;
-           $scope.$apply();
         self.dataloading = true;
         NPIService.getNPPESByOrg(ORGNAME).done(function(response) {
             if (response.code === 200) {
@@ -183,7 +181,10 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
                 console.log("No NPPES name search result");
             }
         });
-      }, 4000);
+        setTimeout(function() {
+          self.dataloading = false;
+          $scope.$apply();
+          }, 4000);
     };
 
 
