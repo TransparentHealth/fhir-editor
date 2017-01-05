@@ -54,6 +54,7 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     this.fhirResult = null;   // Original FHIR result before edits
 
     this.runSearch = function() {
+      this.preSearchClear();
       if (self.npi) {
         // Use the NPI to search NPPES to get the info available there
         NPIService.getNPPESByNpi(self.npi).done(function(response) {
@@ -127,6 +128,7 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     };
 
     this.nameSearch = function() {
+      this.resultFound = null;
       var FIRSTNAME = self.firstName.toUpperCase(),
           LASTNAME = self.lastName.toUpperCase(),
           state = self.state;
@@ -209,27 +211,31 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
           this.npi = null;
           this.firstName = null;
           this.lastname = null;
-          this.result = { // This really is a buffer variable to keep track of edits - should be named more appropriately. Info from here is used in the updates.
-              id: null,
-              title: null,
-              number: null,
-              basic: null,
-              identifiers: null,
-              addresses: null,
-              taxonomies: null,
-              taxonomy_licenses: null,
-              licenses: null,
-              pecos_id: null,
-              enrollment_id: null,
-              enrollment_type: null,
-              reassignments: null,
-              specialties: null
-          };
-          this.editing = null;
-          this.nameSearchResult = null; //Original NPPES result
-          this.nppesResult = null; // Original NPPES result before edits
-          this.pecosResult = null; // Original PECOS result before edits
-          this.fhirResult = null; // Original FHIR result before edits
           $state.go('home');
+      };
+
+      this.preSearchClear = function() {
+        this.result = {
+            id: null,
+            title: null,
+            number: null,
+            basic: null,
+            identifiers: null,
+            addresses: null,
+            taxonomies: null,
+            taxonomy_licenses: null,
+            licenses: null,
+            pecos_id: null,
+            enrollment_id: null,
+            enrollment_type: null,
+            reassignments: null,
+            specialties: null
+        };
+        this.editing = null;
+        this.nameSearchResult = null;
+        this.nppesResult = null;
+        this.pecosResult = null;
+        this.fhirResult = null;
+        console.log(this.result);
       };
   });
