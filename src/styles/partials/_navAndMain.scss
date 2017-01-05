@@ -21,6 +21,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
+  position: static;
 }
 
 .title{
@@ -130,8 +131,8 @@ h1 {
     border: none;
     border-radius: 15px;
     font-size: 1em;
-    width: 200px;
-    padding: 8px;
+    padding: 8px 25px;
+    align-self: center;
     text-align: center;
     outline-style: none;
     transition: .2s ease;
@@ -188,6 +189,8 @@ h1 {
   }
 
   .welcomeContainer {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     .welcomeLogo {
       font-size: 3em;
     }
@@ -197,7 +200,6 @@ h1 {
     display: flex;
     justify-content: center;
     button {
-      width: 120px;
       font-size: .8em;
     }
   }

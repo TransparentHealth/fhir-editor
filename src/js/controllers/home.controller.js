@@ -8,8 +8,9 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     });
 
     this.signIn = function() {
-      UserService.signIn().then(function(signedIn) {
+      UserService.signIn().then(function(signedIn, response) {
         self.signedIn = signedIn;
+        console.log(response);
         $scope.$apply();
       });
     };
@@ -126,9 +127,9 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     };
 
     this.nameSearch = function() {
-        var FIRSTNAME = self.firstName.toUpperCase(),
-            LASTNAME = self.lastName.toUpperCase(),
-            state = self.state;
+      var FIRSTNAME = self.firstName.toUpperCase(),
+          LASTNAME = self.lastName.toUpperCase(),
+          state = self.state;
         self.dataloading = true;
         NPIService.getNPPESByName(FIRSTNAME, LASTNAME, state).done(function(response) {
             if (response.code === 200) {
@@ -147,7 +148,7 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
     };
 
     this.orgSearch = function() {
-         var ORGNAME = self.orgName.toUpperCase()
+         var ORGNAME = self.orgName.toUpperCase();
         self.dataloading = true;
         NPIService.getNPPESByOrg(ORGNAME).done(function(response) {
             if (response.code === 200) {

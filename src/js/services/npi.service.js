@@ -1,6 +1,6 @@
 angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
 
-    // GET from NPPES database
+    //GET from NPPES database
     function getNPPESByNpi(npiId) {
         return $.ajax({
             method: 'GET',
@@ -62,12 +62,13 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
         });
     }
 
+    //GET organization by name
     function getNPPESByOrg(org) {
         return $.ajax({
             method: 'GET',
             url: 'http://api.docdish.com/search/api/public/nppes/pjson/pjson.json',
             data: {
-                organization_name: org
+                title: org
               },
             success: function(response) {
                 return response;
@@ -139,6 +140,7 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
         getNPPESByNpi: getNPPESByNpi,
         getPECOSByNpi: getPECOSByNpi,
         getNPPESByName: getNPPESByName,
+        getNPPESByOrg: getNPPESByOrg,
         updateNPPES: updateNPPES,
         updatePECOS: updatePECOS,
         updatePractitionerFHIR: updatePractitionerFHIR

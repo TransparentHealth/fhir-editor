@@ -9,7 +9,7 @@
             </li>
             <li class="loginContainer">
                 <button ng-show="!home.signedIn" ng-click="home.signIn()" class="googleSignIn"><i class="fa fa-google" aria-hidden="true"></i>&nbsp&nbspLogin to Edit</button>
-                <button ng-show="home.signedIn" ng-click="home.signOut()" class="signOutBtn">Sign Out</button>
+                <button ng-show="home.signedIn" ng-click="home.signOut()" class="signOutBtn"><i class="fa fa-google" aria-hidden="true"></i>&nbsp&nbspSign Out</button>
             </li>
             <li>
                 <button class="navBtn" ng-click="home.resultFound = false" ui-sref="home"><i class="fa fa-home" aria-hidden="true"></i>&nbspHOME</button>
@@ -61,7 +61,7 @@
                     <label for="name Search">Search by name:</label>
                     <ul class="searchContainer">
                         <li>
-                            <input type="text" ng-model="home.firstName" placeholder="First Name" required>
+                            <input type="text" ng-model="home.firstName" placeholder="First Name">
                         </li>
                         <li>
                             <input type="text" ng-model="home.lastName" placeholder="Last Name" required>

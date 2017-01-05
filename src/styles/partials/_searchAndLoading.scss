@@ -183,16 +183,18 @@ form {
   }
 
   .subMenuContainer {
-    height: 200px;
+    margin-top: 0;
+    height: auto;
 
     form {
+      font-size: .8em;
       flex-direction: row;
       flex-wrap: wrap;
     }
   .searchContainer {
     li {
     input {
-      font-size: .8em;
+      font-size: 1em;
     }
     }
   }
