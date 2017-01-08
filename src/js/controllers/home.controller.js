@@ -192,7 +192,7 @@ app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserS
 
 //Pagination variables and function
     this.currentPage = 0;
-    this.pageSize = 25;
+    this.pageSize = 20;
     this.numberOfPages= function(){
         return Math.ceil(self.nameSearchResult.length/self.pageSize);
     };
