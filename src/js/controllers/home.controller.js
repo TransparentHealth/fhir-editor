@@ -140,9 +140,9 @@ app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserS
     this.nameSearch = function() {
       self.dataloading = true;
       this.resultFound = null;
-      var FIRSTNAME = self.firstName.toUpperCase(),
-          LASTNAME = self.lastName.toUpperCase(),
-          state = self.state;
+      var FIRSTNAME = self.firstName ? self.firstName.toUpperCase() : null,
+          LASTNAME = self.lastName ? self.lastName.toUpperCase() : null,
+          state = self.state ? self.state : null;
         NPIService.getNPPESByName(FIRSTNAME, LASTNAME, state).done(function(response) {
             if (response.code === 200) {
                 if (response.results.length > 0) {

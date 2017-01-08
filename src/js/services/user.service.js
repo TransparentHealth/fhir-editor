@@ -1,10 +1,10 @@
-angular.module('fhir-editor').service('UserService', function() {
+angular.module('fhir-editor').service('UserService', function(APP_CONFIG) {
   var self = this;
   var sessionLoaded = false;
   var signedIn = false;
   // API Key and Client ID are defined in Google Developer Console, specific to developer account and each project (Ideally should be from DocDish account, not personal account)
-  var apiKey = 'AIzaSyAoA03P6BEAMdWPYxUBMAJ_zUE-tWOd4No';
-  var clientId = '730683845367-dfn6jp8u8ii2u0f1iq8k1gc5noslkte9.apps.googleusercontent.com';
+  var apiKey = APP_CONFIG.apiKey;
+  var clientId = APP_CONFIG.clientId;
 
   var auth2;
   // When the api has loaded, run the init function.

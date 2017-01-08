@@ -32,6 +32,7 @@ module.exports = function(grunt) {
                 files: {
                     './lib/js/app.js': [
                       './src/js/app.js',
+                      './src/js/configuration/*.js',
                       './src/js/filters/*.js',
                       './src/js/factories/*.js',
                       './src/js/directives/*.js',

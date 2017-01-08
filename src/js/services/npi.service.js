@@ -1,10 +1,10 @@
-angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
+angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR, APP_CONFIG) {
 
     //GET from NPPES database
     function getNPPESByNpi(npiId) {
         return $.ajax({
             method: 'GET',
-            url: 'http://api.docdish.com/search/api/public/nppes/pjson/pjson.json',
+            url: APP_CONFIG.nppesSearchUrl,
             data: {
                 number: npiId
             },
@@ -21,7 +21,7 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
     function getPECOSByNpi(npiId) {
         return $.ajax({
             method: 'GET',
-            url: 'http://api.docdish.com/search/api/public/pecos/compiled/compiled.json',
+            url: APP_CONFIG.pecosSearchUrl,
             data: {
                 npi: npiId
             },
@@ -36,23 +36,15 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
 
     //GET NPPES by name
     function getNPPESByName(firstName, lastName, state) {
-      var data;
-      if(state !== '') {
-        data = {
-        "basic.first_name": firstName,
-        "basic.last_name": lastName,
-         "addresses.state": state
-       }
-       } else  {
-         data = {
-         "basic.first_name": firstName,
-         "basic.last_name": lastName
-       }
-       }
+        var data = {};
+        data["basic.first_name"] = firstName ? firstName : undefined;
+        data["basic.last_name"] = lastName ? lastName : undefined;
+        data["addresses.state"] = state ? state : undefined;
+        // console.log(data);
         return $.ajax({
             method: 'GET',
-            url: 'http://api.docdish.com/search/api/public/nppes/pjson/pjson.json',
-                data: data,
+            url: APP_CONFIG.nppesSearchUrl,
+            data: data,
             success: function(response) {
                 return response;
             },
@@ -66,10 +58,10 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
     function getNPPESByOrg(org) {
         return $.ajax({
             method: 'GET',
-            url: 'http://api.docdish.com/search/api/public/nppes/pjson/pjson.json',
+            url: APP_CONFIG.nppesSearchUrl,
             data: {
-                title: org
-              },
+              title: org
+            },
             success: function(response) {
                 return response;
             },
@@ -89,7 +81,7 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
         // Should use a NPPESUpdate Factory here to create the new update object from edited info (To keep the same format as original NPPES data)
         return $.ajax({
             method: 'PUT',
-            url: 'http://api.docdish.com/write/api/ip/nppes-update',
+            url: APP_CONFIG.nppesUpdateUrl,
             data: JSON.stringify(updateInfo),
             success: function(response) {
                 return response;
@@ -105,7 +97,7 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
         // Should use a PECOSUpdate Factory here to create the new update object from edited info (To keep the same format as original PECOS data)
         return $.ajax({
             method: 'PUT',
-            url: 'http://api.docdish.com/write/api/ip/pecos-update',
+            url: APP_CONFIG.pecosUpdateUrl,
             data: JSON.stringify(updateInfo),
             success: function(response) {
                 return response;
@@ -123,7 +115,7 @@ angular.module('fhir-editor').service('NPIService', function(PractitionerFHIR) {
         console.log(newPractitioner);
         return $.ajax({
             method: 'PUT',
-            url: 'http://api.docdish.com/write/api/ip/update-Provider',
+            url: APP_CONFIG.fhirUpdatePractitionerUrl,
             data: JSON.stringify(newPractitioner),
             success: function(response) {
                 return response;
