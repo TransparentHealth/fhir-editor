@@ -92,6 +92,12 @@ main {
   flex-direction: column;
   padding: 10px;
   border-radius: 5px;
+  box-shadow: inset 0px 0px 80px -27px #fff;
+-webkit-box-shadow: inset 0px 0px 80px -27px #fff;
+-moz-box-shadow: inset 0px 0px 80px -27px #fff;
+-o-box-shadow: inset 0px 0px 80px -27px #fff;
+
+
   h1 {
     font-size: 1.5em;
     color: #fff;
@@ -210,7 +216,6 @@ p {
   border-radius: 15px;
   font-size: 1em;
   padding: 8px 25px;
-  left: 60%;
   align-self: center;
   text-align: center;
   outline-style: none;
