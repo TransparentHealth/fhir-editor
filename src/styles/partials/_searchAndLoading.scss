@@ -1,6 +1,5 @@
 @import 'setup/variables';
 
-
 .subMenuContainer {
   float: right;
   display: flex;
@@ -55,6 +54,9 @@ form {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  input {
+    padding: 0 0 0 8px;
   }
 }
 
@@ -111,6 +113,36 @@ form {
   p {
     font-size: 3.5em;
   }
+}
+
+.pageButtons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 10px 0;
+
+  p {
+    padding: 0 10px;
+  }
+
+  button {
+    color: $red;
+    border: 2px solid $red;
+    background-color: #fff;
+    border-radius: $mainRadius;
+    font-size: .8em;
+    width: 80px;
+    padding: 8px;
+    text-align: center;
+    outline-style: none;
+    transition: .2s ease;
+
+    &:hover {
+      color:  #c1e2e7;
+      border: 2px solid  #c1e2e7;
+    }
+    }
 }
 
 .nameSearchContainer {
@@ -198,11 +230,13 @@ form {
     }
     }
   }
+  .tabList {
   .tabItem {
     &:hover {
       color: $gray;
     }
   }
+}
 }
 
 .nameSearchContainer {

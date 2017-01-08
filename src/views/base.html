@@ -5,8 +5,17 @@
   <h3 class="titleAddress">&nbsp &nbsp{{home.result.addresses[0].city}}, {{home.result.addresses[0].state}}<h3>
   <h3 class="titleNpi"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{home.result.number}}<h3>
   </div>
+  <div ng-show="!home.resultFound" class="pageButtons">
+    <button ng-disabled="home.currentPage == 0" ng-click="home.currentPage=home.currentPage-1">
+     <i class="fa fa-angle-left" aria-hidden="true"></i>&nbspPrevious
+ </button>
+  <p>page {{home.currentPage+1}}/{{home.numberOfPages()}}</p>
+ <button ng-disabled="home.currentPage >= home.nameSearchResult.length/home.pageSize - 1" ng-click="home.currentPage= home.currentPage+1">
+     Next&nbsp<i class="fa fa-angle-right" aria-hidden="true"></i>
+ </button>
+</div>
   <div ng-show="!home.resultFound" class="nameSearchContainer">
-      <div ng-repeat="nameData in home.nameSearchResult" class="nameResult">
+      <div ng-controller="homeCtrl" ng-repeat="nameData in home.nameSearchResult | startFrom:home.currentPage*home.pageSize | limitTo:home.pageSize" class="nameResult">
           <button ng-click="home.nameToNpi(nameData.number)">{{nameData.title}}</button>
           <div class="nameContent">
               <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp{{nameData.addresses[0].address_1}}</p>
@@ -15,6 +24,15 @@
           </div>
       </div>
   </div>
+  <div ng-show="!home.resultFound" class="pageButtons">
+    <button ng-disabled="home.currentPage == 0" ng-click="home.currentPage=home.currentPage-1">
+     <i class="fa fa-angle-left" aria-hidden="true"></i>&nbspPrevious
+ </button>
+ <p>page {{home.currentPage+1}}/{{home.numberOfPages()}}</p>
+ <button ng-disabled="home.currentPage >= home.nameSearchResult.length/home.pageSize - 1" ng-click="home.currentPage= home.currentPage+1">
+     Next&nbsp<i class="fa fa-angle-right" aria-hidden="true"></i>
+ </button>
+</div>
   <h1 ng-show="home.resultFound" class="sectionTitle">Base</h1>
   <div ng-show="home.resultFound"  class="baseInfo sectionInfo">
     <h1 class="nppesHeader">NPPES Info</h1>

@@ -121,6 +121,23 @@ section {
   }
 }
 
+.submitSignIn {
+  color: #fff;
+  background-color: #DB5149;
+  border: none;
+  border-radius: 15px;
+  font-size: 20px;
+  padding: 8px 25px;
+  text-align: center;
+  outline-style: none;
+  transition: .2s ease;
+
+  &:hover {
+    background-color: #e5857f;
+
+  }
+  }
+
 
 
 @media only screen and (max-width: 1010px) {

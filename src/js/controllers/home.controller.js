@@ -1,4 +1,5 @@
-angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $location, NPIService, UserService) {
+var app =angular.module('fhir-editor');
+app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserService) {
     var self = this;
     /** Google Sign In Info **/
     this.signedIn = false;
@@ -149,8 +150,10 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
                     self.summaryList = true;
                     console.log('NPPES Result:', response.results);
                     self.nameSearchResult = response.results;
+                    console.log(self.nameSearchResult.length);
                     $state.go('home.base');
                     $scope.$apply();
+                    console.log()
                 }
             } else {
                 console.log("No NPPES name search result");
@@ -186,6 +189,14 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
           $scope.$apply();
           }, 4000);
     };
+
+//Pagination variables and function
+    this.currentPage = 0;
+    this.pageSize = 25;
+    this.numberOfPages= function(){
+        return Math.ceil(self.nameSearchResult.length/self.pageSize);
+    };
+
 
 
     this.nameToNpi = function(thisNpi) {
@@ -274,4 +285,11 @@ angular.module('fhir-editor').controller('homeCtrl', function($state, $scope, $l
         this.pecosResult = null;
         this.fhirResult = null;
       };
+  });
+
+  app.filter('startFrom', function() {
+      return function(input, start) {
+          start = +start; //parse to int
+          return input.slice(start);
+      }
   });

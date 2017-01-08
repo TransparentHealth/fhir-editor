@@ -104,30 +104,93 @@ main {
   }
 }
 
-.homeMisson {
+.homeInstructions {
   width: 50%;
   float: left;
   margin: 10px;
 
+  i {
+    color: #c1e2e7;
+  }
 
 h1 {
+  border-radius: $mainRadius;
   text-align: center;
-  font-size: 2em;
+  font-size: 1.8em;
+  color: #fff;
+  font-family: $titleFont;
+  padding: 5px 0 5px 0;
+  //border-bottom: 5px solid #c1e2e7;
+  background-color: #9f9f9f
+;
+}
+p {
+  text-align: center;
+  padding: 10px;
+  font-size: 1.4em;
+
 }
 }
 
-.mobileMisson {
+.testDiv {
+  width: 100%;
+  border: 2px solid red;
+}
+
+.mobileInstructions {
+  margin-top: 15px;
   display: none;
   width: 100%;
-  float: left;
-  margin: 10px;
+  text-align: center;
 
+  i {
+    color: #c1e2e7;
+  }
 
 h1 {
+  border-radius: $mainRadius;
   text-align: center;
-  font-size: 2em;
+  font-size: 1.8em;
+  color: #fff;
+  font-family: $titleFont;
+  padding: 5px 0 5px 0;
+  //border-bottom: 5px solid #c1e2e7;
+  background-color: #9f9f9f
+}
+P {
+    padding: 10px;
 }
 }
+
+.homeMission {
+  width: 80%;
+  float: left;
+  margin: 10px;
+  margin-left: 10%;
+
+  i {
+    color: #c1e2e7;
+  }
+
+h1 {
+  border-radius: $mainRadius;
+  text-align: center;
+  font-size: 1.8em;
+  color: $gray;
+  font-family: $titleFont;
+  padding: 15px 0 15px 0;
+  border: 2px solid $red;
+  background-color: #fff
+;
+}
+p {
+  text-align: center;
+  padding: 10px;
+  font-size: 1.4em;
+
+}
+}
+
 
 
 
@@ -138,29 +201,32 @@ h1 {
     color: #fff;
     padding-bottom: 10px;
   }
-
-  button {
-    color: #fff;
-    background-color: #DB5149;
-    border: none;
-    border-radius: 15px;
-    font-size: 1em;
-    padding: 8px 25px;
-    align-self: center;
-    text-align: center;
-    outline-style: none;
-    transition: .2s ease;
-
-    &:hover {
-      background-color: #e5857f;
-
-    }
-    }
 }
 
+.googleSignIn {
+  color: #fff;
+  background-color: #DB5149;
+  border: none;
+  border-radius: 15px;
+  font-size: 1em;
+  padding: 8px 25px;
+  left: 60%;
+  align-self: center;
+  text-align: center;
+  outline-style: none;
+  transition: .2s ease;
+
+  &:hover {
+    background-color: #e5857f;
+
+  }
+  }
+
 @media only screen and (max-width: 1010px) {
-   .homeMisson {
+   .homeInstructions {
      width: 100%;
+     float: none;
+     margin: 10px 0;
    }
 }
 
@@ -213,16 +279,18 @@ h1 {
   .loginContainer {
     display: flex;
     justify-content: center;
-    button {
-      font-size: .8em;
-    }
   }
 
-  .homeMisson {
+  .googleSignIn {
+    font-size: .8em;
+  }
+
+  .homeInstructions {
     display: none;
   }
 
-  .mobileMisson {
+  .mobileInstructions {
     display: inherit;
+
   }
 }

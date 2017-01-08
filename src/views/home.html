@@ -9,7 +9,7 @@
             </li>
             <li class="loginContainer">
                 <button ng-show="!home.signedIn" ng-click="home.signIn()" class="googleSignIn"><i class="fa fa-google" aria-hidden="true"></i>&nbsp&nbspLogin to Edit</button>
-                <button ng-show="home.signedIn" ng-click="home.signOut()" class="signOutBtn"><i class="fa fa-google" aria-hidden="true"></i>&nbsp&nbspSign Out</button>
+                <button ng-show="home.signedIn" ng-click="home.signOut()" class="googleSignIn"><i class="fa fa-google" aria-hidden="true"></i>&nbsp&nbspSign Out</button>
             </li>
             <li>
                 <button class="navBtn" ng-click="home.resultFound = false" ui-sref="home"><i class="fa fa-home" aria-hidden="true"></i>&nbspHOME</button>
@@ -39,9 +39,9 @@
                 <h1>Welcome to </h1>
                 <p class="welcomeLogo">- Doc<i class="fa fa-user-md" aria-hidden="true"></i>Dish -</p>
             </div>
-            <div ng-show="!home.resultFound"  class="homeMisson">
-              <h1>Instructions</h1>
-              <p>Lorem ipsum dolor sit amet, ante ipsum vitae in vestibulum non malesuada. Pharetra venenatis gravida, condimentum sed risus, tortor nunc, eros ut volutpat sollicitudin sed amet integer, tempor volutpat tempor. Semper dui, nec eleifend porta mollis, et tellus ac quam non, porttitor nec volutpat mauris, tincidunt sed litora non nonummy. Wisi morbi torquent cursus magna risus diam, tristique nulla, semper justo quam ultricies cras donec, quisque scelerisque at orci ac fringilla, enim ligula quibusdam amet libero etiam euismod. Vehicula duis velit mauris eos placerat, mauris est, a fermentum turpis eget risus dui nunc, eu mi ornare turpis ut. A sagittis. Eu aliquam perferendis sodales non. Consectetuer nisl malesuada aliquam. Mattis nostra phasellus arcu neque vivamus, integer tempor sed nulla libero primis aliquet, maecenas aenean consectetuer eros sem.</p>
+            <div ng-show="!home.resultFound"  class="homeInstructions">
+              <h1><i class="fa fa-cogs" aria-hidden="true"></i>&nbspInstructions:</h1>
+              <p>Lorem ipsum dolor sit amet, ante ipsum vitae in vestibulum non malesuada. Pharetra venenatis gravida, condimentum sed risus, tortor nunc, eros ut volutpat sollicitudin sed amet integer, tempor volutpat tempor. Semper dui, nec eleifend porta mollis, et tellus ac quam non, porttitor nec volutpat mauris, tincidunt sed litora non nonummy.</p>
             </div>
               <div class="subMenuContainer">
                 <ul class="tabList">
@@ -140,8 +140,12 @@
                     </ul>
                 </form>
             </div>
-            <div ng-show="!home.resultFound"  class="mobileMisson">
-              <h1> Mobile Instructions</h1>
+            <div ng-show="!home.summaryList"  class="mobileInstructions">
+              <h1><i class="fa fa-cogs" aria-hidden="true"></i>&nbspMobile Instructions:</h1>
+              <p>Lorem ipsum dolor sit amet, ante ipsum vitae in vestibulum non malesuada. Pharetra venenatis gravida, condimentum sed risus, tortor nunc, eros ut volutpat sollicitudin sed amet integer, tempor volutpat tempor. Semper dui, nec eleifend porta mollis, et tellus ac quam non, porttitor nec volutpat </p>
+            </div>
+            <div ng-show="!home.summaryList"  class="homeMission">
+              <h1><i class="fa fa-heartbeat" aria-hidden="true"></i>&nbspMission/About</h1>
               <p>Lorem ipsum dolor sit amet, ante ipsum vitae in vestibulum non malesuada. Pharetra venenatis gravida, condimentum sed risus, tortor nunc, eros ut volutpat sollicitudin sed amet integer, tempor volutpat tempor. Semper dui, nec eleifend porta mollis, et tellus ac quam non, porttitor nec volutpat </p>
             </div>
             <div>
