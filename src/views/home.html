@@ -12,7 +12,7 @@
                 <button ng-show="home.signedIn" ng-click="home.signOut()" class="googleSignIn"><i class="fa fa-google" aria-hidden="true"></i>&nbsp&nbspSign Out</button>
             </li>
             <li>
-                <button class="navBtn" ng-click="home.resultFound = false" ui-sref="home"><i class="fa fa-home" aria-hidden="true"></i>&nbspHOME</button>
+                <button class="navBtn" ng-click="home.resultFound = false; home.hideAbout = false" ui-sref="home"><i class="fa fa-home" aria-hidden="true"></i>&nbspHOME</button>
             </li>
         </ul>
     </nav>
