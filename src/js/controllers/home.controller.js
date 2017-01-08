@@ -148,6 +148,7 @@ app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserS
                 if (response.results.length > 0) {
                     self.dataloading = false;
                     self.summaryList = true;
+                    self.hideAbout = true;
                     console.log('NPPES Result:', response.results);
                     self.nameSearchResult = response.results;
                     console.log(self.nameSearchResult.length);
@@ -175,6 +176,7 @@ app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserS
                 if (response.results.length > 0) {
                     self.dataloading = false;
                     self.summaryList = true;
+                    sefl.hideAbout = true;
                     console.log('NPPES Result:', response.results);
                     self.nameSearchResult = response.results;
                     $state.go('home.base');
@@ -193,6 +195,7 @@ app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserS
 //Pagination variables and function
     this.currentPage = 0;
     this.pageSize = 20;
+    this.hideAbout = null;
     this.numberOfPages= function(){
         return Math.ceil(self.nameSearchResult.length/self.pageSize);
     };
