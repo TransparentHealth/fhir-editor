@@ -1,4 +1,13 @@
 <section ng-show="home.resultFound" class="submitSection">
+  <div class="titleContainer">
+    <!-- <button ng-show="home.editing !== 'addresses'" ng-click="home.editing = 'addresses'" class="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspEDIT</button>
+    <button ng-show="home.editing === 'addresses'" ng-click="home.editing = null" class="saveBtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspSAVE</button> -->
+  <h1>{{home.result.title}}<h1>
+  <h3><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp{{home.result.addresses[0].address_1}}<h3>
+  <h3 class="titleAddress">&nbsp &nbsp{{home.result.addresses[0].city}}, {{home.result.addresses[0].state}}<h3>
+  <h3 class="titleNpi"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{home.result.number}}<h3>
+  </div>
+  <div class="sectionInfo">
   <h1 class="sectionTitle">- Submit -</h1>
   <div class="submitBtnContainer">
     <h1>Submit Your Edits</h1>
@@ -9,4 +18,5 @@
   <button ng-show="!home.signedIn" ng-click="home.signIn()" class="submitSignIn"><i class="fa fa-google" aria-hidden="true"></i>Login to Edit</button>
     <button ng-show="home.signedIn" ng-click="home.signOut()" class="submitSignIn"><i class="fa fa-google" aria-hidden="true"></i>Sign Out</button>
   </div>
+</div>
 </section>

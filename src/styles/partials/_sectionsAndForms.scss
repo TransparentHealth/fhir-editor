@@ -96,7 +96,7 @@ section {
   width: 100%;
 }
 
-.baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection {
+.baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection, .notesSection, .submitSection {
   height: 95%;
 
   .sectionInfo {
@@ -105,8 +105,10 @@ section {
     float: left;
     i {
       color: $red;
+      display: inline;
     }
     h2 {
+      color: $gray;
       font-size: 1.5em;
       padding: 5px;
       border-bottom: 2px solid $red;
