@@ -104,17 +104,13 @@ section {
     li {
       margin: 10px;
     }
-    h1 {
-      // margin-bottom: 5px;
-      // padding-bottom: 4px;
-    }
+
     h2 {
       text-decoration: underline;
       margin-top: 5px;
       font-style: italic;
     }
   }
-
     .pecosHeader {
       margin-top: 20px;
     }
@@ -162,23 +158,27 @@ section {
   width: 100%;
   padding: 0;
 
-  .sectionInfo {
-    padding:10px 0 10px 0;
+  .sectionInfo, .sectionInfo {
+    // padding:10px 0 10px 0;
+    margin: 0;
     width: 100%;
   }
 
 }
 
-.baseInfo {
-  padding: 0;
-}
-
-// .sectionTitle {
-//   float: left;
+// .baseInfo {
+//   padding: 0;
 // }
+
+section {
+.sectionTitle {
+  width: 100%;
+  margin: 0;
+}
+}
 
 .titleContainer {
   width: 100%;
-  margin: 0 0 10px 0;
+  margin: 0;
 }
 }
