@@ -113,6 +113,7 @@ app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserS
                   }
                   self.dataloading = false;
                   self.resultFound = true;
+                  self.hideAbout = true;
                   self.npi = null;
                   $state.go('home.base');
                   $scope.$apply();
@@ -296,6 +297,8 @@ app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserS
   app.filter('startFrom', function() {
       return function(input, start) {
           start = +start; //parse to int
-          return input.slice(start);
+          if (input) {
+            return input.slice(start);
+          }
       }
   });
