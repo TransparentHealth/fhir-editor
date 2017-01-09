@@ -3,10 +3,13 @@
 .titleContainer {
   width: 50%;
   float: left;
-  margin: 0 0 10px 20px;
+  margin: 0 0 0 20px;
   color: $gray;
   border: 2px solid $orange;
+  border-bottom: none;
   border-radius: $mainRadius;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   padding: 15px;
 
   h1 {
@@ -51,10 +54,21 @@
 section {
   padding: 10px;
   .sectionTitle {
-    border-bottom: none;
-    color: $gray;
+    //border: 2px solid $orange;
+    border-radius: $mainRadius;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.8em;
+    color: #fff;
+    font-family: $titleFont;
+    padding: 5px 0 5px 0;
+    background-color: $orange;
+    box-shadow: $box-shadow;
+    box-shadow: inset 0px 0px 80px -27px #fff;
+  -webkit-box-shadow: inset 0px 0px 80px -27px #fff;
+  -moz-box-shadow: inset 0px 0px 80px -27px #fff;
+  -o-box-shadow: inset 0px 0px 80px -27px #fff;
   }
   form {
     padding: 10px;
@@ -71,6 +85,11 @@ section {
   }
 }
 
+.sectionName {
+  font-size: 1em;
+  text-decoration: underline;
+}
+
 .formField {
   margin: 10px;
   width: 100%;
@@ -79,17 +98,15 @@ section {
 .baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection {
   height: 95%;
   .sectionInfo {
-    padding: 0 10px 10px 10px;
+    margin: 0 0 10px 20px;
     width: 50%;
     float: left;
     li {
       margin: 10px;
     }
     h1 {
-      margin-top: 20px;
-      margin-bottom: 5px;
-      border-bottom: 2px solid $red;
-      padding-bottom: 4px;
+      // margin-bottom: 5px;
+      // padding-bottom: 4px;
     }
     h2 {
       text-decoration: underline;
@@ -97,12 +114,11 @@ section {
       font-style: italic;
     }
   }
-  .baseInfo {
-    padding: 0 20px 20px 20px;
+
     .pecosHeader {
       margin-top: 20px;
     }
-  }
+
   .resultInfo {
     line-height: 24px;
   }

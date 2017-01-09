@@ -37,9 +37,9 @@
  </button>
  <button class="fwdRwd" ng-click="home.currentPage= home.numberOfPages()-1"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
 </div>
-  <h1 ng-show="home.resultFound" class="sectionTitle">Base</h1>
   <div ng-show="home.resultFound"  class="baseInfo sectionInfo">
-    <h1 class="nppesHeader">NPPES Info</h1>
+    <h1 ng-show="home.resultFound" class="sectionTitle">- Base -</h1>
+    <h2 class="nppesHeader">NPPES Info</h2>
     <p class="resultInfo" ng-show="home.result.title">Title: {{home.result.title}}</p>
     <p class="resultInfo" ng-show="home.result.number">NPI: {{home.result.number}}</p>
     <p class="resultInfo" ng-show="home.result.basic.gender">Gender: {{home.result.basic.gender}}</p>
@@ -54,7 +54,7 @@
     <p class="resultInfo" ng-show="home.result.basic.status">Status: {{home.result.basic.status}}</p>
     <p class="resultInfo" ng-show="home.result.basic.sole_proprietor">Sole Proprietor: {{home.result.basic.sole_proprietor}}</p>
     <p class="resultInfo" ng-show="home.result.basic.last_updated">Last Updated: {{home.result.basic.last_updated}}</p>
-    <h1 class="pecosHeader">PECOS Info</h1>
+    <h2 class="pecosHeader">PECOS Info</h2>
     <p class="resultInfo" ng-show="!home.result.pecos_id">No PECOS result</p>
     <p class="resultInfo" ng-show="home.result.pecos_id">PECOS ID: {{home.result.pecos_id}}</p>
     <p class="resultInfo" ng-show="home.result.enrollment_id">Enrollment ID: {{home.result.enrollment_id}}</p>

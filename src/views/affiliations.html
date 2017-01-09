@@ -7,15 +7,15 @@
   <h3 class="titleAddress">&nbsp &nbsp{{home.result.addresses[0].city}}, {{home.result.addresses[0].state}}<h3>
   <h3 class="titleNpi"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{home.result.number}}<h3>
   </div>
-  <h1 class="sectionTitle">Affiliations</h1>
   <div ng-show="home.reminderPopup" class="loadingDiv">
       <p>Don't forget to submit!</p>
   </div>
   <div ng-show="home.editing !== 'affiliations'" class="affiliationsInfo sectionInfo">
+      <h1 class="sectionTitle">- Affiliations -</h1>
     <ul>
       <p ng-show="!home.result.reassignments">No Known Affiliations</p>
       <li ng-show="home.result.reassignments" ng-repeat="affiliation in home.result.reassignments">
-        <h1>Affiliation {{home.result.reassignments.indexOf(affiliation) + 1}}</h1>
+        <h2>Affiliation {{home.result.reassignments.indexOf(affiliation) + 1}}</h2>
         <h2>Meta</h2>
         <p>Nickname: {{affiliation.nickname ? affiliation.nickname : "None"}}</p>
         <p ng-show="affiliation.type">Type: {{affiliation.type}}</p>

@@ -7,11 +7,11 @@
   <h3 class="titleAddress">&nbsp &nbsp{{home.result.addresses[0].city}}, {{home.result.addresses[0].state}}<h3>
   <h3 class="titleNpi"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{home.result.number}}<h3>
   </div>
-    <h1 class="sectionTitle">Specialties</h1>
     <div ng-show="home.editing !== 'specialties'" class="specialtiesInfo sectionInfo">
+      <h1 class="sectionTitle">- Specialties -</h1>
         <ul>
             <li ng-repeat="specialty in home.result.specialties">
-                <h1>Specialty {{home.result.specialties.indexOf(specialty) + 1}}</h1>
+                <h2>Specialty {{home.result.specialties.indexOf(specialty) + 1}}</h2>
                 <p ng-show="specialty.code">Code: {{specialty.code}}</p>
                 <p ng-show="specialty.decription">Description: {{specialty.decription}}</p>
             </li>

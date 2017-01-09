@@ -7,21 +7,21 @@
   <h3 class="titleAddress">&nbsp &nbsp{{home.result.addresses[0].city}}, {{home.result.addresses[0].state}}<h3>
   <h3 class="titleNpi"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{home.result.number}}<h3>
   </div>
-  <h1 class="sectionTitle">Taxonomies</h1>
   <div ng-show="home.editing !== 'taxonomies'" class="taxonomiesInfo sectionInfo">
+    <h1 class="sectionTitle">- Taxonomies -</h1>
     <ul>
       <li ng-show="home.result.taxonomies" ng-repeat="taxonomy in home.result.taxonomies">
-        <h1>Taxonomy {{home.result.taxonomies.indexOf(taxonomy) + 1}}</h1>
+        <h2>Taxonomy {{home.result.taxonomies.indexOf(taxonomy) + 1}}</h2>
         <p>Code: {{taxonomy.code}}</p>
         <p ng-show="taxonomy.primary">PRIMARY</p>
       </li>
       <li ng-show="home.result.taxonomy_licenses" ng-repeat="taxonomyLicense in home.result.taxonomy_licenses">
-        <h1>Taxonomy License {{home.result.taxonomy_licenses.indexOf(taxonomyLicense) + 1}}</h1>
+        <h2>Taxonomy License {{home.result.taxonomy_licenses.indexOf(taxonomyLicense) + 1}}</h2>
         <p>Code: {{taxonomyLicense.taxonomy_code}}</p>
         <p>License: {{taxonomyLicense.license_code}}</p>
       </li>
       <li ng-show="home.result.taxonomy_groups" ng-repeat="taxonomyGroup in home.result.taxonomy_groups">
-        <h1>Taxonomy Group {{home.result.taxonomy_groups.indexOf(taxonomyGroup) + 1}}</h1>
+        <h2>Taxonomy Group {{home.result.taxonomy_groups.indexOf(taxonomyGroup) + 1}}</h2>
         <p>Code: {{taxonomyGroup.code}}</p>
         <p>Description: {{taxonomyGroup.description}}</p>
       </li>

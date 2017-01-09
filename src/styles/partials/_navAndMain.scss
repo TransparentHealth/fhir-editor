@@ -1,5 +1,8 @@
 @import 'setup/variables';
 
+main {
+  height: 100%;
+}
 
 button {
   cursor: pointer;
@@ -63,10 +66,10 @@ main {
 
 .mainContainer {
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 10%;
   width: 95%;
   min-height: 574px;
-  max-height: 550px;
+  max-height: 100%;
   display: flex;
   flex-direction: row;
 }
@@ -292,6 +295,12 @@ p {
 
   .homeInstructions {
     display: none;
+  }
+
+  .homeMission {
+    width: 100%;
+    float: none;
+    margin-left: 0;
   }
 
   .mobileInstructions {
