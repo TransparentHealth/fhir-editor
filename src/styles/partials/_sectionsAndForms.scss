@@ -69,6 +69,7 @@ section {
   -webkit-box-shadow: inset 0px 0px 80px -27px #fff;
   -moz-box-shadow: inset 0px 0px 80px -27px #fff;
   -o-box-shadow: inset 0px 0px 80px -27px #fff;
+
   }
   form {
     padding: 10px;
@@ -97,18 +98,33 @@ section {
 
 .baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection {
   height: 95%;
+
   .sectionInfo {
     margin: 0 0 10px 20px;
     width: 50%;
     float: left;
-    li {
-      margin: 10px;
+    i {
+      color: $red;
     }
-
     h2 {
-      text-decoration: underline;
-      margin-top: 5px;
-      font-style: italic;
+      font-size: 1.5em;
+      padding: 5px;
+      border-bottom: 2px solid $red;
+      margin-top: 8px;
+      margin-bottom: 5px;
+      font-family: $titleFont;
+    }
+    h3 {
+      border-bottom: 2px solid $blue;
+      color: $gray;
+      margin: 15px 0 8px 0;
+      padding: 3px;
+      font-size: 1.3em;
+      width: 80%;
+    }
+    p {
+      line-height: 20px;
+      padding-left: 10px;
     }
   }
     .pecosHeader {

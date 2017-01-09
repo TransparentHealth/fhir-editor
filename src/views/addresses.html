@@ -11,7 +11,7 @@
     <h1 class="sectionTitle">- Addresses -</h1>
     <ul>
       <li ng-repeat="address in home.result.addresses">
-        <h2>Address {{home.result.addresses.indexOf(address) + 1}}</h2>
+        <h2><i class="fa fa-map-pin" aria-hidden="true"></i>&nbspAddress #{{home.result.addresses.indexOf(address) + 1}}</h2>
         <p ng-show="address.address_purpose">Purpose: {{address.address_purpose}}</p>
         <p ng-show="address.address_1">Street 1: {{address.address_1}}</p>
         <p ng-show="address.address_2">Street 2: {{address.address_2}}</p>
