@@ -11,7 +11,7 @@
       <h1 class="sectionTitle">- Specialties -</h1>
         <ul>
             <li ng-repeat="specialty in home.result.specialties">
-                <h2><i class="fa fa-stethoscope" aria-hidden="true"></i>&nbspSpecialty #{{home.result.specialties.indexOf(specialty) + 1}}</h2>
+                <h2><i class="fa fa-stethoscope" aria-hidden="true"></i>&nbspSPECIALTY #{{home.result.specialties.indexOf(specialty) + 1}}</h2>
                 <p ng-show="specialty.code">Code: {{specialty.code}}</p>
                 <p ng-show="specialty.decription">Description: {{specialty.decription}}</p>
             </li>

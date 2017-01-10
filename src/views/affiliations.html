@@ -15,7 +15,7 @@
     <ul>
       <p ng-show="!home.result.reassignments">No Known Affiliations</p>
       <li ng-show="home.result.reassignments" ng-repeat="affiliation in home.result.reassignments">
-        <h2> <i class="fa fa-hospital-o" aria-hidden="true"></i>&nbspAffiliation #{{home.result.reassignments.indexOf(affiliation) + 1}}</h2>
+        <h2> <i class="fa fa-hospital-o" aria-hidden="true"></i>&nbspAFFILIATION #{{home.result.reassignments.indexOf(affiliation) + 1}}</h2>
         <h3>Meta</h3>
         <p>Nickname: {{affiliation.nickname ? affiliation.nickname : "None"}}</p>
         <p ng-show="affiliation.type">Type: {{affiliation.type}}</p>
