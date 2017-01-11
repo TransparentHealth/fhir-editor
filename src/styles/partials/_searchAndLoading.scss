@@ -9,6 +9,7 @@
   background-color: #fff;
   border-radius: $mainRadius;
   box-shadow: $box-shadow;
+  $webkit-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   margin: 10px;
 
 .tabList {
@@ -221,7 +222,7 @@ form {
 
   .subMenuContainer {
     margin-top: 0;
-    
+
 
     form {
       font-size: .8em;

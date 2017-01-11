@@ -1,5 +1,5 @@
 var app =angular.module('fhir-editor');
-app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserService) {
+app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserService, APP_CONFIG) {
     var self = this;
     /** Google Sign In Info **/
     this.signedIn = false;

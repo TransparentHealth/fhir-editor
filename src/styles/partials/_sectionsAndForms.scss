@@ -65,6 +65,7 @@ section {
     padding: 5px 0 5px 0;
     background-color: $orange;
     box-shadow: $box-shadow;
+    $webkit-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: inset 0px 0px 80px -27px #fff;
   -webkit-box-shadow: inset 0px 0px 80px -27px #fff;
   -moz-box-shadow: inset 0px 0px 80px -27px #fff;
@@ -96,7 +97,7 @@ section {
   width: 100%;
 }
 
-.baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection, .notesSection, .submitSection {
+.baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection, .notesSection, .submitSection, .editSection {
   height: 95%;
 
   .sectionInfo {
@@ -172,7 +173,7 @@ section {
 
 @media only screen and (max-width: 1010px) {
 
-.baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection {
+.baseSection, .addressesSection, .taxonomiesSection, .licensesSection, .affiliationsSection, .specialtiesSection, .notesSection, .submitSection, .editSection {
   width: 100%;
   padding: 0;
 
@@ -181,10 +182,6 @@ section {
     width: 100%;
   }
 }
-
-// .baseInfo {
-//   padding: 0;
-// }
 
 section {
 .sectionTitle {
