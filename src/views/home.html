@@ -1,8 +1,7 @@
 <header>
     <nav class="topNav">
         <div class="title">
-          <img class="headerLogo" src="images/docDishLogo.png"></img>
-            <!-- <p>- Doc<i class="fa fa-user-md" aria-hidden="true"></i>Dish -</p> -->
+          <img class="headerLogo" src="images/{{home.logo}}"></img>
         </div>
         <ul class="navList">
             <li>
@@ -37,12 +36,11 @@
             </div>
             <div ng-show="!home.resultFound" class="welcomeContainer shadow">
                 <h1>Welcome to </h1>
-                <img class="welcomeLogo" src="images/docDishLogo.png"></img>
-                <!-- <p class="welcomeLogo">- Doc<i class="fa fa-user-md" aria-hidden="true"></i>Dish -</p> -->
+                <img class="welcomeLogo" src="images/{{home.logo}}"></img>
             </div>
             <div ng-show="!home.resultFound"  class="homeInstructions">
               <h1><i class="fa fa-cogs" aria-hidden="true"></i>&nbspInstructions:</h1>
-              <p>Lorem ipsum dolor sit amet, ante ipsum vitae in vestibulum non malesuada. Pharetra venenatis gravida, condimentum sed risus, tortor nunc, eros ut volutpat sollicitudin sed amet integer, tempor volutpat tempor. Semper dui, nec eleifend porta mollis, et tellus ac quam non, porttitor nec volutpat mauris, tincidunt sed litora non nonummy.</p>
+              <p>{{home.instructionsText}}</p>
             </div>
               <div class="subMenuContainer">
                 <ul class="tabList">
@@ -143,11 +141,11 @@
             </div>
             <div ng-show="!home.hideAbout"  class="mobileInstructions">
               <h1><i class="fa fa-cogs" aria-hidden="true"></i>&nbspMobile Instructions:</h1>
-              <p>Lorem ipsum dolor sit amet, anse ipsum vitae in vestiulum non malesuada. Pharetra venenatis gravida, condimentum sed risus, tortor nunc, eros ut volutpat sollicitudin sed amet integer, tempor volutpat tempor. Semper dui, nec eleifend porta mollis, et tellus ac quam non, porttitor nec volutpat </p>
+              <p>{{home.instructionsText}}</p>
             </div>
             <div ng-show="!home.hideAbout"  class="homeMission">
               <h1><i class="fa fa-user-md" aria-hidden="true"></i>&nbspMission/About</h1>
-              <p>Lorem ipsum dolor sit amet, ante ipsum vitae in vestibulum non malesuada. Pharetra venenatis gravida, condimentum svd risus, tortor nunc, edos ut volutpat sollicitudin sed amet integer, tempor volutpat tempor. Semper dui, nec eleifend porta mollis, et tellus ac quam non, porttitor nec volutpat </p>
+              <p>{{home.missionAboutText}}</p>
             </div>
             <div>
                 <ui-view></ui-view>

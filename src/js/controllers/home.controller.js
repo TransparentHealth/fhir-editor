@@ -1,6 +1,19 @@
 var app =angular.module('fhir-editor');
 app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserService, APP_CONFIG) {
     var self = this;
+    /** Page Initialization **/
+    this.appName = APP_CONFIG.appName;
+    this.instructionsText = APP_CONFIG.instructionsText;
+    this.missionAboutText = APP_CONFIG.missionAboutText;
+    this.logo = APP_CONFIG.logo;
+    this.icon = APP_CONFIG.icon;
+    // Set icons to point to the app icon image
+    $('head link[type="image/x-icon"]').attr({
+      'href': 'images/' + APP_CONFIG.icon
+    });
+    // Set the page title to point to the app name
+    $('head title').text(APP_CONFIG.appName);
+    /** End of Page Initialization **/
     /** Google Sign In Info **/
     this.signedIn = false;
     UserService.checkSignIn().then(function(signedIn) {
