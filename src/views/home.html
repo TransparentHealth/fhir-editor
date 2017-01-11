@@ -1,7 +1,8 @@
 <header>
     <nav class="topNav">
         <div class="title">
-            <p>- Doc<i class="fa fa-user-md" aria-hidden="true"></i>Dish -</p>
+          <img class="headerLogo" src="images/docDishLogo.png"></img>
+            <!-- <p>- Doc<i class="fa fa-user-md" aria-hidden="true"></i>Dish -</p> -->
         </div>
         <ul class="navList">
             <li>
@@ -26,7 +27,6 @@
             <button ui-sref="home.specialties" ui-sref-active="active" ng-click="home.mobileNav()" class="specialtiesBtn leftNavBtn">Specialties</button>
             <button ui-sref="home.taxonomies" ui-sref-active="active" ng-click="home.mobileNav()" class="taxonomiesBtn leftNavBtn">Taxonomies</button>
             <button ui-sref="home.licenses" ui-sref-active="active" ng-click="home.mobileNav()" class="licensesBtn leftNavBtn">Licenses</button>
-            <button ui-sref="home.notes" ui-sref-active="active" ng-click="home.mobileNav()" class="notesBtn leftNavBtn">Notes</button>
             <button ui-sref="home.submit" ui-sref-active="active" ng-show="!home.submitButton" ng-click="home.mobileNav()"  class="leftNavBtn">Submit</button>
             <button ui-sref="home.submit" ui-sref-active="active" ng-show="home.submitButton" ng-click="home.mobileNav()" id="submitBtn">Submit Edits</button>
         </div>
@@ -37,7 +37,8 @@
             </div>
             <div ng-show="!home.resultFound" class="welcomeContainer shadow">
                 <h1>Welcome to </h1>
-                <p class="welcomeLogo">- Doc<i class="fa fa-user-md" aria-hidden="true"></i>Dish -</p>
+                <img class="welcomeLogo" src="images/docDishLogo.png"></img>
+                <!-- <p class="welcomeLogo">- Doc<i class="fa fa-user-md" aria-hidden="true"></i>Dish -</p> -->
             </div>
             <div ng-show="!home.resultFound"  class="homeInstructions">
               <h1><i class="fa fa-cogs" aria-hidden="true"></i>&nbspInstructions:</h1>

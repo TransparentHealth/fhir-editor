@@ -39,10 +39,6 @@
             url: 'licenses',
             templateUrl: './src/views/licenses.html',
             controller: 'licensesCtrl as licenses'
-          }).state('home.notes', {
-            url: 'notes',
-            templateUrl: './src/views/notes.html',
-            controller: 'notesCtrl as notes'
           }).state('home.submit', {
             url: 'submit',
             templateUrl: './src/views/submit.html',

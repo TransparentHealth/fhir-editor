@@ -29,6 +29,12 @@ header {
   align-self: center;
   font-family: $titleFont;
   font-size: 2.8em;
+  width: 20%;
+
+  .headerLogo {
+    width: 100%;
+    height: 50px;
+  }
 }
 
 .navList {
@@ -106,10 +112,8 @@ main {
     color: #fff;
   }
   .welcomeLogo {
-    margin: 15px 0 10px 0;
-    font-size: 4em;
-    color: #fff;
-    font-family: $titleFont;
+    margin: 15px 0 5px 0;
+    width:35%;
   }
 }
 
@@ -238,6 +242,14 @@ p {
    }
 }
 
+@media only screen and (max-width: 768px) {
+.topNav {
+  .title {
+    width: 40%;
+  }
+}
+}
+
 @media only screen and (max-width: 749px) {
 
   header {
@@ -247,13 +259,13 @@ p {
 
   main {
    width: 100%;
-
+}
 
    .mainContainer {
      //margin-top: 0;
      width: 100%;
    }
-  }
+
 
 
   .topNav {
@@ -272,8 +284,7 @@ p {
       }
     }
     .title {
-      font-size: 2em;
-      margin-bottom: 10px;
+      width: 75%;
     }
   }
 
@@ -308,4 +319,12 @@ p {
     display: inherit;
 
   }
+}
+
+@media only screen and (max-width: 668px) {
+.topNav {
+  .title {
+    width: 50%;
+  }
+}
 }
