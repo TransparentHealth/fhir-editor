@@ -9,8 +9,8 @@
 | Variable                  | Example | Description |  
 | ------------------------- | --------| ----------- |
 | appName                   | DocDish | The name of the app. Used as the page title. |
-| logo                      | DocDishLogo.png | The name of the file to be used as the site logo. Displayed in the header and on the home page. The file must exist in the /images folder. |
-| icon                      | md.png | The name of the file to be used as the page icon. Displayed in the browser tab. The file must exist in the /images folder. |
+| logo                      | DocDishLogo.png | The name of the file to be used as the site logo. Displayed in the header and on the home page. The file must exist in the /images folder, and should be square (approx 1:1).|
+| icon                      | md.png | The name of the file to be used as the page icon. Displayed in the browser tab. The file must exist in the /images folder, and should be rectangular (approx 5:1) |
 | instructionsText          | Lorem ipsum dolor sit amet, ante ipsum vitae in vestibulum non malesuada. | Instructions for how to use the site. Displayed on the home page. |
 | missionAboutText          | Lorem ipsum dolor sit amet, ante ipsum vitae in vestibulum non malesuada. | A summary of the site, including its mission and any other information about it. Displayed on the home page. |
 
