@@ -1,0 +1,38 @@
+<section  ng-show="home.resultFound" class="fhirSection">
+<div class="titleContainer">
+  <!-- <button ng-show="home.editing !== 'addresses'" ng-click="home.editing = 'addresses'" class="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspEDIT</button>
+  <button ng-show="home.editing === 'addresses'" ng-click="home.editing = null" class="saveBtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspSAVE</button> -->
+<h1>{{home.result.title}}<h1>
+<h3><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp{{home.result.addresses[0].address_1}}<h3>
+<h3 class="titleAddress">&nbsp &nbsp{{home.result.addresses[0].city}}, {{home.result.addresses[0].state}}<h3>
+<h3 class="titleNpi"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{home.result.number}}<h3>
+</div>
+<div class="sectionInfo">
+<h1 class="sectionTitle">- FHIR Data -</h1>
+<h2 ng-repeat="name in fhir.newPractitioner.name"> Name: {{name.family}},&nbsp {{name.given[0]}}</h2>
+<h2> Active: {{fhir.newPractitioner.active}}</h2>
+<h2> Resource Type: {{fhir.newPractitioner.resourceType}}</h2>
+<h2>Addresses:</h2>
+<ul>
+  <li ng-repeat="address in fhir.newPractitioner.address">
+<h3>{{address.use}}:</h3>
+<p>{{address.city}}, {{address.state}}<p>
+<p>{{address.line[0]}}, {{address.line[1]}}</p>
+<p>{{address.postalCode}}</p>
+ </li>
+ </ul>
+ <h2> Gender: {{fhir.newPractitioner.gender}}</h2>
+ <h2> ID: {{fhir.newPractitioner.id}}</h2>
+ <h2>Identifier:</h2>
+ <ul>
+   <li ng-repeat="ident in fhir.newPractitioner.identifier">
+     <h3>System:</h3>
+     <p>{{ident.system}}</p>
+     <h3>Value:</h3>
+     <p>{{ident.value}}</p>
+   </li>
+ </ul>
+
+<button ng-click="fhir.makeFhir()">show</button>
+</div>
+</section>

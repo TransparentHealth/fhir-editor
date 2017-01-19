@@ -1,4 +1,4 @@
-angular.module('fhir-editor').controller('submitCtrl', function(UserService, NPIService, $state, $scope) {
+angular.module('fhir-editor').controller('submitCtrl', function(UserService, NPIService, $state, $scope, PractitionerFHIR) {
   var self = this;
 
   this.submitEdits = function() {
@@ -25,6 +25,7 @@ angular.module('fhir-editor').controller('submitCtrl', function(UserService, NPI
     NPIService.updatePractitionerFHIR(updateInfo).done(function(response) {
       console.log("FHIR Update Response", response);
     });
+      $scope.home.makeFhir(updateInfo);
 
     $('.submitEditsBtn').css({
       'background': 'lightgreen',

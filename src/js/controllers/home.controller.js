@@ -1,5 +1,5 @@
 var app =angular.module('fhir-editor');
-app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserService, APP_CONFIG) {
+app.controller('homeCtrl', function($state, $scope, NPIService, UserService, APP_CONFIG, PractitionerFHIR) {
     var self = this;
     /** Page Initialization **/
     this.appName = APP_CONFIG.appName;
@@ -279,6 +279,15 @@ app.controller('homeCtrl', function($state, $scope, $location, NPIService, UserS
           this.firstName = null;
           this.lastname = null;
           $state.go('home');
+      };
+
+      this.showFhir = null;
+
+      this.makeFhir = function(info) {
+        // var editedInfo = $scope.home.result;
+        // var updateInfo = angular.copy(editedInfo);
+        self.showFhir = new PractitionerFHIR(info);
+        console.log(self.showFhir);
       };
 
       this.preSearchClear = function() {

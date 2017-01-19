@@ -39,6 +39,10 @@
             url: 'licenses',
             templateUrl: './src/views/licenses.html',
             controller: 'licensesCtrl as licenses'
+          }).state('home.fhir', {
+            url: 'fhir',
+            templateUrl: './src/views/fhir.html',
+            controller: 'fhirCtrl as fhir'
           }).state('home.submit', {
             url: 'submit',
             templateUrl: './src/views/submit.html',

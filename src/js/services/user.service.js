@@ -75,6 +75,7 @@ angular.module('fhir-editor').service('UserService', function(APP_CONFIG) {
     });
   }
 
+
   // This is only useful if needing to update the session token in an external database (possibly if we end up chaining the OAuths together?)
   // // Get the name of the user who signed in.
   // function getLogin() {

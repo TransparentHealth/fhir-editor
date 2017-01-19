@@ -34,7 +34,7 @@
     </ul>
   </div>
   <div class="editSection sectionInfo">
-    <h1 class="sectionTitle">- Affiliations Edit -</h1>
+    <h1 ng-show="home.editing === 'affiliations'" class="sectionTitle">- Affiliations Edit -</h1>
   <form ng-show="home.editing === 'affiliations'">
     <fieldset ng-repeat="affiliation in home.result.reassignments">
       <legend>Affiliation {{home.result.reassignments.indexOf(affiliation) + 1}}</legend>
