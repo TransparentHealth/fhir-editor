@@ -281,13 +281,17 @@ app.controller('homeCtrl', function($state, $scope, NPIService, UserService, APP
           $state.go('home');
       };
 
+//Setting FHIR controller variable
       this.showFhir = null;
-
       this.makeFhir = function(info) {
-        // var editedInfo = $scope.home.result;
-        // var updateInfo = angular.copy(editedInfo);
         self.showFhir = new PractitionerFHIR(info);
-        console.log(self.showFhir);
+        console.log(self.showFhir.role[0].endpoint[0].name);
+      };
+
+//Deletes endpoints from result variable
+      this.deleteEndpoint = function(index) {
+        var target = this.result.reassignments[0];
+        target.endpoints.splice(index, 1);
       };
 
       this.preSearchClear = function() {

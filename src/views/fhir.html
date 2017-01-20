@@ -24,6 +24,13 @@
  <h2> Gender: {{fhir.newPractitioner.gender}}</h2>
  <h2> ID: {{fhir.newPractitioner.id}}</h2>
  <h2>Identifier:</h2>
+ <h2>Endpoints:</h2>
+ <ul>
+   <li ng-repeat="role in fhir.newPractitioner.role[0].endpoint">
+     <h3>Type: {{role.name}}</h3>
+     <p>{{role.contact.system}}: {{role.contact.value}}</p>
+   </li>
+ </ul>
  <ul>
    <li ng-repeat="ident in fhir.newPractitioner.identifier">
      <h3>System:</h3>
@@ -32,7 +39,5 @@
      <p>{{ident.value}}</p>
    </li>
  </ul>
-
-<button ng-click="fhir.makeFhir()">show</button>
 </div>
 </section>

@@ -185,8 +185,16 @@ section {
 
   }
   }
-
-
+.endpoints {
+  margin-top: 15px;
+.deleteButton {
+  margin-right: 5px;
+  color: $red;
+  &:hover {
+    color: $blue;
+  }
+}
+}
 
 @media only screen and (max-width: 1010px) {
 

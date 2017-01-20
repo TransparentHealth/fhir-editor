@@ -15,11 +15,11 @@ angular.module('fhir-editor').controller('affiliationsCtrl', function(NPIService
     if (!affiliation.endpoints) {
       affiliation.endpoints = [];
     }
-    console.log(affiliation.newEndpoint);
+    //console.log($scope.home.result.reassignments);
     affiliation.endpoints.push(angular.copy(affiliation.newEndpoint));
   };
 
   this.searchNewNpi = function() {
-    
+
   };
 });
