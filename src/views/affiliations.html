@@ -76,7 +76,7 @@
       <fieldset>
         <legend>Endpoints</legend>
         <ul>
-          <li class="endpoints" ng-repeat="endpoint in affiliation.endpoints"><span class="deleteButton" ng-click="home.deleteEndpoint($index)"><i class="fa fa-window-close-o" aria-hidden="true"></i></span><span>{{endpoint.type}}</span>: <span>{{endpoint.value}}</span></li>
+          <li class="endpoints" ng-repeat="endpoint in affiliation.endpoints"><span id="deleteButton" ng-click="home.deleteEndpoint($index)"><i class="fa fa-window-close-o" aria-hidden="true"></i></span><span>{{endpoint.type}}</span>: <span>{{endpoint.value}}</span></li>
         </ul>
         <div class="formField">
           <label>Type: </label>

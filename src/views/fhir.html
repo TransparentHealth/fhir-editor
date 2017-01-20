@@ -9,6 +9,9 @@
 </div>
 <div class="sectionInfo">
 <h1 class="sectionTitle">- FHIR Data -</h1>
+<button class="fhirButton" ng-click="showFhir = !showFhir">FHIR JSON</button>
+<h2 ng-show="showFhir">FHIR.JSON</h2>
+<p ng-show="showFhir">{{fhir.newPractitioner}}</p>
 <h2 ng-repeat="name in fhir.newPractitioner.name"> Name: {{name.family}},&nbsp {{name.given[0]}}</h2>
 <h2> Active: {{fhir.newPractitioner.active}}</h2>
 <h2> Resource Type: {{fhir.newPractitioner.resourceType}}</h2>
@@ -23,7 +26,6 @@
  </ul>
  <h2> Gender: {{fhir.newPractitioner.gender}}</h2>
  <h2> ID: {{fhir.newPractitioner.id}}</h2>
- <h2>Identifier:</h2>
  <h2>Endpoints:</h2>
  <ul>
    <li ng-repeat="role in fhir.newPractitioner.role[0].endpoint">
@@ -32,6 +34,7 @@
    </li>
  </ul>
  <ul>
+   <h2>Identifier:</h2>
    <li ng-repeat="ident in fhir.newPractitioner.identifier">
      <h3>System:</h3>
      <p>{{ident.system}}</p>

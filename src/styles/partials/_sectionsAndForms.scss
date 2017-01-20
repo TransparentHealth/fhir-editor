@@ -185,9 +185,10 @@ section {
 
   }
   }
+
 .endpoints {
   margin-top: 15px;
-.deleteButton {
+#deleteButton {
   margin-right: 5px;
   color: $red;
   &:hover {
@@ -195,6 +196,25 @@ section {
   }
 }
 }
+
+.fhirButton{
+    color: #fff;
+    background-color: 	$red;
+    border: none;
+    border-radius: $mainRadius;
+    font-size: .8em;
+    margin-top: 10px;
+    width: 100px;
+    padding: 8px;
+    text-align: center;
+    outline-style: none;
+    transition: .2s ease;
+
+    &:hover {
+      background-color: $gray;
+    }
+    }
+
 
 @media only screen and (max-width: 1010px) {
 
