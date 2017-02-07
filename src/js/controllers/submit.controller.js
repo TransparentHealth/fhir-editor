@@ -25,7 +25,7 @@ angular.module('fhir-editor').controller('submitCtrl', function(UserService, NPI
     NPIService.updatePractitionerFHIR(updateInfo).done(function(response) {
       console.log("FHIR Update Response", response);
     });
-      $scope.home.makeFhir(updateInfo);
+      
 
     $('.submitEditsBtn').css({
       'background': 'lightgreen',

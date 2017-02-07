@@ -3,7 +3,7 @@ angular.module('fhir-editor').constant('APP_CONFIG', {
   appName: 'DocDish',
   logo: 'DocDishLogo.png', // must exist in images folder
   icon: 'md.png', // must exist in images folder
-  instructionsText: 'Lorem ipsum dolor sit amet, ante ipsum vitae in vestibulum non malesuada. Pharetra venenatis gravida, condimentum sed risus, tortor nunc, eros ut volutpat sollicitudin sed amet integer, tempor volutpat tempor. Semper dui, nec eleifend porta mollis, et tellus ac quam non, porttitor nec volutpat mauris, tincidunt sed litora non nonummy.',
+  instructionsText: 'Search for a provider by NPI, or by name. View all PECOS and NPPES information by navigating through the provided sections. If you would like to update any endpoints, you may do so in the Affiliations section.',
   missionAboutText: 'Lorem ipsum dolor sit amet, ante ipsum vitae in vestibulum non malesuada. Pharetra venenatis gravida, condimentum svd risus, tortor nunc, edos ut volutpat sollicitudin sed amet integer, tempor volutpat tempor. Semper dui, nec eleifend porta mollis, et tellus ac quam non, porttitor nec volutpat',
 
   /** Google OAuth Configuration **/

@@ -7,11 +7,13 @@
 <h3 class="titleAddress">&nbsp &nbsp{{home.result.addresses[0].city}}, {{home.result.addresses[0].state}}<h3>
 <h3 class="titleNpi"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{home.result.number}}<h3>
 </div>
-<div class="sectionInfo">
+<div  class="sectionInfo">
 <h1 class="sectionTitle">- FHIR Data -</h1>
-<button class="fhirButton" ng-click="showFhir = !showFhir">FHIR JSON</button>
-<h2 ng-show="showFhir">FHIR.JSON</h2>
-<p ng-show="showFhir">{{fhir.newPractitioner}}</p>
+<h2 ng-show="!fhir.fhirCreated">Click the button bellow to show FHIR data</h2>
+<button class="fhirButton" ng-show="!fhir.fhirCreated" ng-click="fhir.homeFhir()">Display FHIR</button>
+<h2 ng-show="fhir.fhirCreated">FHIR.JSON</h2>
+<div ng-show="fhir.fhirCreated" class="fhirShow">{{fhir.htmlReady}}</div>
+<div ng-show="fhir.fhirCreated">
 <h2 ng-repeat="name in fhir.newPractitioner.name"> Name: {{name.family}},&nbsp {{name.given[0]}}</h2>
 <h2> Active: {{fhir.newPractitioner.active}}</h2>
 <h2> Resource Type: {{fhir.newPractitioner.resourceType}}</h2>
@@ -42,5 +44,6 @@
      <p>{{ident.value}}</p>
    </li>
  </ul>
+</div>
 </div>
 </section>

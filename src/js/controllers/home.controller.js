@@ -283,9 +283,10 @@ app.controller('homeCtrl', function($state, $scope, NPIService, UserService, APP
 
 //Setting FHIR controller variable
       this.showFhir = null;
-      this.makeFhir = function(info) {
-        self.showFhir = new PractitionerFHIR(info);
-        console.log(self.showFhir.role[0].endpoint[0].name);
+      this.makeFhir = function() {
+        var editedInfo = self.result;
+        var updateInfo = angular.copy(editedInfo);
+        self.showFhir = new PractitionerFHIR(updateInfo);
       };
 
 //Deletes endpoints from result variable

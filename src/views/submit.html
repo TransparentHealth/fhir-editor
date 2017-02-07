@@ -7,16 +7,14 @@
   <h3 class="titleAddress">&nbsp &nbsp{{home.result.addresses[0].city}}, {{home.result.addresses[0].state}}<h3>
   <h3 class="titleNpi"><i class="fa fa-crosshairs" aria-hidden="true"></i>&nbspNPI: {{home.result.number}}<h3>
   </div>
-  <div class="sectionInfo">
+  <div class="sectionInfo submitBtnContainer">
   <h1 class="sectionTitle">- Submit -</h1>
-  <div class="submitBtnContainer">
-    <h1>Submit Your Edits</h1>
-    <button ng-show="home.signedIn" ng-click="submit.submitEdits()" class="submitEditsBtn">Submit</button>
-  </div>
-  <div class="signInOutContainer">
-    <h1 ng-show="!home.signedIn">Please Sign in to submit your edits</h1>
-  <button ng-show="!home.signedIn" ng-click="home.signIn()" class="submitSignIn"><i class="fa fa-google" aria-hidden="true"></i>Login to Edit</button>
-    <button ng-show="home.signedIn" ng-click="home.signOut()" class="submitSignIn"><i class="fa fa-google" aria-hidden="true"></i>Sign Out</button>
-  </div>
+    <h2>Submit Your Edits</h2>
+    <p ng-show="home.signedIn">Edits will update practitioner endpoints:&nbsp <button ng-show="home.signedIn" ng-click="submit.submitEdits()" class="submitEditsBtn">Submit</button></p>
+
+    <p ng-show="!home.signedIn">Please Sign in to submit your edits: &nbsp<button ng-show="!home.signedIn" ng-click="home.signIn()" class="submitSignIn"><i class="fa fa-google" aria-hidden="true"></i>&nbspLogin</button></p>
+
+    <p ng-show="home.signedIn"><button ng-click="home.signOut()" class="submitSignIn"><i class="fa fa-google" aria-hidden="true"></i>&nbspLogout</button></p>
+
 </div>
 </section>

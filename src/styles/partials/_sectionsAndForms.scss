@@ -157,26 +157,46 @@ section {
 }
 
 .submitSection {
-  .signInOutContainer, .submitBtnContainer {
+  .signInOutContainer {
     margin: 20px 0;
     display: flex;
     justify-content: center;
-    button {
-      width: 30%;
-      height: 50px;
-      font-size: 30px;
-    }
+
   }
 }
+
+.submitBtnContainer {
+  height: 350px;
+
+}
+
+.submitEditsBtn {
+  color: #fff;
+  background-color: 	$gray;
+  border: none;
+  border-radius: $mainRadius;
+  font-size: .8em;
+  width: 100px;
+  padding: 8px;
+  text-align: center;
+  outline-style: none;
+  transition: .2s ease;
+
+  &:hover {
+    background-color: #777777;
+  }
+}
+
+
 
 .submitSignIn {
   color: #fff;
   background-color: #DB5149;
   border: none;
   border-radius: 15px;
-  font-size: 20px;
-  padding: 8px 25px;
-  text-align: center;
+  font-size: 15px;
+  min-width: 100px;
+  padding: 8px 15px;
   outline-style: none;
   transition: .2s ease;
 
@@ -185,6 +205,8 @@ section {
 
   }
   }
+
+
 
 .endpoints {
   margin-top: 15px;
@@ -213,6 +235,12 @@ section {
     &:hover {
       background-color: $gray;
     }
+    }
+
+    .fhirShow  {
+      background-color: #f8f8f8;
+      white-space: pre;
+      padding: 10px;
     }
 
 
